@@ -1,0 +1,3 @@
+"""
+News Collector package initialization.
+"""

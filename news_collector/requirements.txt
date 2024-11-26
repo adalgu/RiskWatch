@@ -1,0 +1,4 @@
+# Existing dependencies
+aiokafka==0.12.0
+# Add aio-pika for RabbitMQ integration
+aio-pika==9.5.0
