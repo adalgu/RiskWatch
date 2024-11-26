@@ -5,12 +5,13 @@ Test script for Event-Driven Architecture integration between news_collector and
 import os
 import asyncio
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 
 from news_collector.collectors.metadata import MetadataCollector
 from news_storage.database import AsyncDatabaseOperations
 from news_storage.config import AsyncStorageSessionLocal
+from news_storage.consumer import NewsStorageConsumer
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -21,39 +22,58 @@ KST = pytz.timezone('Asia/Seoul')
 
 async def test_metadata_collection_and_storage():
     """Test metadata collection and storage through RabbitMQ"""
+    # Start the consumer in a separate task
+    consumer = NewsStorageConsumer()
+    consumer_task = asyncio.create_task(consumer.consume())
+
     try:
         # 1. Collect metadata using collector
         collector = MetadataCollector()
         result = await collector.collect(
-            method='api',
+            method='search',
             keyword='삼성전자',
-            max_articles=5
+            max_articles=5,
+            start_date=(datetime.now(KST) - timedelta(days=1)).strftime('%Y-%m-%d'),
+            end_date=datetime.now(KST).strftime('%Y-%m-%d')
         )
-        logger.info(f"Collected {len(result['articles'])} articles")
+        articles = result.get('articles', [])
+        logger.info(f"Collected {len(articles)} articles")
 
-        # 2. Wait for consumer to process messages
-        await asyncio.sleep(5)
+        if not articles:
+            logger.warning("No articles collected, skipping database verification")
+            return
+
+        # 2. Wait for messages to be processed
+        await asyncio.sleep(10)  # Increased wait time
 
         # 3. Verify storage in database
         async with AsyncStorageSessionLocal() as session:
             # Check the first article
-            first_article = result['articles'][0]
+            first_article = articles[0]
             stored_article = await AsyncDatabaseOperations.get_article_by_naver_link(
                 session,
-                first_article['naver_link']
+                main_keyword='삼성전자',  # Add main_keyword
+                naver_link=first_article['naver_link']
             )
 
             if stored_article:
                 logger.info("✅ Article successfully stored in database")
                 logger.info(f"Title: {stored_article.title}")
                 logger.info(f"Published at: {stored_article.published_at}")
+                logger.info(f"Main Keyword: {stored_article.main_keyword}")
             else:
                 logger.error("❌ Article not found in database")
+                # Log additional details for debugging
+                logger.error(f"First article details: {first_article}")
 
     except Exception as e:
         logger.error(f"Test failed: {e}")
         raise
     finally:
+        # Shutdown the consumer
+        consumer.should_exit = True
+        await consumer.shutdown()
+        consumer_task.cancel()
         await collector.cleanup()
 
 

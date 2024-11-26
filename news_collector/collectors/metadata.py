@@ -543,6 +543,9 @@ class MetadataCollector(BaseCollector):
             else:
                 publisher = ''
 
+            # 도메인 추출
+            publisher_domain = self._extract_domain(original_link)
+
             # 날짜 정보 추출
             published_date = None
             info_spans = article_elem.find_all('span', class_='info')
@@ -550,6 +553,7 @@ class MetadataCollector(BaseCollector):
             # 검색 날짜가 있으면 (5주 이내 기사) 해당 날짜 사용
             if search_date:
                 published_date = search_date.strftime('%Y.%m.%d')
+                published_at = search_date.isoformat()
             else:
                 # 5주 이전 기사는 태그에서 절대 날짜 추출
                 for span in info_spans:
@@ -557,16 +561,20 @@ class MetadataCollector(BaseCollector):
                     date = extract_absolute_date(text)
                     if date:
                         published_date = date
+                        # Convert YYYY.MM.DD to ISO format
+                        dt = datetime.strptime(date, '%Y.%m.%d').replace(tzinfo=KST)
+                        published_at = dt.isoformat()
                         break
 
             return {
-                'title': await self._remove_html_tags(item['title']),
+                'title': title,
                 'naver_link': naver_link,
                 'original_link': original_link,
-                'description': await self._remove_html_tags(item['description']),
-                'publisher': publisher or '',  # Use mapped publisher name if available
-                'published_date': published_date,  # YYYY.MM.DD 형식의 문자열
-                'published_at': None,  # 댓글 수집 시 업데이트될 수 있음
+                'description': description,
+                'publisher': publisher,
+                'publisher_domain': publisher_domain,
+                'published_at': published_at,
+                'published_date': published_date,
                 'collected_at': datetime.now(KST).isoformat(),
                 'is_naver_news': 'news.naver.com' in naver_link
             }
