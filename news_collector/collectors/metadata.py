@@ -226,14 +226,24 @@ class MetadataCollector(BaseCollector):
 
     async def collect(self, **kwargs) -> Dict[str, Any]:
         """Collect metadata using specified method."""
-        method = kwargs.get('method', 'api')
+        method = kwargs.get('method', 'API').upper()
+        is_test = kwargs.get('is_test', True)
         self.log_collection_start(kwargs)
 
         try:
-            if method == 'api':
+            if method == 'API':
                 articles = await self.collect_from_api(**kwargs)
-            else:
+                is_api = True
+            elif method == 'SEARCH':
                 articles = await self.collect_from_search(**kwargs)
+                is_api = False
+            else:
+                raise ValueError(f"Invalid collection method: {method}")
+
+            # Add is_test and is_api_collection flags to each article
+            for article in articles:
+                article['is_test'] = is_test
+                article['is_api_collection'] = is_api
 
             result = {
                 'articles': articles,
@@ -241,7 +251,9 @@ class MetadataCollector(BaseCollector):
                 'metadata': {
                     'method': method,
                     'total_collected': len(articles),
-                    'keyword': kwargs.get('keyword')
+                    'keyword': kwargs.get('keyword'),
+                    'is_test': is_test,
+                    'is_api_collection': is_api
                 }
             }
 
@@ -543,6 +555,9 @@ class MetadataCollector(BaseCollector):
             else:
                 publisher = ''
 
+            # 도메인 추출
+            publisher_domain = self._extract_domain(original_link)
+
             # 날짜 정보 추출
             published_date = None
             info_spans = article_elem.find_all('span', class_='info')
@@ -550,6 +565,7 @@ class MetadataCollector(BaseCollector):
             # 검색 날짜가 있으면 (5주 이내 기사) 해당 날짜 사용
             if search_date:
                 published_date = search_date.strftime('%Y.%m.%d')
+                published_at = search_date.isoformat()
             else:
                 # 5주 이전 기사는 태그에서 절대 날짜 추출
                 for span in info_spans:
@@ -557,16 +573,20 @@ class MetadataCollector(BaseCollector):
                     date = extract_absolute_date(text)
                     if date:
                         published_date = date
+                        # Convert YYYY.MM.DD to ISO format
+                        dt = datetime.strptime(date, '%Y.%m.%d').replace(tzinfo=KST)
+                        published_at = dt.isoformat()
                         break
 
             return {
-                'title': await self._remove_html_tags(item['title']),
+                'title': title,
                 'naver_link': naver_link,
                 'original_link': original_link,
-                'description': await self._remove_html_tags(item['description']),
-                'publisher': publisher or '',  # Use mapped publisher name if available
-                'published_date': published_date,  # YYYY.MM.DD 형식의 문자열
-                'published_at': None,  # 댓글 수집 시 업데이트될 수 있음
+                'description': description,
+                'publisher': publisher,
+                'publisher_domain': publisher_domain,
+                'published_at': published_at,
+                'published_date': published_date,
                 'collected_at': datetime.now(KST).isoformat(),
                 'is_naver_news': 'news.naver.com' in naver_link
             }
@@ -688,8 +708,8 @@ class MetadataCollector(BaseCollector):
 async def main():
     """간단한 사용 예시"""
     parser = argparse.ArgumentParser(description='네이버 뉴스 메타데이터 수집기')
-    parser.add_argument('--method', choices=['api', 'search'], default='api',
-                        help='수집 방식 (api 또는 search)')
+    parser.add_argument('--method', choices=['API', 'SEARCH'], default='api',
+                        help='수집 방식 (API 또는 SEARCH)')
     parser.add_argument('--keyword', required=True, help='검색 키워드')
     parser.add_argument('--max_articles', type=int, default=10,
                         help='수집할 최대 기사 수')
@@ -711,5 +731,5 @@ async def main():
         await collector.cleanup()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())
