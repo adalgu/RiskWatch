@@ -12,6 +12,7 @@ import signal
 import logging
 from typing import Optional, Dict, Any
 from datetime import datetime
+from sqlalchemy import select
 
 import aio_pika
 from aio_pika.abc import AbstractRobustConnection, AbstractChannel
@@ -19,6 +20,7 @@ from aio_pika.pool import Pool
 
 from news_storage.config import AsyncStorageSessionLocal
 from news_storage.database import AsyncDatabaseOperations
+from news_storage.models import Article
 
 # Configure logging
 logging.basicConfig(
@@ -97,6 +99,40 @@ class NewsStorageConsumer:
                     return False
                 await asyncio.sleep(1)
 
+    async def process_comments(self, data: Dict[str, Any]) -> bool:
+        """Process comments message with retry mechanism"""
+        for attempt in range(MAX_RETRY_ATTEMPTS):
+            try:
+                article_url = data.get('article_url')
+                comments = data.get('comments', [])
+                
+                if not article_url or not comments:
+                    logger.warning("Missing article_url or comments in message")
+                    return True
+
+                async with AsyncStorageSessionLocal() as session:
+                    # Get article by URL using direct query
+                    query = select(Article).where(Article.naver_link == article_url)
+                    result = await session.execute(query)
+                    article = result.scalar_one_or_none()
+
+                    if not article:
+                        logger.warning(f"Article not found for URL: {article_url}")
+                        return True
+
+                    # Create comments
+                    for comment_data in comments:
+                        await AsyncDatabaseOperations.create_comment(session, article.id, comment_data)
+                    await session.commit()
+
+                logger.info(f"Successfully processed {len(comments)} comments for article {article_url}")
+                return True
+            except Exception as e:
+                logger.error(f"Error processing comments (attempt {attempt + 1}): {str(e)}")
+                if attempt == MAX_RETRY_ATTEMPTS - 1:
+                    return False
+                await asyncio.sleep(1)
+
     async def process_message(self, message: aio_pika.IncomingMessage) -> None:
         """Process incoming messages with enhanced error handling"""
         try:
@@ -109,6 +145,8 @@ class NewsStorageConsumer:
             success = False
             if message_type == 'metadata':
                 success = await self.process_metadata(data)
+            elif message_type == 'comments':
+                success = await self.process_comments(data)
             else:
                 logger.warning(f"Unsupported message type: {message_type}")
                 success = True  # Acknowledge unsupported messages
@@ -131,7 +169,11 @@ class NewsStorageConsumer:
             'metadata_queue',
             durable=True
         )
-        return metadata_queue
+        comments_queue = await channel.declare_queue(
+            'comments_queue',
+            durable=True
+        )
+        return metadata_queue, comments_queue
 
     async def consume(self) -> None:
         """Start consuming messages from RabbitMQ"""
@@ -142,12 +184,13 @@ class NewsStorageConsumer:
                 self.channel = await self.connection.channel()
 
                 # Setup queues
-                metadata_queue = await self.setup_queues(self.channel)
+                metadata_queue, comments_queue = await self.setup_queues(self.channel)
 
-                # Start consuming from queue
+                # Start consuming from queues
                 await metadata_queue.consume(self.process_message)
+                await comments_queue.consume(self.process_message)
 
-                logger.info("Started consuming messages from metadata queue")
+                logger.info("Started consuming messages from metadata and comments queues")
 
                 # Keep consumer running
                 while not self.should_exit:
