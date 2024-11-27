@@ -56,7 +56,7 @@ services:
         condition: service_started
     environment:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
-      - DATABASE_URL=postgresql+asyncpg://user:password@postgres:5432/news_db
+      - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
     volumes:
       - .:/app
     command: python -m news_storage.consumer

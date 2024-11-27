@@ -8,11 +8,9 @@ import pytz
 from datetime import datetime
 from sqlalchemy import update, delete
 from sqlalchemy.future import select
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.asyncio import AsyncSession
-
-# Create declarative base for storage models
-StorageBase = declarative_base()
+from sqlalchemy.dialects.postgresql import insert
+from news_storage.base import StorageBase
 
 KST = pytz.timezone('Asia/Seoul')
 logger = logging.getLogger(__name__)
@@ -38,9 +36,24 @@ class AsyncDatabaseOperations:
     """Async database operations for news storage"""
 
     @staticmethod
-    def prepare_article_data(article_data: Dict[str, Any]) -> Dict[str, Any]:
+    def prepare_article_data(article_data: Dict[str, Any], main_keyword: str) -> Dict[str, Any]:
         """Prepare article data for database insertion"""
-        data = article_data.copy()
+        # Whitelist allowed fields for Article model
+        allowed_fields = [
+            'naver_link', 'title', 'original_link', 'description', 
+            'publisher', 'publisher_domain', 'published_at', 
+            'published_date', 'collected_at', 'is_naver_news',
+            'is_test', 'is_api_collection'
+        ]
+        
+        data = {
+            key: article_data.get(key) 
+            for key in allowed_fields 
+            if key in article_data
+        }
+
+        # Add main_keyword
+        data['main_keyword'] = main_keyword or 'default_keyword'
 
         # Convert datetime strings to datetime objects
         if 'published_at' in data:
@@ -48,26 +61,49 @@ class AsyncDatabaseOperations:
         if 'collected_at' in data:
             data['collected_at'] = parse_datetime(data['collected_at'])
 
+        # Set default value for is_api_collection if not present
+        if 'is_api_collection' not in data:
+            data['is_api_collection'] = True
+
         return data
 
     @staticmethod
-    async def create_article(session: AsyncSession, article_data: Dict[str, Any]):
-        """Create a new article record"""
+    async def create_article(session: AsyncSession, article_data: Dict[str, Any], main_keyword: str = 'default_keyword'):
+        """Create a new article record with upsert logic"""
         try:
             # Import here to avoid circular import
             from news_storage.models import Article
 
-            # Prepare data with proper datetime objects
+            # Prepare data with only allowed fields and main_keyword
             prepared_data = AsyncDatabaseOperations.prepare_article_data(
-                article_data)
+                article_data, main_keyword)
 
-            article = Article(**prepared_data)
-            session.add(article)
+            # Use PostgreSQL's ON CONFLICT clause to handle duplicates
+            stmt = insert(Article).values(**prepared_data)
+            stmt = stmt.on_conflict_do_update(
+                index_elements=['main_keyword', 'naver_link'],
+                set_={
+                    'title': stmt.excluded.title,
+                    'original_link': stmt.excluded.original_link,
+                    'description': stmt.excluded.description,
+                    'publisher': stmt.excluded.publisher,
+                    'publisher_domain': stmt.excluded.publisher_domain,
+                    'published_at': stmt.excluded.published_at,
+                    'published_date': stmt.excluded.published_date,
+                    'collected_at': stmt.excluded.collected_at,
+                    'is_naver_news': stmt.excluded.is_naver_news,
+                    'is_test': stmt.excluded.is_test,
+                    'is_api_collection': stmt.excluded.is_api_collection
+                }
+            )
+
+            result = await session.execute(stmt)
             await session.commit()
-            await session.refresh(article)
-            return article
+            return result
+
         except Exception as e:
-            logger.error(f"Error creating article: {e}")
+            logger.error(f"Error creating/updating article: {e}")
+            logger.error(f"Attempted data: {prepared_data}")
             await session.rollback()
             raise
 
@@ -208,18 +244,21 @@ class AsyncDatabaseOperations:
             raise
 
     @staticmethod
-    async def get_article_by_naver_link(session: AsyncSession, naver_link: str):
+    async def get_article_by_naver_link(session: AsyncSession, main_keyword: str, naver_link: str):
         """Retrieve an article by its Naver link"""
         try:
             # Import here to avoid circular import
             from news_storage.models import Article
 
             result = await session.execute(
-                select(Article).where(Article.naver_link == naver_link)
+                select(Article).where(
+                    (Article.main_keyword == main_keyword) & 
+                    (Article.naver_link == naver_link)
+                )
             )
             return result.scalar_one_or_none()
         except Exception as e:
-            logger.error(f"Error retrieving article by Naver link: {e}")
+            logger.error(f"Error retrieving article by main keyword and Naver link: {e}")
             raise
 
     @classmethod

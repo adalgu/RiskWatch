@@ -14,7 +14,7 @@ from typing import Optional, Dict, Any
 from datetime import datetime
 
 import aio_pika
-from aio_pika.abc import AbstractRobustConnection
+from aio_pika.abc import AbstractRobustConnection, AbstractChannel
 from aio_pika.pool import Pool
 
 from news_storage.config import AsyncStorageSessionLocal
@@ -31,12 +31,13 @@ logger = logging.getLogger(__name__)
 RABBITMQ_URL = os.getenv('RABBITMQ_URL', 'amqp://guest:guest@rabbitmq:5672/')
 MAX_RECONNECTION_ATTEMPTS = 5
 RECONNECTION_DELAY = 5  # seconds
+MAX_RETRY_ATTEMPTS = 3
 
 
 class NewsStorageConsumer:
     def __init__(self):
-        self.connection_pool: Optional[Pool] = None
-        self.channel_pool: Optional[Pool] = None
+        self.connection: Optional[AbstractRobustConnection] = None
+        self.channel: Optional[AbstractChannel] = None
         self.should_exit = False
         self.setup_signal_handlers()
 
@@ -48,18 +49,8 @@ class NewsStorageConsumer:
                 lambda s=sig: asyncio.create_task(self.shutdown(s))
             )
 
-    async def get_connection(self) -> AbstractRobustConnection:
-        """Create a connection pool"""
-        if not self.connection_pool:
-            self.connection_pool = Pool(
-                self.get_connection_impl,
-                max_size=2,
-                loop=asyncio.get_event_loop()
-            )
-        return await self.connection_pool.acquire()
-
-    async def get_connection_impl(self) -> AbstractRobustConnection:
-        """Implement connection creation with retry mechanism"""
+    async def create_connection(self) -> AbstractRobustConnection:
+        """Create a new connection with retry mechanism"""
         for attempt in range(MAX_RECONNECTION_ATTEMPTS):
             try:
                 connection = await aio_pika.connect_robust(
@@ -77,125 +68,86 @@ class NewsStorageConsumer:
                     f"Connection attempt {attempt + 1} failed: {str(e)}")
                 await asyncio.sleep(RECONNECTION_DELAY)
 
-    async def process_metadata(self, data: Dict[str, Any]) -> None:
-        """Process metadata message"""
-        try:
-            articles = data.get('articles', [])
-            if not articles:
-                logger.warning("No articles found in metadata message")
-                return
+    async def process_metadata(self, data: Dict[str, Any]) -> bool:
+        """Process metadata message with retry mechanism"""
+        for attempt in range(MAX_RETRY_ATTEMPTS):
+            try:
+                articles = data.get('articles', [])
+                # Extract keyword from metadata section
+                main_keyword = data.get('metadata', {}).get('keyword', 'default_keyword')
+                
+                if not articles:
+                    logger.warning("No articles found in metadata message")
+                    return True
 
-            for article_data in articles:
-                await AsyncDatabaseOperations.execute_transaction(
-                    AsyncDatabaseOperations.create_article,
-                    article_data
-                )
-            logger.info(f"Successfully processed {len(articles)} articles")
-        except Exception as e:
-            logger.error(f"Error processing metadata: {str(e)}")
-            raise
+                if not main_keyword:
+                    logger.warning("No keyword found in metadata message")
+                    main_keyword = 'default_keyword'
 
-    async def process_content(self, data: Dict[str, Any]) -> None:
-        """Process content message"""
-        try:
-            content_data = data.get('content')
-            article_id = data.get('article_id')
+                async with AsyncStorageSessionLocal() as session:
+                    for article_data in articles:
+                        await AsyncDatabaseOperations.create_article(session, article_data, main_keyword)
+                    await session.commit()
 
-            if not content_data or not article_id:
-                logger.warning("Missing content data or article_id")
-                return
-
-            await AsyncDatabaseOperations.execute_transaction(
-                AsyncDatabaseOperations.create_content,
-                content_data,
-                article_id
-            )
-            logger.info(
-                f"Successfully processed content for article {article_id}")
-        except Exception as e:
-            logger.error(f"Error processing content: {str(e)}")
-            raise
-
-    async def process_comments(self, data: Dict[str, Any]) -> None:
-        """Process comments message"""
-        try:
-            comments = data.get('comments', [])
-            article_id = data.get('article_id')
-
-            if not comments or not article_id:
-                logger.warning("Missing comments data or article_id")
-                return
-
-            await AsyncDatabaseOperations.execute_transaction(
-                AsyncDatabaseOperations.batch_create_comments,
-                comments,
-                article_id
-            )
-            logger.info(
-                f"Successfully processed {len(comments)} comments for article {article_id}")
-        except Exception as e:
-            logger.error(f"Error processing comments: {str(e)}")
-            raise
+                logger.info(f"Successfully processed {len(articles)} articles with keyword '{main_keyword}'")
+                return True
+            except Exception as e:
+                logger.error(f"Error processing metadata (attempt {attempt + 1}): {str(e)}")
+                if attempt == MAX_RETRY_ATTEMPTS - 1:
+                    return False
+                await asyncio.sleep(1)
 
     async def process_message(self, message: aio_pika.IncomingMessage) -> None:
-        """Process incoming messages based on their type"""
-        async with message.process():
-            try:
-                body = message.body.decode()
-                data = json.loads(body)
+        """Process incoming messages with enhanced error handling"""
+        try:
+            body = message.body.decode()
+            data = json.loads(body)
 
-                message_type = data.get('type', 'metadata')
-                logger.info(f"Processing message of type: {message_type}")
+            message_type = data.get('type', 'metadata')
+            logger.info(f"Processing message of type: {message_type}")
 
-                if message_type == 'metadata':
-                    await self.process_metadata(data)
-                elif message_type == 'content':
-                    await self.process_content(data)
-                elif message_type == 'comments':
-                    await self.process_comments(data)
-                else:
-                    logger.warning(f"Unknown message type: {message_type}")
+            success = False
+            if message_type == 'metadata':
+                success = await self.process_metadata(data)
+            else:
+                logger.warning(f"Unsupported message type: {message_type}")
+                success = True  # Acknowledge unsupported messages
 
-            except json.JSONDecodeError:
-                logger.error("Failed to decode message JSON")
-                # Don't requeue malformed messages
-                return
-            except Exception as e:
-                logger.error(f"Error processing message: {str(e)}")
-                # Requeue message on processing error
+            if success:
+                await message.ack()
+            else:
                 await message.reject(requeue=True)
-                return
 
-            # Acknowledge message only if processing was successful
-            await message.ack()
+        except json.JSONDecodeError:
+            logger.error("Failed to decode message JSON")
+            await message.reject(requeue=False)
+        except Exception as e:
+            logger.error(f"Unexpected error processing message: {str(e)}")
+            await message.reject(requeue=True)
+
+    async def setup_queues(self, channel: AbstractChannel):
+        """Setup and return all required queues"""
+        metadata_queue = await channel.declare_queue(
+            'metadata_queue',
+            durable=True
+        )
+        return metadata_queue
 
     async def consume(self) -> None:
         """Start consuming messages from RabbitMQ"""
         while not self.should_exit:
             try:
-                connection = await self.get_connection()
-                channel = await connection.channel()
+                # Create connection and channel
+                self.connection = await self.create_connection()
+                self.channel = await self.connection.channel()
 
-                # Declare queues
-                metadata_queue = await channel.declare_queue(
-                    'metadata_queue',
-                    durable=True
-                )
-                content_queue = await channel.declare_queue(
-                    'content_queue',
-                    durable=True
-                )
-                comments_queue = await channel.declare_queue(
-                    'comments_queue',
-                    durable=True
-                )
+                # Setup queues
+                metadata_queue = await self.setup_queues(self.channel)
 
-                # Start consuming from all queues
+                # Start consuming from queue
                 await metadata_queue.consume(self.process_message)
-                await content_queue.consume(self.process_message)
-                await comments_queue.consume(self.process_message)
 
-                logger.info("Started consuming messages from all queues")
+                logger.info("Started consuming messages from metadata queue")
 
                 # Keep consumer running
                 while not self.should_exit:
@@ -204,6 +156,8 @@ class NewsStorageConsumer:
             except Exception as e:
                 if not self.should_exit:
                     logger.error(f"Consumer error: {str(e)}")
+                    if self.connection:
+                        await self.connection.close()
                     await asyncio.sleep(RECONNECTION_DELAY)
                 else:
                     break
@@ -216,9 +170,9 @@ class NewsStorageConsumer:
         logger.info("Shutting down consumer...")
         self.should_exit = True
 
-        # Close connection pools if they exist
-        if self.connection_pool:
-            await self.connection_pool.close()
+        # Close connection and channel if they exist
+        if self.connection and not self.connection.is_closed:
+            await self.connection.close()
 
         logger.info("Shutdown complete")
 

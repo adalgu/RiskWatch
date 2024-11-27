@@ -2,25 +2,38 @@
 SQLAlchemy models for news storage
 """
 
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Boolean
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Boolean, UniqueConstraint
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import pytz
-from .database import StorageBase
+from .base import StorageBase
 
 KST = pytz.timezone('Asia/Seoul')
-
 
 class Article(StorageBase):
     """News article metadata"""
     __tablename__ = 'articles'
 
+    # Unique constraint on main_keyword and naver_link
+    __table_args__ = (
+        UniqueConstraint('main_keyword', 'naver_link', name='uq_main_keyword_naver_link'),
+    )
+
     id = Column(Integer, primary_key=True)
-    naver_link = Column(String, unique=True, nullable=False)
+    main_keyword = Column(String, nullable=False, server_default='default_keyword')
+    naver_link = Column(String, nullable=False)
     title = Column(String, nullable=False)
+    original_link = Column(String, nullable=True)
+    description = Column(Text, nullable=True)
+    publisher = Column(String, nullable=True)
+    publisher_domain = Column(String, nullable=True)
     published_at = Column(DateTime(timezone=True))
+    published_date = Column(String, nullable=True)
     collected_at = Column(DateTime(timezone=True),
                           default=lambda: datetime.now(KST))
+    is_naver_news = Column(Boolean, nullable=True, default=True)
+    is_test = Column(Boolean, nullable=False, default=True)
+    is_api_collection = Column(Boolean, nullable=False, default=True)
 
     # Relationships
     content = relationship("Content", back_populates="article", uselist=False)
