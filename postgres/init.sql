@@ -1,11 +1,5 @@
--- Create user if not exists
--- CREATE USER "postgres" WITH PASSWORD 'password';
-
 -- Create database
 CREATE DATABASE news_db;
-
--- Grant privileges to postgres user (which is created by default)
-GRANT ALL PRIVILEGES ON DATABASE news_db TO postgres;
 
 -- Connect to news_db
 \c news_db
