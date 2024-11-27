@@ -19,10 +19,10 @@ until docker exec riskwatch-rabbitmq-1 rabbitmqctl await_startup > /dev/null 2>&
 done
 
 # Additional wait to ensure RabbitMQ is fully operational
-sleep 5
+sleep 1
 echo "All services are ready. Running tests..."
 
-docker exec -it riskwatch-news_storage-1 python -m scripts.test_metadata
+docker exec -it riskwatch-news_storage-1 python -m scripts.init_and_test
 
 # Check if test was successful
 if [ $? -eq 0 ]; then
