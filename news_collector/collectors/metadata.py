@@ -226,14 +226,24 @@ class MetadataCollector(BaseCollector):
 
     async def collect(self, **kwargs) -> Dict[str, Any]:
         """Collect metadata using specified method."""
-        method = kwargs.get('method', 'api')
+        method = kwargs.get('method', 'API').upper()
+        is_test = kwargs.get('is_test', True)
         self.log_collection_start(kwargs)
 
         try:
-            if method == 'api':
+            if method == 'API':
                 articles = await self.collect_from_api(**kwargs)
-            else:
+                is_api = True
+            elif method == 'SEARCH':
                 articles = await self.collect_from_search(**kwargs)
+                is_api = False
+            else:
+                raise ValueError(f"Invalid collection method: {method}")
+
+            # Add is_test and is_api_collection flags to each article
+            for article in articles:
+                article['is_test'] = is_test
+                article['is_api_collection'] = is_api
 
             result = {
                 'articles': articles,
@@ -241,7 +251,9 @@ class MetadataCollector(BaseCollector):
                 'metadata': {
                     'method': method,
                     'total_collected': len(articles),
-                    'keyword': kwargs.get('keyword')
+                    'keyword': kwargs.get('keyword'),
+                    'is_test': is_test,
+                    'is_api_collection': is_api
                 }
             }
 
@@ -696,8 +708,8 @@ class MetadataCollector(BaseCollector):
 async def main():
     """간단한 사용 예시"""
     parser = argparse.ArgumentParser(description='네이버 뉴스 메타데이터 수집기')
-    parser.add_argument('--method', choices=['api', 'search'], default='api',
-                        help='수집 방식 (api 또는 search)')
+    parser.add_argument('--method', choices=['API', 'SEARCH'], default='api',
+                        help='수집 방식 (API 또는 SEARCH)')
     parser.add_argument('--keyword', required=True, help='검색 키워드')
     parser.add_argument('--max_articles', type=int, default=10,
                         help='수집할 최대 기사 수')
@@ -719,5 +731,5 @@ async def main():
         await collector.cleanup()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())

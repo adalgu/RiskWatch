@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 # Database URL
-DATABASE_URL = os.getenv('NEWS_STORAGE_URL', 'postgresql+asyncpg://postgres:postgres@localhost:5432/news_storage')
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql+asyncpg://postgres:password@localhost:5432/news_db')
 
 # Create engine
 storage_engine = create_async_engine(

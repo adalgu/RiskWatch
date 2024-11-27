@@ -6,10 +6,9 @@ from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Bool
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import pytz
-from .database import StorageBase
+from .base import StorageBase
 
 KST = pytz.timezone('Asia/Seoul')
-
 
 class Article(StorageBase):
     """News article metadata"""
@@ -33,6 +32,8 @@ class Article(StorageBase):
     collected_at = Column(DateTime(timezone=True),
                           default=lambda: datetime.now(KST))
     is_naver_news = Column(Boolean, nullable=True, default=True)
+    is_test = Column(Boolean, nullable=False, default=True)
+    is_api_collection = Column(Boolean, nullable=False, default=True)
 
     # Relationships
     content = relationship("Content", back_populates="article", uselist=False)

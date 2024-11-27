@@ -8,12 +8,9 @@ import pytz
 from datetime import datetime
 from sqlalchemy import update, delete
 from sqlalchemy.future import select
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.dialects.postgresql import insert
-
-# Create declarative base for storage models
-StorageBase = declarative_base()
+from news_storage.base import StorageBase
 
 KST = pytz.timezone('Asia/Seoul')
 logger = logging.getLogger(__name__)
@@ -45,7 +42,8 @@ class AsyncDatabaseOperations:
         allowed_fields = [
             'naver_link', 'title', 'original_link', 'description', 
             'publisher', 'publisher_domain', 'published_at', 
-            'published_date', 'collected_at', 'is_naver_news'
+            'published_date', 'collected_at', 'is_naver_news',
+            'is_test', 'is_api_collection'
         ]
         
         data = {
@@ -62,6 +60,10 @@ class AsyncDatabaseOperations:
             data['published_at'] = parse_datetime(data['published_at'])
         if 'collected_at' in data:
             data['collected_at'] = parse_datetime(data['collected_at'])
+
+        # Set default value for is_api_collection if not present
+        if 'is_api_collection' not in data:
+            data['is_api_collection'] = True
 
         return data
 
@@ -89,7 +91,9 @@ class AsyncDatabaseOperations:
                     'published_at': stmt.excluded.published_at,
                     'published_date': stmt.excluded.published_date,
                     'collected_at': stmt.excluded.collected_at,
-                    'is_naver_news': stmt.excluded.is_naver_news
+                    'is_naver_news': stmt.excluded.is_naver_news,
+                    'is_test': stmt.excluded.is_test,
+                    'is_api_collection': stmt.excluded.is_api_collection
                 }
             )
 
