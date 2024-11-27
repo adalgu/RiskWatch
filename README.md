@@ -19,23 +19,66 @@
    - 비동기 데이터 처리
 
 3. **Message Broker (RabbitMQ)**
+
    - 컴포넌트 간 메시지 전달
    - 비동기 통신 지원
    - 메시지 영속성 보장
+
+4. **Selenium Grid**
+   - 분산 웹 브라우저 자동화
+   - Hub/Node 구조로 확장성 제공
+   - 크롤링 작업 병렬 처리
 
 ### 데이터 흐름
 
 ```mermaid
 graph LR
     A[News Collector] -->|Publish| B[RabbitMQ]
+    A -->|Web Scraping| E[Selenium Grid]
     B -->|Consume| C[News Storage]
     C -->|Store| D[PostgreSQL]
 ```
 
-1. Collector가 뉴스 데이터 수집
+1. Collector가 뉴스 데이터 수집 (API 또는 Selenium)
 2. RabbitMQ로 메시지 발행
 3. Storage가 메시지 소비
 4. PostgreSQL에 데이터 저장
+
+### 도커 기반 아키텍처
+
+```mermaid
+graph TB
+    subgraph Docker Network
+        A[News Collector Container]
+        B[RabbitMQ Container]
+        C[News Storage Container]
+        D[PostgreSQL Container]
+        E[Selenium Hub Container]
+        F[Chrome Node Container]
+    end
+    A -->|http://selenium-hub:4444| E
+    E --> F
+    A -->|amqp://rabbitmq:5672| B
+    C -->|amqp://rabbitmq:5672| B
+    C -->|postgresql://postgres:5432| D
+```
+
+1. **서비스 디스커버리**
+
+   - 각 서비스는 도커 네트워크 내에서 서비스 이름으로 통신
+   - 예: `http://selenium-hub:4444/wd/hub`, `amqp://rabbitmq:5672/`
+   - 개발과 프로덕션 환경에서 동일한 구조 유지
+
+2. **컨테이너 간 통신**
+
+   - 내부 네트워크를 통한 안전한 통신
+   - 필요한 포트만 선택적으로 외부 노출
+   - 서비스 간 독립성 보장
+
+3. **확장성**
+   - 각 컨테이너는 독립적으로 스케일 가능
+   - 로드 밸런싱 지원
+   - 무중단 배포 가능
 
 ## 데이터 수집
 
@@ -48,7 +91,7 @@ graph LR
    - 정확한 타임스탬프 제공
 
 2. **검색 방식**
-   - 웹 크롤링 기반
+   - Selenium Grid 기반 웹 크롤링
    - 날짜 범위 지정 가능
    - 상세 검색 옵션 지원
 
@@ -153,6 +196,7 @@ graph LR
    RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
    NAVER_CLIENT_ID=your_client_id
    NAVER_CLIENT_SECRET=your_client_secret
+   SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
    ```
 
 ### 실행 방법
@@ -172,6 +216,7 @@ graph LR
    - Docker 컨테이너 시작
    - PostgreSQL 준비 상태 확인
    - RabbitMQ 준비 상태 확인
+   - Selenium Grid 준비 상태 확인
    - 통합 테스트 실행
 
 2. **수동 실행**
@@ -245,3 +290,61 @@ alembic upgrade head
 # 마이그레이션 롤백
 alembic downgrade -1
 ```
+
+## 개발 및 배포 가이드
+
+### 개발 환경
+
+1. **로컬 개발**
+
+   - Docker Compose로 모든 서비스 실행
+   - 서비스 간 통신은 서비스 이름 사용
+   - 환경 변수로 설정 관리
+
+2. **디버깅**
+   - 각 서비스의 로그 확인
+   ```bash
+   docker compose logs -f [service_name]
+   ```
+   - 컨테이너 내부 접속
+   ```bash
+   docker exec -it [container_name] bash
+   ```
+
+### 배포 환경
+
+1. **클라우드 배포**
+
+   - 동일한 도커 기반 아키텍처 유지
+   - 서비스 디스커버리 메커니즘 활용
+   - 필요한 서비스만 외부 노출
+
+2. **스케일링**
+
+   - 수평적 확장 가능
+   - 로드 밸런서 사용
+   - 컨테이너 오케스트레이션
+
+3. **모니터링**
+   - 각 서비스의 상태 모니터링
+   - 로그 집중화
+   - 성능 메트릭 수집
+
+### 보안 고려사항
+
+1. **네트워크 보안**
+
+   - 내부 서비스는 외부에서 직접 접근 불가
+   - 필요한 포트만 선택적 노출
+   - TLS/SSL 적용
+
+2. **인증/인가**
+
+   - API 키 관리
+   - 서비스 간 인증
+   - 접근 권한 제어
+
+3. **데이터 보안**
+   - 민감 정보 암호화
+   - 백업 및 복구 전략
+   - 감사 로그 유지
