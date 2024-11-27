@@ -10,14 +10,18 @@ until docker exec riskwatch-postgres-1 pg_isready -U postgres > /dev/null 2>&1; 
     sleep 1
 done
 
-# Wait for RabbitMQ to be ready
+# Wait for RabbitMQ to be ready with improved check
 echo "Waiting for RabbitMQ to be ready..."
-until docker exec riskwatch-rabbitmq-1 rabbitmq-diagnostics -q ping > /dev/null 2>&1; do
+until docker exec riskwatch-rabbitmq-1 rabbitmqctl await_startup > /dev/null 2>&1 && \
+      docker exec riskwatch-rabbitmq-1 rabbitmqctl await_online_nodes 1 > /dev/null 2>&1; do
     echo "RabbitMQ is unavailable - sleeping"
-    sleep 1
+    sleep 2
 done
 
+# Additional wait to ensure RabbitMQ is fully operational
+sleep 5
 echo "All services are ready. Running tests..."
+
 docker exec -it riskwatch-news_storage-1 python -m scripts.test_event
 
 # Check if test was successful
