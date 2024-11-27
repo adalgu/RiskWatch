@@ -7,6 +7,7 @@ services:
 
   chrome:
     image: seleniarm/node-chromium:latest
+    shm_size: "2g" # Add shared memory size
     depends_on:
       - selenium-hub
     environment:
@@ -14,6 +15,7 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_SESSIONS=5
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
     ports:
       - "5900:5900"
 
@@ -54,9 +56,14 @@ services:
         condition: service_healthy
       rabbitmq:
         condition: service_started
+      selenium-hub:
+        condition: service_started
+      chrome:
+        condition: service_started
     environment:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
+      - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
     volumes:
       - .:/app
     command: python -m news_storage.consumer
