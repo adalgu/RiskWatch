@@ -7,7 +7,7 @@ import functools
 import logging
 from typing import Any, Callable, TypeVar, cast
 from sqlalchemy.exc import SQLAlchemyError
-from .exceptions import CollectionError, DatabaseError
+from exceptions import CollectionError, DatabaseError
 
 logger = logging.getLogger(__name__)
 
