@@ -17,13 +17,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 class WebDriverUtils:
-    def __init__(self, headless=True, proxy=None, user_agent=None, use_remote=True, remote_url="http://localhost:4444/wd/hub"):
+    def __init__(self, headless=True, proxy=None, user_agent=None, use_remote=True, remote_url=None):
         self.driver = None
         self.headless = headless
         self.proxy = proxy
         self.user_agent = user_agent
         self.use_remote = use_remote
-        self.remote_url = remote_url
+        self.remote_url = remote_url or os.getenv('SELENIUM_HUB_URL', 'http://selenium-hub:4444/wd/hub')
         self.setup_logging()
 
     def setup_logging(self):
@@ -193,7 +193,7 @@ class WebDriverUtils:
 
 def initialize_driver(proxy: str = None, user_agent: str = None, use_remote: bool = True) -> webdriver.Chrome:
     """Initialize Chrome WebDriver with options"""
-    driver_utils = WebDriverUtils(  # Changed from WebDriverSetup to WebDriverUtils
+    driver_utils = WebDriverUtils(
         headless=True,
         proxy=proxy,
         user_agent=user_agent,

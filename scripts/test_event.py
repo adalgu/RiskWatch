@@ -62,8 +62,7 @@ class EventDrivenTester:
         """Collect metadata using collector"""
         try:
             result = await self.collector.collect(
-                # method='SEARCH',
-                method='API',
+                method='SEARCH',  # Changed from API to SEARCH
                 keyword=keyword,
                 max_articles=max_articles,
                 start_date=start_date,
