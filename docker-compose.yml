@@ -1,12 +1,12 @@
 services:
   selenium-hub:
     image: seleniarm/hub:latest
-    # container_name: selenium-hub
     ports:
       - "4444:4444"
 
   chrome:
     image: seleniarm/node-chromium:latest
+    shm_size: "2g" # Add shared memory size
     depends_on:
       - selenium-hub
     environment:
@@ -14,12 +14,12 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_SESSIONS=5
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
     ports:
       - "5900:5900"
 
   rabbitmq:
     image: rabbitmq:3-management
-    # container_name: rabbitmq
     ports:
       - "5672:5672" # AMQP protocol
       - "15672:15672" # Management UI
@@ -29,7 +29,6 @@ services:
 
   postgres:
     image: postgres:15
-    # container_name: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
@@ -48,20 +47,44 @@ services:
     build:
       context: .
       dockerfile: news_storage/Dockerfile
-    # container_name: news_storage
     depends_on:
       postgres:
         condition: service_healthy
       rabbitmq:
         condition: service_started
+      selenium-hub:
+        condition: service_started
+      chrome:
+        condition: service_started
     environment:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
+      - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
     volumes:
       - .:/app
     command: python -m news_storage.consumer
     ports:
       - "8000:8000"
+
+  news_ui:
+    build:
+      context: ./news_collector/ui
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501" # Streamlit default port
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+      - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      selenium-hub:
+        condition: service_started
+    volumes:
+      - ./news_collector/ui:/app
 
 volumes:
   postgres_data:

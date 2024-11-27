@@ -31,7 +31,7 @@ target_metadata = StorageBase.metadata
 
 def get_url():
     """Get database URL from environment variables."""
-    return os.getenv('DATABASE_URL', 'postgresql://postgres:password@postgres:5432/news_db')
+    return os.getenv('DATABASE_URL', 'postgresql+psycopg2://postgres:password@postgres:5432/news_db')
 
 
 def run_migrations_offline() -> None:
@@ -67,6 +67,8 @@ def run_migrations_online() -> None:
     """
     configuration = config.get_section(config.config_ini_section)
     configuration["sqlalchemy.url"] = get_url()
+    configuration["sqlalchemy.url"] = configuration["sqlalchemy.url"].replace("asyncpg", "psycopg2")
+    
     connectable = engine_from_config(
         configuration,
         prefix="sqlalchemy.",

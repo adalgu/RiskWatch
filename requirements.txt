@@ -19,6 +19,7 @@ asyncpg
 aio-pika
 fastapi
 uvicorn
+greenlet
 
 # Additional Tools
 jupyter
