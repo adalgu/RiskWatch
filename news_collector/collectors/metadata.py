@@ -154,8 +154,7 @@ class MetadataCollector(BaseCollector):
             headless=True,
             proxy=self.proxy,
             user_agent=self.user_agent,
-            use_remote=True,
-            remote_url="http://localhost:4444/wd/hub"
+            use_remote=True
         )
         self.driver = None
         self.session = aiohttp.ClientSession()
@@ -165,6 +164,8 @@ class MetadataCollector(BaseCollector):
             'RABBITMQ_URL', 'amqp://guest:guest@rabbitmq:5672/')
         self.queue_name = 'metadata_queue'
         self.loop = asyncio.get_event_loop()
+        self.connection = None
+        self.channel = None
         self.loop.create_task(self._init_rabbitmq())
 
     def _init_config(self) -> None:
@@ -200,29 +201,59 @@ class MetadataCollector(BaseCollector):
 
     async def _init_rabbitmq(self) -> None:
         """Initialize RabbitMQ connection and channel."""
-        try:
-            self.connection = await aio_pika.connect_robust(self.rabbitmq_url, loop=self.loop)
-            self.channel = await self.connection.channel()
-            await self.channel.declare_queue(self.queue_name, durable=True)
-            logger.info("Connected to RabbitMQ and declared queue.")
-        except Exception as e:
-            logger.error(f"Failed to connect to RabbitMQ: {e}")
-            self.connection = None
-            self.channel = None
+        max_retries = 5
+        retry_delay = 5
+        retry_count = 0
+
+        while retry_count < max_retries:
+            try:
+                if not self.connection or self.connection.is_closed:
+                    self.connection = await aio_pika.connect_robust(
+                        self.rabbitmq_url,
+                        loop=self.loop
+                    )
+                    logger.info("Successfully connected to RabbitMQ")
+
+                if not self.channel or self.channel.is_closed:
+                    self.channel = await self.connection.channel()
+                    await self.channel.declare_queue(self.queue_name, durable=True)
+                    logger.info("Successfully created RabbitMQ channel and declared queue")
+                
+                return
+            except Exception as e:
+                retry_count += 1
+                logger.warning(f"RabbitMQ connection attempt {retry_count} failed: {e}")
+                if retry_count < max_retries:
+                    await asyncio.sleep(retry_delay)
+                else:
+                    logger.error("Failed to connect to RabbitMQ after maximum retries")
+                    raise
 
     async def publish_message(self, message: Dict[str, Any]) -> None:
-        """Publish message to RabbitMQ."""
-        if not self.channel:
-            logger.error("RabbitMQ channel is not initialized.")
-            return
-        try:
-            await self.channel.default_exchange.publish(
-                aio_pika.Message(body=json.dumps(message).encode()),
-                routing_key=self.queue_name
-            )
-            logger.info("Published message to RabbitMQ.")
-        except Exception as e:
-            logger.error(f"Failed to publish message: {e}")
+        """Publish message to RabbitMQ with retries."""
+        max_retries = 3
+        retry_delay = 2
+        retry_count = 0
+
+        while retry_count < max_retries:
+            try:
+                if not self.channel or self.channel.is_closed:
+                    await self._init_rabbitmq()
+
+                await self.channel.default_exchange.publish(
+                    aio_pika.Message(body=json.dumps(message).encode()),
+                    routing_key=self.queue_name
+                )
+                logger.info("Successfully published message to RabbitMQ")
+                return
+            except Exception as e:
+                retry_count += 1
+                logger.warning(f"Failed to publish message (attempt {retry_count}): {e}")
+                if retry_count < max_retries:
+                    await asyncio.sleep(retry_delay)
+                else:
+                    logger.error("Failed to publish message after maximum retries")
+                    raise
 
     async def collect(self, **kwargs) -> Dict[str, Any]:
         """Collect metadata using specified method."""
@@ -259,7 +290,7 @@ class MetadataCollector(BaseCollector):
 
             if await self.validate_async(result):
                 self.log_collection_end(True, {'article_count': len(articles)})
-                # Publish to RabbitMQ
+                # Publish to RabbitMQ with retries
                 await self.publish_message(result)
                 return result
             else:
@@ -689,7 +720,7 @@ class MetadataCollector(BaseCollector):
         await self._close_browser()
         await self.session.close()
         # Close RabbitMQ connection
-        if hasattr(self, 'connection') and self.connection:
+        if self.connection:
             await self.connection.close()
             logger.info("Closed RabbitMQ connection.")
 
@@ -718,6 +749,7 @@ async def main():
     args = parser.parse_args()
 
     collector = MetadataCollector()
+
     try:
         result = await collector.collect(
             method=args.method,
@@ -729,7 +761,6 @@ async def main():
         print(json.dumps(result, ensure_ascii=False, indent=2))
     finally:
         await collector.cleanup()
-
 
 if __name__ == "__main__":
     asyncio.run(main())
