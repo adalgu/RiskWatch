@@ -137,30 +137,56 @@ graph LR
    - comments → articles
    - comment_stats → comments
 
-## 실행 방법
+## 설치 및 실행
 
-### 환경 설정
+### 필수 요구사항
 
-1. **환경 변수**
+1. **Docker & Docker Compose**
 
+   - Docker 설치
+   - Docker Compose 설치
+
+2. **환경 변수 설정**
    ```bash
+   # .env 파일 생성
+   DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
    RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
-   NEWS_STORAGE_URL=postgresql+asyncpg://postgres:postgres@localhost:5432/news_storage
    NAVER_CLIENT_ID=your_client_id
    NAVER_CLIENT_SECRET=your_client_secret
    ```
 
-2. **Docker 실행**
+### 실행 방법
+
+1. **자동 실행 스크립트 사용**
+
    ```bash
-   docker-compose up -d
+   # 실행 권한 부여
+   chmod +x run_test.sh
+
+   # 테스트 실행
+   ./run_test.sh
+   ```
+
+   스크립트는 다음 작업을 자동으로 수행합니다:
+
+   - Docker 컨테이너 시작
+   - PostgreSQL 준비 상태 확인
+   - RabbitMQ 준비 상태 확인
+   - 통합 테스트 실행
+
+2. **수동 실행**
+
+   ```bash
+   # Docker 컨테이너 시작
+   docker compose up -d
+
+   # 테스트 실행
+   docker exec -it riskwatch-news_storage-1 python -m scripts.test_event
    ```
 
 ### 테스트 실행
 
 ```bash
-# 통합 테스트
-python -m scripts.test_event_driven
-
 # 메타데이터 수집 테스트
 python -m news_collector.collectors.metadata \
   --method search \
