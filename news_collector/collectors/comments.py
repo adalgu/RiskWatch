@@ -1,19 +1,9 @@
 """
 News comment collector with async support and improved error handling.
 Collects both comments and comment statistics.
-
-Examples:
-# 댓글 수집 (통계 포함)
->>> collector = CommentCollector()
->>> result = await collector.collect(
-...     article_url='https://n.news.naver.com/article/001/0012345678',
-...     include_stats=True
-... )
-
-# 명령줄 실행:
-$ python -m news_system.news_collector.collectors.comments --article_url "https://n.news.naver.com/mnews/article/008/0005118577"
-$ python -m news_system.news_collector.collectors.comments --article_url "https://n.news.naver.com/mnews/article/008/0005118577" --no-stats
 """
+
+import os
 import logging
 import asyncio
 import argparse
@@ -25,15 +15,18 @@ import pytz
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException, StaleElementReferenceException, NoSuchElementException
 from bs4 import BeautifulSoup, Tag
+import aio_pika
 
-from news_system.news_collector.collectors.base import BaseCollector
-from news_system.news_collector.core.utils import WebDriverUtils
-# from news_system.news_collector.core.utils import is_valid_naver_news_url
+from ..collectors.base import BaseCollector
+from ..core.utils import WebDriverUtils
 
 logger = logging.getLogger(__name__)
 KST = pytz.timezone('Asia/Seoul')
+
+# RabbitMQ Configuration
+RABBITMQ_URL = os.getenv('RABBITMQ_URL', 'amqp://guest:guest@rabbitmq:5672/')
 
 
 class CommentCollector(BaseCollector):
@@ -43,17 +36,7 @@ class CommentCollector(BaseCollector):
     """
 
     def __init__(self, config: Optional[Dict] = None):
-        """
-        Initialize comment collector.
-
-        Args:
-            config: Optional configuration containing:
-                - browser_timeout: Browser wait timeout
-                - max_retries: Maximum retry attempts for loading more comments
-                - retry_delay: Delay between retries
-                - proxy: Proxy server address
-                - user_agent: User agent string
-        """
+        """Initialize comment collector."""
         super().__init__(config)
         self._init_config()
         self.proxy = self.get_config('proxy')
@@ -63,10 +46,12 @@ class CommentCollector(BaseCollector):
             proxy=self.proxy,
             user_agent=self.user_agent,
             use_remote=True,
-            remote_url="http://localhost:4444/wd/hub"
+            remote_url="http://selenium-hub:4444/wd/hub"
         )
         self.driver = None
         self.wait = None
+        self.rabbitmq_connection = None
+        self.rabbitmq_channel = None
 
     def _init_config(self) -> None:
         """Initialize configuration with defaults."""
@@ -74,6 +59,34 @@ class CommentCollector(BaseCollector):
             'browser_timeout', 20)  # Increased timeout
         self.max_retries = self.get_config('max_retries', 50)
         self.retry_delay = self.get_config('retry_delay', 1)
+
+    async def setup_rabbitmq(self):
+        """Setup RabbitMQ connection and channel"""
+        if not self.rabbitmq_connection:
+            self.rabbitmq_connection = await aio_pika.connect_robust(RABBITMQ_URL)
+            self.rabbitmq_channel = await self.rabbitmq_connection.channel()
+            await self.rabbitmq_channel.declare_queue('comments_queue', durable=True)
+
+    async def publish_message(self, data: Dict[str, Any]):
+        """Publish message to RabbitMQ"""
+        try:
+            await self.setup_rabbitmq()
+            message = {
+                'type': 'comments',
+                'article_url': data.get('article_url'),
+                'comments': data.get('comments', [])
+            }
+            await self.rabbitmq_channel.default_exchange.publish(
+                aio_pika.Message(
+                    body=json.dumps(message).encode(),
+                    delivery_mode=aio_pika.DeliveryMode.PERSISTENT
+                ),
+                routing_key='comments_queue'
+            )
+            logger.info(f"Published {len(data.get('comments', []))} comments to RabbitMQ")
+        except Exception as e:
+            logger.error(f"Failed to publish message to RabbitMQ: {e}")
+            raise
 
     async def collect(self, **kwargs) -> Dict[str, Any]:
         """
@@ -98,6 +111,12 @@ class CommentCollector(BaseCollector):
             result = await self.collect_comments(**kwargs)
 
             if await self.validate_async(result):
+                # Publish comments to RabbitMQ
+                await self.publish_message({
+                    'article_url': article_url,
+                    'comments': result.get('comments', [])
+                })
+
                 self.log_collection_end(True, {
                     'total_comments': len(result['comments']),
                     'total_count': result['total_count']
@@ -145,7 +164,7 @@ class CommentCollector(BaseCollector):
 
             # 댓글 영역 로딩 대기
             if not await self._wait_for_comment_area():
-                logger.error("Comment area not found")
+                logger.warning("Comment area not found")
                 return result
 
             # 기사 발행 시간 추출
@@ -158,6 +177,11 @@ class CommentCollector(BaseCollector):
             total_count = self._extract_comment_count(self.driver.page_source)
             result['total_count'] = total_count
 
+            # 댓글이 없는 경우 빈 결과 반환
+            if total_count == 0:
+                logger.info("No comments found")
+                return result
+
             # 모든 댓글 로드
             await self._load_all_comments()
 
@@ -165,9 +189,13 @@ class CommentCollector(BaseCollector):
             html = self.driver.page_source
             soup = BeautifulSoup(html, 'html.parser')
 
-            # 통계 수집
+            # 통계 수집 (선택적)
             if include_stats:
-                result['stats'] = self._extract_comment_stats(soup)
+                try:
+                    result['stats'] = self._extract_comment_stats(soup)
+                except Exception as e:
+                    logger.warning(f"Failed to extract comment stats: {e}")
+                    # 통계 수집 실패해도 계속 진행
 
             # 댓글 추출
             comments = []
@@ -376,7 +404,7 @@ class CommentCollector(BaseCollector):
                 return None
 
             # 작성자 정보
-            author = element.find('span', {'class': 'u_cbox_nick'})
+            username = element.find('span', {'class': 'u_cbox_nick'})
             profile_img = element.find('img', {'class': 'u_cbox_img_profile'})
             profile_url = profile_img.get('src') if profile_img else None
 
@@ -413,7 +441,7 @@ class CommentCollector(BaseCollector):
                 'comment_no': comment_no,
                 'parent_comment_no': parent_comment_no,
                 'content': content.get_text(strip=True) if content else None,
-                'author': author.get_text(strip=True) if author else '익명',
+                'username': username.get_text(strip=True) if username else '익명',
                 'profile_url': profile_url,
                 'timestamp': timestamp_value,
                 'likes': int(likes.get_text(strip=True)) if likes else 0,
@@ -506,6 +534,8 @@ class CommentCollector(BaseCollector):
     async def cleanup(self) -> None:
         """Cleanup resources."""
         await self._close_browser()
+        if self.rabbitmq_connection and not self.rabbitmq_connection.is_closed:
+            await self.rabbitmq_connection.close()
 
     async def __aenter__(self):
         return self
@@ -539,5 +569,5 @@ async def main():
         await collector.cleanup()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())

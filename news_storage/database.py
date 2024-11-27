@@ -99,7 +99,14 @@ class AsyncDatabaseOperations:
 
             result = await session.execute(stmt)
             await session.commit()
-            return result
+            
+            # Get the article
+            query = select(Article).where(
+                (Article.main_keyword == main_keyword) & 
+                (Article.naver_link == article_data['naver_link'])
+            )
+            result = await session.execute(query)
+            return result.scalar_one()
 
         except Exception as e:
             logger.error(f"Error creating/updating article: {e}")
@@ -144,9 +151,12 @@ class AsyncDatabaseOperations:
             raise
 
     @staticmethod
-    def prepare_comment_data(comment_data: Dict[str, Any]) -> Dict[str, Any]:
+    def prepare_comment_data(comment_data: Dict[str, Any], article_id: int) -> Dict[str, Any]:
         """Prepare comment data for database insertion"""
         data = comment_data.copy()
+
+        # Add article_id
+        data['article_id'] = article_id
 
         # Convert datetime strings to datetime objects
         if 'timestamp' in data:
@@ -154,18 +164,42 @@ class AsyncDatabaseOperations:
         if 'collected_at' in data:
             data['collected_at'] = parse_datetime(data['collected_at'])
 
-        return data
+        # Map fields from collector to database model
+        field_mapping = {
+            'username': 'username',  # 필드명 통일
+            'profile_url': 'profile_url',
+            'content': 'content',
+            'timestamp': 'timestamp',
+            'comment_no': 'comment_no',
+            'parent_comment_no': 'parent_comment_no',
+            'likes': 'likes',
+            'dislikes': 'dislikes',
+            'reply_count': 'reply_count',
+            'is_reply': 'is_reply',
+            'is_deleted': 'is_deleted',
+            'delete_type': 'delete_type',
+            'collected_at': 'collected_at'
+        }
+
+        prepared_data = {}
+        for collector_field, db_field in field_mapping.items():
+            if collector_field in data:
+                prepared_data[db_field] = data[collector_field]
+
+        # Add article_id
+        prepared_data['article_id'] = article_id
+
+        return prepared_data
 
     @staticmethod
-    async def create_comment(session: AsyncSession, comment_data: Dict[str, Any], article_id: int):
+    async def create_comment(session: AsyncSession, article_id: int, comment_data: Dict[str, Any]):
         """Create a new comment record"""
         try:
             # Import here to avoid circular import
             from news_storage.models import Comment
 
-            comment_data['article_id'] = article_id
             prepared_data = AsyncDatabaseOperations.prepare_comment_data(
-                comment_data)
+                comment_data, article_id)
 
             comment = Comment(**prepared_data)
             session.add(comment)
@@ -224,9 +258,8 @@ class AsyncDatabaseOperations:
 
             comments = []
             for comment_data in comments_data:
-                comment_data['article_id'] = article_id
                 prepared_data = AsyncDatabaseOperations.prepare_comment_data(
-                    comment_data)
+                    comment_data, article_id)
                 comment = Comment(**prepared_data)
                 session.add(comment)
                 comments.append(comment)

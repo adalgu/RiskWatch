@@ -22,7 +22,7 @@ done
 sleep 5
 echo "All services are ready. Running tests..."
 
-docker exec -it riskwatch-news_storage-1 python -m scripts.test_event
+docker exec -it riskwatch-news_storage-1 python -m scripts.test_metadata
 
 # Check if test was successful
 if [ $? -eq 0 ]; then
