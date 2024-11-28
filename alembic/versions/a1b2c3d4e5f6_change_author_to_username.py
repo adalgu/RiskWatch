@@ -1,28 +1,28 @@
-"""Change author to username
+"""change author to username
 
 Revision ID: a1b2c3d4e5f6
-Revises: 664dcaa245dc
-Create Date: 2023-11-27 08:40:00.000000
+Revises: 99b95b58f884
+Create Date: 2024-11-27 12:00:00.000000
 
+Note: This migration is a no-op as the 'username' column is already present in the model.
+The change from 'author' to 'username' has been made in the SQLAlchemy model.
 """
-from typing import Sequence, Union
-
 from alembic import op
 import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'a1b2c3d4e5f6'
-down_revision: Union[str, None] = '664dcaa245dc'
-branch_labels: Union[str, Sequence[str], None] = None
-depends_on: Union[str, Sequence[str], None] = None
+revision = 'a1b2c3d4e5f6'
+down_revision = '99b95b58f884'  # Changed to previous head revision
+branch_labels = None
+depends_on = None
 
 
 def upgrade() -> None:
-    # Rename author column to username
-    op.alter_column('comments', 'author', new_column_name='username')
+    # No-op migration: column already renamed in model
+    pass
 
 
 def downgrade() -> None:
-    # Rename username column back to author
-    op.alter_column('comments', 'username', new_column_name='author')
+    # No-op migration: column already renamed in model
+    pass

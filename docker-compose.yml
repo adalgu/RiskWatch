@@ -28,7 +28,7 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
 
   postgres:
-    image: postgres:15
+    image: postgres:14
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
@@ -38,7 +38,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      # test: ["CMD-SHELL", "pg_isready -U postgres"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d news_db"]
       interval: 5s
       timeout: 5s
       retries: 5
