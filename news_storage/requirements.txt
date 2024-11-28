@@ -31,3 +31,7 @@ aio-pika==9.5.0
 
 # HTTP Client (required by news_collector)
 aiohttp==3.9.1
+
+# CLI and Progress Bar (required by interactive_test.py)
+click==8.1.7
+tqdm==4.66.1

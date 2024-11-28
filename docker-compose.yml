@@ -86,5 +86,19 @@ services:
     volumes:
       - ./news_collector/ui:/app
 
+  news_data_dashboard:
+    build:
+      context: .
+      dockerfile: news_storage/web_ui/Dockerfile
+    ports:
+      - "5050:5000" # Changed host port to 5050
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./news_storage:/app/news_storage
+
 volumes:
   postgres_data:
