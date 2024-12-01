@@ -1,13 +1,17 @@
--- Create database
-SELECT 'CREATE DATABASE news_db'
-WHERE NOT EXISTS (
-  SELECT FROM pg_database WHERE datname = 'news_db'
-)\gexec
+-- -- Load dblink extension if needed
+-- CREATE EXTENSION IF NOT EXISTS dblink;
 
--- Connect to news_db
-\c news_db
+-- -- Ensure the database exists
+-- DO $$ BEGIN
+--    IF NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = 'news_db') THEN
+--       EXECUTE 'CREATE DATABASE news_db';
+--    END IF;
+-- END $$;
 
--- Grant schema privileges to postgres user
+-- -- Connect to the newly created database
+-- \connect news_db
+
+-- Grant privileges
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON ALL TABLES IN SCHEMA public TO postgres;
 GRANT ALL ON ALL SEQUENCES IN SCHEMA public TO postgres;
@@ -98,7 +102,7 @@ CREATE TABLE IF NOT EXISTS article_stats (
     collected_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create indexes for performance
+-- Create indexes
 CREATE INDEX IF NOT EXISTS idx_articles_published_at ON articles(published_at);
 CREATE INDEX IF NOT EXISTS idx_articles_publisher ON articles(publisher);
 CREATE INDEX IF NOT EXISTS idx_comments_article_id ON comments(article_id);

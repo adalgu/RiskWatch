@@ -6,7 +6,7 @@ from typing import Dict, Any, List
 import logging
 import pytz
 from datetime import datetime
-from sqlalchemy import update, delete
+from sqlalchemy import update, delete, text
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.dialects.postgresql import insert
@@ -97,7 +97,8 @@ class AsyncDatabaseOperations:
                 }
             )
 
-            result = await session.execute(stmt)
+            # Execute the statement directly without text()
+            await session.execute(stmt)
             await session.commit()
             
             # Get the article
@@ -105,6 +106,7 @@ class AsyncDatabaseOperations:
                 (Article.main_keyword == main_keyword) & 
                 (Article.naver_link == article_data['naver_link'])
             )
+            # Execute the query directly without text()
             result = await session.execute(query)
             return result.scalar_one()
 
@@ -283,12 +285,12 @@ class AsyncDatabaseOperations:
             # Import here to avoid circular import
             from news_storage.models import Article
 
-            result = await session.execute(
-                select(Article).where(
-                    (Article.main_keyword == main_keyword) & 
-                    (Article.naver_link == naver_link)
-                )
+            query = select(Article).where(
+                (Article.main_keyword == main_keyword) & 
+                (Article.naver_link == naver_link)
             )
+            # Execute the query directly without text()
+            result = await session.execute(query)
             return result.scalar_one_or_none()
         except Exception as e:
             logger.error(f"Error retrieving article by main keyword and Naver link: {e}")

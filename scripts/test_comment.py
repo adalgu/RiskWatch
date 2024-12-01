@@ -8,7 +8,7 @@ import logging
 from datetime import datetime
 import pytz
 from typing import Dict, Any, Optional, List
-from sqlalchemy import select
+from sqlalchemy import select, text
 
 from news_collector.collectors.comments import CommentCollector
 from news_storage.database import AsyncDatabaseOperations
@@ -84,7 +84,7 @@ class CommentCollectionTester:
             async with AsyncStorageSessionLocal() as session:
                 # Get comments for this article
                 query = select(Comment).where(Comment.article_id == article_id)
-                result = await session.execute(query)
+                result = await session.execute(text(query))
                 stored_comments = result.scalars().all()
 
                 if stored_comments:

@@ -1,33 +1,11 @@
-# services:
-#   dev:
-#     build:
-#       context: .
-#       dockerfile: .devcontainer/Dockerfile
-#     volumes:
-#       - type: bind
-#         source: ..
-#         target: /workspace
-#         bind:
-#           create_host_path: true
-#     command: sleep infinity
-#     environment:
-#       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
-#       - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
-#     depends_on:
-#       postgres:
-#         condition: service_healthy
-#       rabbitmq:
-#         condition: service_started
-#     network_mode: service:selenium-hub
-
 services:
   dev:
     build:
-      context: /Users/gunn.kim/study/RiskWatch  # 빌드 컨텍스트를 프로젝트 루트로 설정
+      context: /Users/macmini/study/RiskWatch/ # 빌드 컨텍스트를 프로젝트 루트로 설정
       dockerfile: .devcontainer/Dockerfile
     volumes:
       - type: bind
-        source: /Users/gunn.kim/study/RiskWatch  # 정확한 프로젝트 디렉토리만 마운트
+        source: ..  # 정확한 프로젝트 디렉토리만 마운트
         target: /workspace
         bind:
           create_host_path: true

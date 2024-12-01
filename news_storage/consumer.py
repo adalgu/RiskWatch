@@ -12,7 +12,8 @@ import signal
 import logging
 from typing import Optional, Dict, Any
 from datetime import datetime
-from sqlalchemy import select
+from sqlalchemy import select, text
+
 
 import aio_pika
 from aio_pika.abc import AbstractRobustConnection, AbstractChannel
@@ -113,7 +114,7 @@ class NewsStorageConsumer:
                 async with AsyncStorageSessionLocal() as session:
                     # Get article by URL using direct query
                     query = select(Article).where(Article.naver_link == article_url)
-                    result = await session.execute(query)
+                    result = await session.execute(text(query))
                     article = result.scalar_one_or_none()
 
                     if not article:

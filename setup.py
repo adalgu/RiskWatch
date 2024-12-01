@@ -5,7 +5,7 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        'sqlalchemy==2.0.15',
+        'sqlalchemy==1.4',
         'asyncpg==0.27.0',
         'alembic==1.10.4',
         'psycopg2-binary==2.9.6',

@@ -12,6 +12,7 @@ import random
 import click
 from tqdm import tqdm
 
+from sqlalchemy import text
 from news_collector.collectors.metadata import MetadataCollector
 from news_collector.collectors.comments import CommentCollector
 from news_storage.database import AsyncDatabaseOperations
@@ -78,7 +79,7 @@ class InteractiveNewsTester:
                         keyword=keyword,
                         max_articles=batch_size,
                         start_date=current_date.strftime('%Y-%m-%d'),
-                        end_date=next_date.strftime('%Y-%m-%d'),
+                        end_date=current_date.strftime('%Y-%m-%d'),   # 하루씩 검색
                         is_test=True
                     )
                     
@@ -134,20 +135,17 @@ class InteractiveNewsTester:
         try:
             # Get articles from database
             async with AsyncStorageSessionLocal() as session:
-                query = """
+                query = text("""
                     SELECT * FROM articles 
                     WHERE main_keyword = :keyword 
                     AND published_at BETWEEN :start_date AND :end_date
                     AND is_naver_news = true
-                """
-                result = await session.execute(
-                    query,
-                    {
-                        'keyword': keyword,
-                        'start_date': start_date,
-                        'end_date': end_date
-                    }
-                )
+                """)
+                result = await session.execute(query, {
+                    'keyword': keyword,
+                    'start_date': start_date,
+                    'end_date': end_date
+                })
                 articles = result.fetchall()
             
             if not articles:
