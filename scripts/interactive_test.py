@@ -15,9 +15,9 @@ from tqdm import tqdm
 from sqlalchemy import text
 from news_collector.collectors.metadata import MetadataCollector
 from news_collector.collectors.comments import CommentCollector
-from news_storage.database import AsyncDatabaseOperations
-from news_storage.config import AsyncStorageSessionLocal
-from news_storage.models import Article
+from news_storage.src.database import AsyncDatabaseOperations
+from news_storage.src.config import AsyncStorageSessionLocal
+from news_storage.src.models import Article
 
 # Configure logging
 logging.basicConfig(

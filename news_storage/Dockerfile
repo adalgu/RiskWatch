@@ -1,34 +1,40 @@
-FROM python:3.8-slim
+FROM python:3.12-slim
+
+# Install system packages including PostgreSQL client
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    gcc \
-    python3-dev \
-    libpq-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# Create scripts directory
+RUN mkdir -p /app/scripts
 
-# Copy the entire project
-COPY . /app/
+# Copy migration script first and make it executable
+COPY scripts/run_migrations.sh /app/scripts/
+RUN chmod +x /app/scripts/run_migrations.sh
 
-# Install Python dependencies
-COPY news_storage/requirements.txt /app/
-RUN pip install -r requirements.txt
+# Copy project files
+COPY pyproject.toml ./
+COPY poetry.lock* ./
+COPY ./src/ ./src/
 
-# Install additional dependencies for testing
-RUN pip install aiohttp beautifulsoup4 selenium webdriver-manager
+# Install poetry and dependencies
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install && \
+    pip install alembic psycopg2-binary
 
-# Install the packages
-WORKDIR /app/news_storage
-RUN pip install -e .
-WORKDIR /app/news_collector
-RUN pip install -e .
+# Set environment variables
+ENV PYTHONPATH=/app:/app/common:/app/news_storage/src
 
-# Set working directory back to /app
-WORKDIR /app
+# Ensure script has Unix line endings
+# RUN sed -i 's/\r$//' /app/scripts/run_migrations.sh
 
-# Run consumer
-CMD ["python", "-m", "news_storage.consumer"]
+# Use the migration script as entrypoint
+# ENTRYPOINT ["/app/scripts/run_migrations.sh"]
+
+# Default command (will be passed to the entrypoint script)
+CMD ["python", "-m", "src.consumer"]

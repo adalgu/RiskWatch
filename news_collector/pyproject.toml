@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "news_collector"
+version = "0.1.0"
+description = "News collector package for metadata, content, and comments collection"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiohttp = "^3.9.3"
+beautifulsoup4 = "^4.12.3"
+selenium = "^4.17.2"
+webdriver-manager = "^4.0.1"
+pytz = "^2024.1"
+python-dateutil = "^2.8.2"
+aio-pika = "^9.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

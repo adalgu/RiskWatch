@@ -1,5 +1,7 @@
 """
 News content collector with async support and improved error handling.
+news_collector/collectors/content.py
+
 
 Examples:
 # 본문 수집
@@ -18,14 +20,16 @@ import asyncio
 from typing import Dict, Optional, Any, List
 from datetime import datetime
 import pytz
+from bs4 import BeautifulSoup, NavigableString
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from bs4 import BeautifulSoup, NavigableString
+from selenium.common.exceptions import TimeoutException
 
 from .base import BaseCollector
-from news_system.news_collector.core.utils import WebDriverUtils
+from .utils.webdriver_utils import WebDriverUtils
+from ..producer import Producer  # Import the new Producer
+from .utils.date import DateUtils
+from .utils.text import TextUtils
 
 logger = logging.getLogger(__name__)
 KST = pytz.timezone('Asia/Seoul')
@@ -40,14 +44,6 @@ class ContentCollector(BaseCollector):
     def __init__(self, config: Optional[Dict] = None):
         """
         Initialize content collector.
-
-        Args:
-            config: Optional configuration containing:
-                - browser_timeout: Browser wait timeout
-                - retry_count: Maximum retry attempts
-                - retry_delay: Delay between retries
-                - proxy: Proxy server address
-                - user_agent: User agent string
         """
         super().__init__(config)
         self._init_config()
@@ -62,12 +58,24 @@ class ContentCollector(BaseCollector):
         )
         self.driver = None
         self.wait = None
+        
+        # Initialize Producer
+        self.producer = Producer()
+        self.queue_name = 'content_queue'
 
     def _init_config(self) -> None:
         """Initialize configuration with defaults."""
-        self.browser_timeout = self.get_config('browser_timeout', 10)
         self.retry_count = self.get_config('retry_count', 3)
-        self.retry_delay = self.get_config('retry_delay', 1)
+        self.retry_delay = self.get_config('retry_delay', 2)
+        self.browser_timeout = self.get_config('browser_timeout', 10)
+
+    async def publish_message(self, message: Dict[str, Any]) -> None:
+        """Publish message to RabbitMQ using Producer"""
+        await self.producer.publish(
+            message=message,
+            queue_name=self.queue_name
+        )
+        logger.info(f"Published message to RabbitMQ queue '{self.queue_name}'")
 
     async def collect(self, **kwargs) -> Dict[str, Any]:
         """
@@ -91,15 +99,25 @@ class ContentCollector(BaseCollector):
             content = await self.collect_content(article_url)
 
             result = {
-                'content': content,
-                'collected_at': datetime.now(KST).isoformat(),
+                'article_url': article_url,
+                'full_text': content.get('content', ''),
+                'title': content.get('title', ''),
                 'metadata': {
-                    'url': article_url,
-                    'success': bool(content)
-                }
+                    'media': content.get('media', ''),
+                    'reporter': content.get('reporter', ''),
+                    'category': content.get('category', ''),
+                    'published_at': content.get('published_at', ''),
+                    'modified_at': content.get('modified_at', '')
+                },
+                'subheadings': content.get('subheadings', []),
+                'images': content.get('images', []),
+                'collected_at': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
             }
 
             if await self.validate_async(result):
+                # Publish to RabbitMQ using new Producer
+                await self.publish_message(result)
+                
                 self.log_collection_end(True)
                 return result
             else:
@@ -124,7 +142,7 @@ class ContentCollector(BaseCollector):
 
             for attempt in range(self.retry_count):
                 try:
-                    self.driver.get(article_url)
+                    await self._run_in_executor(self.driver.get, article_url)
 
                     # 본문 영역 로딩 대기
                     await self._run_in_executor(
@@ -139,7 +157,7 @@ class ContentCollector(BaseCollector):
                 except TimeoutException:
                     if attempt < self.retry_count - 1:
                         logger.warning(
-                            f"Retry {attempt + 1}/{self.retry_count}")
+                            f"Retry {attempt + 1}/{self.retry_count} for URL: {article_url}")
                         await asyncio.sleep(self.retry_delay)
                     else:
                         logger.error(f"Content loading timeout: {article_url}")
@@ -203,7 +221,7 @@ class ContentCollector(BaseCollector):
         if title_elem:
             title_span = title_elem.find('span')
             if title_span:
-                title = title_span.get_text(strip=True)
+                title = TextUtils.clean_html(title_span.get_text(strip=True))
 
         # 본문
         content = ''
@@ -213,7 +231,7 @@ class ContentCollector(BaseCollector):
             # 서브헤딩 (strong 태그) 처리
             strong_tags = content_elem.find_all('strong')
             for strong in strong_tags:
-                subheading = strong.get_text(strip=True)
+                subheading = TextUtils.clean_html(strong.get_text(strip=True))
                 if subheading:
                     subheadings.append(subheading)
                     strong.extract()  # 본문에서 제거
@@ -225,7 +243,7 @@ class ContentCollector(BaseCollector):
         reporter = ''
         reporter_elem = soup.find('span', {'class': 'byline_s'})
         if reporter_elem:
-            reporter = reporter_elem.get_text(strip=True)
+            reporter = TextUtils.clean_html(reporter_elem.get_text(strip=True))
 
         # 언론사
         media = ''
@@ -233,27 +251,33 @@ class ContentCollector(BaseCollector):
         if media_elem:
             img = media_elem.find('img')
             if img and img.has_attr('alt'):
-                media = img['alt'].strip()
+                media = TextUtils.clean_html(img['alt'].strip())
 
         # 작성일시
         published_at = ''
         date_elem = soup.find(
             'span', {'class': 'media_end_head_info_datestamp_time'})
         if date_elem:
-            published_at = date_elem.get('data-date-time', '')
+            raw_date = date_elem.get('data-date-time', '')
+            dt = DateUtils.parse_date(raw_date, timezone=KST)
+            if dt:
+                published_at = DateUtils.format_date(dt, '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
 
         # 수정일시
         modified_at = ''
         mod_elem = soup.find(
             'span', {'class': 'media_end_head_info_datestamp_time _MODIFY_DATE_TIME'})
         if mod_elem:
-            modified_at = mod_elem.get('data-modify-date-time', '')
+            raw_mod_date = mod_elem.get('data-modify-date-time', '')
+            dt_mod = DateUtils.parse_date(raw_mod_date, timezone=KST)
+            if dt_mod:
+                modified_at = DateUtils.format_date(dt_mod, '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
 
         # 카테고리 (em 태그에서 직접 추출)
         category = ''
         category_elem = soup.find('em', {'class': 'media_end_categorize_item'})
         if category_elem:
-            category = category_elem.get_text(strip=True)
+            category = TextUtils.clean_html(category_elem.get_text(strip=True))
 
         # 이미지
         images = []
@@ -273,8 +297,7 @@ class ContentCollector(BaseCollector):
             'published_at': published_at,
             'modified_at': modified_at,
             'category': category,
-            'images': images,
-            'collected_at': datetime.now(KST).isoformat()
+            'images': images
         }
 
     async def collect_bulk_content(self, urls: List[str]) -> List[Dict[str, Any]]:
@@ -308,13 +331,20 @@ class ContentCollector(BaseCollector):
     async def _close_browser(self) -> None:
         """Close browser if open."""
         if self.driver:
-            self.driver_utils.quit_driver()
+            await self._run_in_executor(self.driver.quit)
             self.driver = None
             self.wait = None
-
     async def cleanup(self) -> None:
         """Cleanup resources."""
         await self._close_browser()
+        # Close Producer connection
+        await self.producer.close()
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, exc_type, exc, tb):
+        await self.cleanup()
 
     async def _run_in_executor(self, func, *args, **kwargs):
         """Run a blocking function in a separate thread."""

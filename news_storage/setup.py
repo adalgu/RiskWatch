@@ -13,6 +13,7 @@ setup(
         "python-dotenv",
         "pytz",
         "ujson",
-        "aio-pika"
+        "aio-pika",
+        "sqlmodel"
     ]
 )

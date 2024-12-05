@@ -1,6 +1,8 @@
 """
 News comment collector with async support and improved error handling.
 Collects both comments and comment statistics.
+
+news_collector/collectors/comments.py
 """
 
 import os
@@ -17,16 +19,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException, NoSuchElementException
 from bs4 import BeautifulSoup, Tag
-import aio_pika
 
-from ..collectors.base import BaseCollector
-from ..core.utils import WebDriverUtils
+from .base import BaseCollector
+from .utils.date import DateUtils
+from .utils.text import TextUtils
+from .utils.url import UrlUtils
+from .utils.webdriver_utils import WebDriverUtils
+from ..producer import Producer  # Import the new Producer
 
 logger = logging.getLogger(__name__)
 KST = pytz.timezone('Asia/Seoul')
-
-# RabbitMQ Configuration
-RABBITMQ_URL = os.getenv('RABBITMQ_URL', 'amqp://guest:guest@rabbitmq:5672/')
 
 
 class CommentCollector(BaseCollector):
@@ -46,12 +48,13 @@ class CommentCollector(BaseCollector):
             proxy=self.proxy,
             user_agent=self.user_agent,
             use_remote=True,
-            remote_url="http://selenium-hub:4444/wd/hub"
         )
         self.driver = None
         self.wait = None
-        self.rabbitmq_connection = None
-        self.rabbitmq_channel = None
+        
+        # Initialize Producer
+        self.producer = Producer()
+        self.queue_name = 'comments_queue'
 
     def _init_config(self) -> None:
         """Initialize configuration with defaults."""
@@ -60,33 +63,23 @@ class CommentCollector(BaseCollector):
         self.max_retries = self.get_config('max_retries', 50)
         self.retry_delay = self.get_config('retry_delay', 1)
 
-    async def setup_rabbitmq(self):
-        """Setup RabbitMQ connection and channel"""
-        if not self.rabbitmq_connection:
-            self.rabbitmq_connection = await aio_pika.connect_robust(RABBITMQ_URL)
-            self.rabbitmq_channel = await self.rabbitmq_connection.channel()
-            await self.rabbitmq_channel.declare_queue('comments_queue', durable=True)
-
     async def publish_message(self, data: Dict[str, Any]):
-        """Publish message to RabbitMQ"""
-        try:
-            await self.setup_rabbitmq()
-            message = {
-                'type': 'comments',
-                'article_url': data.get('article_url'),
-                'comments': data.get('comments', [])
-            }
-            await self.rabbitmq_channel.default_exchange.publish(
-                aio_pika.Message(
-                    body=json.dumps(message).encode(),
-                    delivery_mode=aio_pika.DeliveryMode.PERSISTENT
-                ),
-                routing_key='comments_queue'
-            )
-            logger.info(f"Published {len(data.get('comments', []))} comments to RabbitMQ")
-        except Exception as e:
-            logger.error(f"Failed to publish message to RabbitMQ: {e}")
-            raise
+        """Publish message to RabbitMQ using Producer"""
+        message = {
+            'article_url': data.get('article_url'),
+            'type': 'comments',
+            'comments': data.get('comments', []),
+            'stats': data.get('stats', {}),
+            'total_count': data.get('total_count', 0),
+            'published_at': data.get('published_at'),
+            'collected_at': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
+        }
+        
+        await self.producer.publish(
+            message=message,
+            queue_name=self.queue_name
+        )
+        logger.info(f"Published {len(data.get('comments', []))} comments to RabbitMQ")
 
     async def collect(self, **kwargs) -> Dict[str, Any]:
         """
@@ -107,15 +100,14 @@ class CommentCollector(BaseCollector):
         self.log_collection_start(kwargs)
 
         try:
-            # Changed to pass kwargs directly instead of article_url separately
             result = await self.collect_comments(**kwargs)
 
             if await self.validate_async(result):
-                # Publish comments to RabbitMQ
-                await self.publish_message({
-                    'article_url': article_url,
-                    'comments': result.get('comments', [])
-                })
+                # Add article_url to result for publishing
+                result['article_url'] = article_url
+                
+                # Publish to RabbitMQ using Producer
+                await self.publish_message(result)
 
                 self.log_collection_end(True, {
                     'total_comments': len(result['comments']),
@@ -145,7 +137,7 @@ class CommentCollector(BaseCollector):
             'total_count': 0,
             'published_at': None,  # Changed from article_timestamp to published_at
             'stats': self._get_empty_stats(),
-            'collected_at': datetime.now(KST).isoformat(),
+            'collected_at': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST),
             'comments': []
         }
 
@@ -160,7 +152,7 @@ class CommentCollector(BaseCollector):
                 return result
 
             logger.info(f"Accessing comment URL: {comment_url}")
-            self.driver.get(comment_url)
+            await self._run_in_executor(self.driver.get, comment_url)
 
             # 댓글 영역 로딩 대기
             if not await self._wait_for_comment_area():
@@ -229,8 +221,9 @@ class CommentCollector(BaseCollector):
             if timestamp_element:
                 raw_timestamp = timestamp_element.get('data-date-time')
                 if raw_timestamp:
-                    dt = datetime.strptime(raw_timestamp, '%Y-%m-%d %H:%M:%S')
-                    return KST.localize(dt).isoformat()
+                    dt = DateUtils.parse_date(raw_timestamp, timezone=KST)
+                    if dt:
+                        return DateUtils.format_date(dt, '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
             return None
 
         except Exception as e:
@@ -243,7 +236,7 @@ class CommentCollector(BaseCollector):
             soup = BeautifulSoup(html, 'html.parser')
             count_element = soup.find('span', {'class': 'u_cbox_count'})
             if count_element:
-                return int(count_element.get_text(strip=True))
+                return int(TextUtils.extract_numbers(count_element.get_text(strip=True))[0])
             return 0
 
         except Exception as e:
@@ -253,10 +246,10 @@ class CommentCollector(BaseCollector):
     async def _wait_for_comment_area(self) -> bool:
         """Wait for comment area to load."""
         selectors = [
-            'u_cbox_content_wrap',
-            'u_cbox_list',
-            'cbox_module',
-            'u_cbox_view_comment'
+            '.u_cbox_content_wrap',
+            '.u_cbox_list',
+            '.cbox_module',
+            '.u_cbox_view_comment'
         ]
 
         logger.info("Waiting for comment area to load...")
@@ -265,7 +258,7 @@ class CommentCollector(BaseCollector):
                 logger.info(f"Trying selector: {selector}")
                 await self._run_in_executor(
                     lambda: self.driver_utils.wait_for_element(
-                        By.CLASS_NAME, selector, self.browser_timeout
+                        By.CSS_SELECTOR, selector, self.browser_timeout
                     )
                 )
                 logger.info(f"Found comment area with selector: {selector}")
@@ -318,15 +311,16 @@ class CommentCollector(BaseCollector):
                 for element in elements:
                     if element.is_displayed():
                         # 버튼이 보이도록 스크롤
-                        self.driver.execute_script(
-                            "arguments[0].scrollIntoView(true);", element)
+                        await self._run_in_executor(
+                            lambda: self.driver.execute_script(
+                                "arguments[0].scrollIntoView(true);", element))
                         await asyncio.sleep(0.5)
 
                         try:
-                            element.click()
+                            await self._run_in_executor(element.click)
                         except:
-                            self.driver.execute_script(
-                                "arguments[0].click();", element)
+                            await self._run_in_executor(
+                                lambda: self.driver.execute_script("arguments[0].click();", element))
 
                         return True
 
@@ -341,13 +335,15 @@ class CommentCollector(BaseCollector):
         try:
             article_url = article_url.split('?')[0].rstrip('/')
             # Updated pattern to handle both mnews and regular URLs
-            pattern = r'/(?:m)?(?:news|mnews)/(?:article|article/view)/(\d+)/(\d+)(?:\?.*)?$'
+            pattern = r'(https://n\.news\.naver\.com)/(?:(mnews|news)/)?article(?:/view)?/(\d+)/(\d+)(?:\?.*)?$'
             match = re.search(pattern, article_url)
 
             if match:
-                media_id = match.group(1)
-                article_id = match.group(2)
-                return f"https://n.news.naver.com/article/comment/{media_id}/{article_id}"
+                domain = match.group(1)
+                url_type = match.group(2) or 'news'  # Default to 'news' if not specified
+                media_id = match.group(3)
+                article_id = match.group(4)
+                return f"{domain}/{url_type}/article/comment/{media_id}/{article_id}"
 
             return None
 
@@ -384,7 +380,8 @@ class CommentCollector(BaseCollector):
                     1) if parent_match else None
 
             # 삭제 여부 확인
-            is_deleted = 'u_cbox_type_delete' in element.get('class', [])
+            classes = element.get('class', [])
+            is_deleted = 'u_cbox_type_delete' in classes
             delete_type = None
             if is_deleted:
                 delete_msg = element.find(
@@ -404,53 +401,52 @@ class CommentCollector(BaseCollector):
                 return None
 
             # 작성자 정보
-            username = element.find('span', {'class': 'u_cbox_nick'})
+            username_elem = element.find('span', {'class': 'u_cbox_nick'})
+            username = username_elem.get_text(strip=True) if username_elem else '익명'
+
             profile_img = element.find('img', {'class': 'u_cbox_img_profile'})
             profile_url = profile_img.get('src') if profile_img else None
 
             # 작성 시간
-            timestamp = element.find('span', {'class': 'u_cbox_date'})
+            timestamp_elem = element.find('span', {'class': 'u_cbox_date'})
             timestamp_value = None
-            if timestamp:
-                raw_timestamp = timestamp.get('data-value')
+            if timestamp_elem:
+                raw_timestamp = timestamp_elem.get('data-value')
                 if raw_timestamp:
-                    try:
-                        # 타임존 정보가 포함된 경우 (예: 2024-11-25T06:45:36+0900)
-                        if '+0900' in raw_timestamp:
-                            dt = datetime.strptime(
-                                raw_timestamp, '%Y-%m-%dT%H:%M:%S%z')
-                            timestamp_value = dt.isoformat()
-                        else:
-                            # 타임존 정보가 없는 경우
-                            dt = datetime.strptime(
-                                raw_timestamp, '%Y-%m-%d %H:%M:%S')
-                            timestamp_value = KST.localize(dt).isoformat()
-                    except ValueError:
-                        timestamp_value = timestamp.get_text(strip=True)
+                    dt = DateUtils.parse_date(raw_timestamp, timezone=KST)
+                    if dt:
+                        timestamp_value = DateUtils.format_date(dt, '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
+                else:
+                    # Fallback to text extraction
+                    raw_text = timestamp_elem.get_text(strip=True)
+                    dt = DateUtils.parse_date(raw_text, timezone=KST)
+                    if dt:
+                        timestamp_value = DateUtils.format_date(dt, '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
 
             # 좋아요/싫어요
-            likes = element.find('em', {'class': 'u_cbox_cnt_recomm'})
-            dislikes = element.find('em', {'class': 'u_cbox_cnt_unrecomm'})
+            likes_elem = element.find('em', {'class': 'u_cbox_cnt_recomm'})
+            dislikes_elem = element.find('em', {'class': 'u_cbox_cnt_unrecomm'})
+            likes = TextUtils.extract_numbers(likes_elem.get_text(strip=True))[0] if likes_elem else 0
+            dislikes = TextUtils.extract_numbers(dislikes_elem.get_text(strip=True))[0] if dislikes_elem else 0
 
             # 답글 수
-            reply_count = element.find('span', {'class': 'u_cbox_reply_cnt'})
-            reply_count = int(reply_count.get_text(
-                strip=True)) if reply_count else 0
+            reply_count_elem = element.find('span', {'class': 'u_cbox_reply_cnt'})
+            reply_count = TextUtils.extract_numbers(reply_count_elem.get_text(strip=True))[0] if reply_count_elem else 0
 
             return {
                 'comment_no': comment_no,
                 'parent_comment_no': parent_comment_no,
-                'content': content.get_text(strip=True) if content else None,
-                'username': username.get_text(strip=True) if username else '익명',
+                'content': TextUtils.clean_html(content.get_text(strip=True)) if content else None,
+                'username': username,
                 'profile_url': profile_url,
                 'timestamp': timestamp_value,
-                'likes': int(likes.get_text(strip=True)) if likes else 0,
-                'dislikes': int(dislikes.get_text(strip=True)) if dislikes else 0,
+                'likes': likes,
+                'dislikes': dislikes,
                 'reply_count': reply_count,
-                'is_reply': 'u_cbox_reply_item' in element.get('class', []),
+                'is_reply': 'u_cbox_reply_item' in classes,
                 'is_deleted': is_deleted,
                 'delete_type': delete_type,
-                'collected_at': datetime.now(KST).isoformat()
+                'collected_at': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
             }
 
         except Exception as e:
@@ -466,12 +462,12 @@ class CommentCollector(BaseCollector):
             count_info = soup.select_one('.u_cbox_comment_count_wrap')
             if count_info:
                 for info in count_info.select('.u_cbox_count_info'):
-                    title = info.select_one('.u_cbox_info_title')
-                    count = info.select_one('.u_cbox_info_txt')
-                    if title and count:
-                        title_text = title.get_text(strip=True)
-                        count_value = int(count.get_text(
-                            strip=True).replace(',', ''))
+                    title_elem = info.select_one('.u_cbox_info_title')
+                    count_elem = info.select_one('.u_cbox_info_txt')
+                    if title_elem and count_elem:
+                        title_text = TextUtils.clean_html(title_elem.get_text(strip=True))
+                        count_numbers = TextUtils.extract_numbers(count_elem.get_text(strip=True))
+                        count_value = count_numbers[0] if count_numbers else 0
                         if '현재' in title_text:
                             stats['current_count'] = count_value
                         elif '작성자' in title_text:
@@ -480,24 +476,24 @@ class CommentCollector(BaseCollector):
                             stats['admin_deleted_count'] = count_value
 
             # 성별 분포
-            male = soup.select_one('.u_cbox_chart_male .u_cbox_chart_per')
-            female = soup.select_one('.u_cbox_chart_female .u_cbox_chart_per')
-            if male:
-                stats['gender_ratio']['male'] = int(
-                    male.get_text(strip=True).replace('%', ''))
-            if female:
-                stats['gender_ratio']['female'] = int(
-                    female.get_text(strip=True).replace('%', ''))
+            male_elem = soup.select_one('.u_cbox_chart_male .u_cbox_chart_per')
+            female_elem = soup.select_one('.u_cbox_chart_female .u_cbox_chart_per')
+            if male_elem:
+                male_percent = TextUtils.extract_numbers(male_elem.get_text(strip=True))
+                stats['gender_ratio']['male'] = male_percent[0] if male_percent else 0
+            if female_elem:
+                female_percent = TextUtils.extract_numbers(female_elem.get_text(strip=True))
+                stats['gender_ratio']['female'] = female_percent[0] if female_percent else 0
 
             # 연령대 분포
-            age_progress = soup.select('.u_cbox_chart_progress')
+            age_progress_elems = soup.select('.u_cbox_chart_progress')
             age_keys = list(stats['age_distribution'].keys())
-            for i, progress in enumerate(age_progress):
+            for i, progress in enumerate(age_progress_elems):
                 if i < len(age_keys):
-                    per = progress.select_one('.u_cbox_chart_per')
-                    if per:
-                        stats['age_distribution'][age_keys[i]] = int(
-                            per.get_text(strip=True).replace('%', ''))
+                    per_elem = progress.select_one('.u_cbox_chart_per')
+                    if per_elem:
+                        age_percent = TextUtils.extract_numbers(per_elem.get_text(strip=True))
+                        stats['age_distribution'][age_keys[i]] = age_percent[0] if age_percent else 0
 
             return stats
 
@@ -527,15 +523,15 @@ class CommentCollector(BaseCollector):
     async def _close_browser(self) -> None:
         """Close browser if open."""
         if self.driver:
-            self.driver_utils.quit_driver()
+            await self._run_in_executor(self.driver.quit)
             self.driver = None
             self.wait = None
 
     async def cleanup(self) -> None:
         """Cleanup resources."""
         await self._close_browser()
-        if self.rabbitmq_connection and not self.rabbitmq_connection.is_closed:
-            await self.rabbitmq_connection.close()
+        # Close Producer connection
+        await self.producer.close()
 
     async def __aenter__(self):
         return self

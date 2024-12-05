@@ -1,0 +1,108 @@
+{
+    "MetadataCollector": {
+      "type_info": "Metadata information about news articles",
+      "fields": {
+        "title": {"type": "string", "value": ""},
+        "naver_link": {"type": "string", "value": ""},
+        "original_link": {"type": "string", "value": ""},
+        "description": {"type": "string", "value": ""},
+        "publisher": {"type": "string", "value": ""},
+        "publisher_domain": {"type": "string", "value": ""},
+        "published_at": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"},
+        "published_date": {"type": "string", "format": "YYYY.MM.DD", "value": "2024.01.01"},
+        "collected_at": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"},
+        "is_naver_news": {"type": "boolean", "value": false},
+        "is_test": {"type": "boolean", "value": false},
+        "is_api_collection": {"type": "boolean", "value": false}
+      }
+    },
+  
+    "CommentCollector": {
+      "type_info": "Comment data and related statistics",
+      "fields": {
+        "article_url": {"type": "string", "value": ""},
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "fields": {
+              "comment_no": {"type": "string", "value": ""},
+              "parent_comment_no": {"type": "string|null", "value": null},
+              "content": {"type": "string|null", "value": null},
+              "username": {"type": "string", "value": ""},
+              "profile_url": {"type": "string", "value": ""},
+              "timestamp": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"},
+              "likes": {"type": "integer", "value": 0},
+              "dislikes": {"type": "integer", "value": 0},
+              "reply_count": {"type": "integer", "value": 0},
+              "is_reply": {"type": "boolean", "value": false},
+              "is_deleted": {"type": "boolean", "value": false},
+              "delete_type": {"type": "string|null", "enum": ["user", "admin", null], "value": null},
+              "collected_at": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"}
+            }
+          }
+        },
+        "stats": {
+          "type": "object",
+          "fields": {
+            "current_count": {"type": "integer", "value": 0},
+            "user_deleted_count": {"type": "integer", "value": 0},
+            "admin_deleted_count": {"type": "integer", "value": 0},
+            "gender_ratio": {
+              "type": "object",
+              "fields": {
+                "male": {"type": "integer", "value": 0},
+                "female": {"type": "integer", "value": 0}
+              }
+            },
+            "age_distribution": {
+              "type": "object",
+              "fields": {
+                "10s": {"type": "integer", "value": 0},
+                "20s": {"type": "integer", "value": 0},
+                "30s": {"type": "integer", "value": 0},
+                "40s": {"type": "integer", "value": 0},
+                "50s": {"type": "integer", "value": 0},
+                "60s_above": {"type": "integer", "value": 0}
+              }
+            }
+          }
+        },
+        "total_count": {"type": "integer", "value": 0},
+        "published_at": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"},
+        "collected_at": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"}
+      }
+    },
+  
+    "ContentCollector": {
+      "type_info": "Article content and related metadata",
+      "fields": {
+        "article_url": {"type": "string", "value": ""},
+        "full_text": {"type": "string", "value": ""},
+        "title": {"type": "string", "value": ""},
+        "metadata": {
+          "type": "object",
+          "fields": {
+            "media": {"type": "string", "value": ""},
+            "reporter": {"type": "string", "value": ""},
+            "category": {"type": "string", "value": ""},
+            "published_at": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"},
+            "modified_at": {"type": "string", "value": ""}
+          }
+        },
+        "subheadings": {"type": "array", "items": {"type": "string"}, "value": [""]},
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "fields": {
+              "url": {"type": "string", "value": ""},
+              "caption": {"type": "string", "value": ""},
+              "alt": {"type": "string", "value": ""}
+            }
+          }
+        },
+        "collected_at": {"type": "string", "format": "ISO-8601", "value": "2024-01-01T00:00:00Z"}
+      }
+    }
+  }

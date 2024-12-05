@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "news-storage"
+version = "0.1.0"
+description = "News Storage Service"
+authors = ["Project Team"]
+readme = "README.md"
+packages = [
+    { include = "src", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlmodel = "^0.0.14"
+sqlalchemy = "^2.0.0"
+pydantic = "^2.0.0"
+psycopg2-binary = "^2.9.0"
+python-dotenv = "^1.0.0"
+kafka-python = "^2.0.0"
+aio-pika = "^9.5.0"
+asyncpg = "^0.30.0"
+pytz = "^2024.2"
+click = "^8.1.7"
+tqdm = "^4.66.2"
+aiohttp = "^3.9.3"
+beautifulsoup4 = "^4.12.3"
+selenium = "^4.17.2"
+webdriver-manager = "^4.0.1"
+python-dateutil = "^2.8.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
