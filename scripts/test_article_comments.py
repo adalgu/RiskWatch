@@ -19,8 +19,8 @@ import re
 from news_collector.collectors.comments import CommentCollector
 from news_storage.database import AsyncDatabaseOperations
 from news_storage.config import AsyncStorageSessionLocal
-from news_storage.models import Article, Comment
-from news_collector.core.utils import WebDriverUtils
+from common.models import Article, Comment
+from news_collector.utils.utils import WebDriverUtils
 
 # Configure logging
 logging.basicConfig(

@@ -14,6 +14,7 @@ setup(
         "webdriver-manager>=4.0.1",
         "pytz>=2024.1",
         "python-dateutil>=2.8.2",
+        "aio-pika>=9.5.0",  # Added for RabbitMQ message publishing
     ],
     python_requires=">=3.8",
 )

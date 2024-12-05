@@ -1,0 +1,156 @@
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: news_collector/api/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
+      - SELENIUM_GRID_NODES=4
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      selenium-hub:
+        condition: service_started
+    networks:
+      - collector_network
+
+  selenium-hub:
+    image: seleniarm/hub:latest
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    networks:
+      - collector_network
+
+  chrome:
+    image: seleniarm/node-chromium:latest
+    shm_size: "2g"
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=5
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    ports:
+      - "5900:5900"
+    networks:
+      - collector_network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - collector_network
+
+  postgres:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=news_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d news_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - collector_network
+
+  news_storage:
+    build:
+      context: .
+      dockerfile: news_storage/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      selenium-hub:
+        condition: service_started
+      chrome:
+        condition: service_started
+    environment:
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+      - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
+      - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
+    volumes:
+      - .:/app
+    command: python -m news_storage.consumer
+    ports:
+      - "8001:8000"
+    networks:
+      - collector_network
+
+  news_ui:
+    build:
+      context: .
+      dockerfile: news_visualizer/news_ui/Dockerfile
+    ports:
+      - "8501:8501"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+      - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
+      # - COLLECTOR_LOG_PATH=/app/logs/collector.log
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_started
+      selenium-hub:
+        condition: service_started
+    volumes:
+      - ./news_visualizer/news_ui:/app
+    networks:
+      - collector_network
+
+  # news_data_dashboard:
+  #   build:
+  #     context: .
+  #     dockerfile: news_visualizer/web_ui/Dockerfile
+  #   ports:
+  #     - "5050:5000"
+  #   environment:
+  #     - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./news_visualizer:/app/news_visualizer
+  #   networks:
+  #     - collector_network
+
+volumes:
+  postgres_data:
+    external: true
+  rabbitmq_data:
+    external: true
+
+networks:
+  collector_network:
+    driver: bridge
+  bridge:
+    external: true

@@ -7,13 +7,35 @@
 - 메타데이터 수집 (API/검색 방식)
 - 본문 수집 (서브헤딩, 이미지 포함)
 - 댓글 수집 (통계 포함)
-- 병렬 수집 지원
+- RabbitMQ를 통한 메시지 발행
 
 ## 설치
 
 ```bash
 pip install -e .
 ```
+
+## 메시지 발행 아키텍처
+
+모든 수집기는 중앙화된 Producer를 통해 RabbitMQ에 메시지를 발행합니다:
+
+### 큐 구성
+
+1. **metadata_queue**: 기사 메타데이터
+   - API 및 검색 방식 수집 결과
+   - articles, collected_at, metadata 포함
+
+2. **content_queue**: 기사 본문
+   - 본문 텍스트, 이미지, 메타데이터
+   - article_url, full_text, title, metadata 등 포함
+
+3. **comments_queue**: 댓글 정보
+   - 댓글 내용, 통계, 인구통계 정보
+   - article_url, comments, stats, total_count 포함
+
+4. **stats_queue**: 통계 정보
+   - 기사 및 댓글 통계
+   - article_url, type, stats 포함
 
 ## 수집기 스펙
 
@@ -167,19 +189,6 @@ result = await collector.collect(
 }
 ```
 
-### 4. 병렬 수집
-
-대량의 기사를 효율적으로 수집하기 위한 병렬 처리를 지원합니다.
-
-```python
-collector = ParallelMetadataCollector(num_processes=4)
-results = await collector.collect_metadata_bulk(
-    method='api',
-    keywords=['키워드1', '키워드2', '키워드3'],
-    max_articles=100
-)
-```
-
 ## 명령줄 실행
 
 각 수집기는 명령줄에서 직접 실행할 수 있습니다:
@@ -229,17 +238,17 @@ python -m news_system.news_collector.collectors.comments --article_url "https://
 
 ## 다른 모듈과의 연동
 
-### 1. News Analyzer (예정)
+### 1. News Storage
+
+- 수집된 데이터의 영구 저장
+- RabbitMQ를 통한 메시지 수신
+- 메타데이터 업데이트 지원
+
+### 2. News Analyzer (예정)
 
 - 수집된 데이터의 키워드 분석
 - 감성 분석
 - 토픽 모델링
-
-### 2. News Storage (예정)
-
-- 수집 데이터의 영구 저장
-- 메타데이터 업데이트 지원
-- 캐싱 시스템
 
 ### 3. News Visualizer (예정)
 
@@ -252,6 +261,7 @@ python -m news_system.news_collector.collectors.comments --article_url "https://
 - Python >= 3.8
 - 비동기 지원 (asyncio)
 - Type hints 사용
+- RabbitMQ 메시지 브로커
 - 테스트 커버리지 관리
 
 ## 테스트

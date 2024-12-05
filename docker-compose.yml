@@ -1,30 +1,74 @@
 services:
-  # dev:
-  #   build:
-  #     context: .
-  #     dockerfile: .devcontainer/Dockerfile
-  #   volumes:
-  #     - .:/workspace
-  #   environment:
-  #     - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
-  #     - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
-  #     rabbitmq:
-  #       condition: service_started
-  #   network_mode: service:selenium-hub
+  fast_api:
+    build:
+      context: ./news_collector/fast_api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
+      - SELENIUM_GRID_NODES=4
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+      - PYTHONPATH=/app:/app/news_collector
+    env_file:
+      - .env
+    volumes:
+      - ./news_collector:/app/news_collector
+      - ./news_collector/fast_api:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      selenium-hub:
+        condition: service_healthy
+    networks:
+      - collector_network
+
+  jupyter:
+    image: jupyter/minimal-notebook:latest
+    ports:
+      - "8888:8888"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+      - JUPYTER_ENABLE_LAB=yes
+      - NOTEBOOK_DIR=/home/jovyan/notebook
+    volumes:
+      - ./scripts/notebook:/home/jovyan/notebook
+    working_dir: /home/jovyan/notebook
+    networks:
+      - collector_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' --NotebookApp.notebook_dir='/home/jovyan/notebook'
 
   selenium-hub:
     image: seleniarm/hub:latest
     ports:
+      - "4442:4442"
+      - "4443:4443"
       - "4444:4444"
+    networks:
+      - collector_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   chrome:
     image: seleniarm/node-chromium:latest
-    shm_size: "2g" # Add shared memory size
+    shm_size: "2g"
     depends_on:
-      - selenium-hub
+      selenium-hub:
+        condition: service_healthy
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
@@ -33,90 +77,106 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
     ports:
       - "5900:5900"
+    networks:
+      - collector_network
 
   rabbitmq:
     image: rabbitmq:3-management
     ports:
-      - "5672:5672" # AMQP protocol
-      - "15672:15672" # Management UI
+      - "5672:5672"
+      - "15672:15672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - collector_network
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   postgres:
     image: postgres:14
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=news_db  # 여기서 데이터베이스를 지정합니다
+      - POSTGRES_DB=news_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      # test: ["CMD-SHELL", "pg_isready -U postgres"] #pg_isready -d news_db는 news_db 데이터베이스가 존재하지 않을 경우 실패합니다. 초기화가 진행 중일 때도 실패할 수 있으므로 pg_isready 명령을 기본값으로 수정하세요:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d news_db"] 
+      test: ["CMD-SHELL", "pg_isready -U postgres -d news_db"]
       interval: 5s
       timeout: 5s
       retries: 5
+    networks:
+      - collector_network
 
   news_storage:
     build:
-      context: .
-      dockerfile: news_storage/Dockerfile
+      context: ./news_storage/
+      dockerfile: Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
       rabbitmq:
-        condition: service_started
+        condition: service_healthy
       selenium-hub:
-        condition: service_started
+        condition: service_healthy
       chrome:
         condition: service_started
     environment:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
       - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
+      - PYTHONPATH=/app:/app/news_collector:/app/news_storage:/app/scripts
     volumes:
       - .:/app
-    command: python -m news_storage.consumer
+      - ./alembic:/app/alembic
+      - ./alembic.ini:/app/alembic.ini
+    command: python -m src.consumer
     ports:
-      - "8000:8000"
+      - "8001:8000"
+    networks:
+      - collector_network
 
   news_ui:
     build:
-      context: ./news_collector/ui
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: news_visualizer/news_ui/Dockerfile
     ports:
-      - "8501:8501" # Streamlit default port
+      - "8501:8501"
     environment:
       - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
+      - PYTHONPATH=/app:/app/news_storage
+    volumes:
+      - ./news_visualizer/news_ui:/app
+      - ./news_storage:/app/news_storage
     depends_on:
       postgres:
         condition: service_healthy
       rabbitmq:
-        condition: service_started
-      selenium-hub:
-        condition: service_started
-    volumes:
-      - ./news_collector/ui:/app
-
-  news_data_dashboard:
-    build:
-      context: .
-      dockerfile: news_storage/web_ui/Dockerfile
-    ports:
-      - "5050:5000" # Changed host port to 5050
-    environment:
-      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
-    depends_on:
-      postgres:
         condition: service_healthy
-    volumes:
-      - ./news_storage:/app/news_storage
+      selenium-hub:
+        condition: service_healthy
+    networks:
+      - collector_network
 
 volumes:
   postgres_data:
+    external: true
+  rabbitmq_data:
+    # Removed 'external: true' to make it an internal volume
+
+networks:
+  collector_network:
+    driver: bridge
+  bridge:
+    external: true

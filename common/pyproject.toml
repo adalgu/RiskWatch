@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "common"
+version = "0.1.0"
+description = "Common module shared across services"
+authors = ["Project Team"]
+packages = [
+    { include = "common", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
