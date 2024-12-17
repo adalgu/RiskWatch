@@ -32,6 +32,13 @@ class BaseCollector(ABC):
         self.logger = logging.getLogger(f"{self.__class__.__name__}")
         self.logger.setLevel(logging.INFO)
 
+    async def init_session(self) -> None:
+        """
+        Initialize session and connections.
+        Override in subclasses if needed.
+        """
+        pass
+
     @abstractmethod
     async def collect(self, **kwargs) -> Dict[str, Any]:
         """

@@ -155,18 +155,18 @@ def render_dashboard():
             x=alt.X('날짜:T', title='날짜'),
             y=alt.Y('Count:Q', title='수량'),
             color=alt.Color('Type:N', scale=alt.Scale(
-                domain=["기사수(네이버 뉴스)", "기사수(전체)", "댓글수(네이버 뉴스)"],
-                range=["#2ca02c", "#888888", "#1f77b4"]  # 녹색, 회색, 파란색
+                domain=["기사수(네이버 뉴스)", "댓글수(네이버 뉴스)", "기사수(전체)", "이벤트"],
+                range=["#2ca02c", "#1f77b4", "#888888", "red"]  # 녹색, 파란색, 회색, 빨간색 
             ), legend=alt.Legend(title="항목")),
             strokeDash=alt.condition(
                 alt.datum.Type == "기사수(전체)",
-                alt.value([4,4]),  # 회색 닷팅 선
+                alt.value([0]),  # 회색 닷팅 선
                 alt.value([0])     # 다른 항목은 실선
             )
         )
         
         # 이벤트 라인 추가
-        event_lines = alt.Chart(events_df).mark_rule(strokeDash=[6,6], color='red').encode(
+        event_lines = alt.Chart(events_df).mark_rule(strokeDash=[1,1], color='red').encode(
             x='date:T',
             tooltip=['description:N']
         )

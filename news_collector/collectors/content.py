@@ -54,7 +54,7 @@ class ContentCollector(BaseCollector):
             proxy=self.proxy,
             user_agent=self.user_agent,
             use_remote=True,
-            remote_url="http://localhost:4444/wd/hub"
+            remote_url="http://selenium-hub/wd/hub"
         )
         self.driver = None
         self.wait = None

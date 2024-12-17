@@ -114,6 +114,7 @@ class NewsStorageConsumer:
             try:
                 article_url = data.get('article_url')
                 comments = data.get('comments', [])
+                stats = data.get('stats', {})
 
                 if not article_url or not comments:
                     logger.warning("Missing article_url or comments in message")
@@ -121,38 +122,28 @@ class NewsStorageConsumer:
 
                 async with AsyncStorageSessionLocal() as session:
                     async with session.begin():
-                        query = select(Article).where(Article.naver_link == article_url)
+                        # 기사 조회 (네이버 뉴스인지도 확인)
+                        query = select(Article).where(
+                            (Article.naver_link == article_url) &
+                            (Article.is_naver_news == True)
+                        )
                         result = await session.execute(query)
                         article = result.scalar_one_or_none()
 
                         if not article:
-                            logger.warning(f"Article not found for URL: {article_url}")
+                            logger.warning(f"Article not found or not a Naver news: {article_url}")
                             return True
 
-                        for comment_data in comments:
-                            username = comment_data.get('username')
-                            content = comment_data.get('content')
-                            timestamp = comment_data.get('timestamp')
+                        # 댓글 일괄 생성
+                        try:
+                            await AsyncDatabaseOperations.batch_create_comments(session, comments, article.id)
+                            await session.commit()
+                            logger.info(f"Successfully processed {len(comments)} comments for article {article_url}")
+                            return True
+                        except Exception as e:
+                            await session.rollback()
+                            raise
 
-                            if not username or not content or not timestamp:
-                                logger.warning("Incomplete comment data. Skipping comment.")
-                                continue
-
-                            if not isinstance(username, str) or not isinstance(content, str):
-                                logger.error(f"Invalid data types in comment. Skipping comment.")
-                                continue
-
-                            if isinstance(timestamp, str):
-                                try:
-                                    timestamp = datetime.fromisoformat(timestamp)
-                                except ValueError:
-                                    logger.error(f"Invalid timestamp format: {timestamp}. Skipping comment.")
-                                    continue
-
-                            await AsyncDatabaseOperations.create_comment(session, article.id, username, content, timestamp)
-
-                logger.info(f"Successfully processed {len(comments)} comments for article {article_url}")
-                return True
             except Exception as e:
                 logger.error(f"Error processing comments (attempt {attempt + 1}): {str(e)}")
                 if attempt == MAX_RETRY_ATTEMPTS - 1:

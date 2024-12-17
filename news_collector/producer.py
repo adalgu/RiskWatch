@@ -12,12 +12,6 @@ logger = logging.getLogger(__name__)
 class Producer:
     """
     Flexible RabbitMQ Producer supporting multiple data types and collection methods.
-    
-    Key Features:
-    - Support for different message types (metadata, comments, content, stats)
-    - Configurable queue and exchange handling
-    - Robust error handling and retry mechanism
-    - Async message publishing
     """
 
     def __init__(
@@ -35,8 +29,12 @@ class Producer:
             max_retries (int, optional): Maximum number of retry attempts. Defaults to 3.
             retry_delay (float, optional): Delay between retry attempts. Defaults to 2.0 seconds.
         """
-        self.rabbitmq_url = rabbitmq_url or os.getenv(
-            'RABBITMQ_URL', 'amqp://guest:guest@rabbitmq:5672/')
+        # Try to get URL from environment variable first, then use default
+        self.rabbitmq_url = (
+            rabbitmq_url or 
+            os.getenv('RABBITMQ_URL') or 
+            'amqp://guest:guest@localhost:5672/'
+        )
         self.max_retries = max_retries
         self.retry_delay = retry_delay
         
@@ -96,6 +94,7 @@ class Producer:
         for attempt in range(self.max_retries):
             try:
                 if not self.connection or self.connection.is_closed:
+                    logger.info(f"Connecting to RabbitMQ at {self.rabbitmq_url}")
                     self.connection = await aio_pika.connect_robust(
                         self.rabbitmq_url
                     )
@@ -115,16 +114,7 @@ class Producer:
                     raise
 
     def _validate_message(self, message: Dict[str, Any], queue_name: str) -> bool:
-        """
-        Validate message against queue-specific requirements.
-
-        Args:
-            message (Dict[str, Any]): Message to validate
-            queue_name (str): Target queue name
-
-        Returns:
-            bool: Whether message meets validation requirements
-        """
+        """Validate message against queue-specific requirements."""
         if queue_name not in self.queue_configs:
             logger.warning(f"No configuration found for queue: {queue_name}")
             return True  # Allow custom queues without strict validation
@@ -163,16 +153,7 @@ class Producer:
         exchange_name: Optional[str] = None,
         persistent: bool = True
     ) -> None:
-        """
-        Publish a message to a queue or exchange with robust error handling.
-
-        Args:
-            message (Dict[str, Any]): Message payload to publish
-            queue_name (str, optional): Queue to publish to. Defaults to 'default_queue'.
-            routing_key (str, optional): Routing key for exchange publishing
-            exchange_name (str, optional): Exchange to publish to
-            persistent (bool, optional): Whether message should survive broker restart
-        """
+        """Publish a message to a queue or exchange with robust error handling."""
         # Validate message against queue requirements
         if not self._validate_message(message, queue_name):
             raise ValueError(f"Message does not meet requirements for {queue_name}")

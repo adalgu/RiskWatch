@@ -16,7 +16,6 @@ sqlalchemy = "^2.0.0"
 pika = "^1.3.0"
 psycopg2-binary = "^2.9.9"
 sqlmodel = "^0.0.14"
-news_storage = {path = "../../news_storage", develop = true}
 
 [build-system]
 requires = ["poetry-core"]

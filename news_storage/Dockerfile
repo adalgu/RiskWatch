@@ -31,10 +31,10 @@ RUN pip install poetry && \
 ENV PYTHONPATH=/app:/app/common:/app/news_storage/src
 
 # Ensure script has Unix line endings
-# RUN sed -i 's/\r$//' /app/scripts/run_migrations.sh
+RUN sed -i 's/\r$//' /app/scripts/run_migrations.sh
 
 # Use the migration script as entrypoint
-# ENTRYPOINT ["/app/scripts/run_migrations.sh"]
+ENTRYPOINT ["/app/scripts/run_migrations.sh"]
 
 # Default command (will be passed to the entrypoint script)
 CMD ["python", "-m", "src.consumer"]
