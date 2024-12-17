@@ -1,13 +1,35 @@
-from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks
-from typing import List
-from app.models.collector_models import (
-    CollectionRequest,
-    CollectionStatus,
-    ResourceUsage,
-    CollectorResponse
-)
-from app.services.collector_service import CollectorService
+from fastapi import APIRouter, HTTPException, Depends, Request
+from typing import Dict, Any, Optional
+import logging
 from datetime import datetime
+import json
+import pytz
+from uuid import UUID
+
+from ..models.collector_models import (
+    MetadataCollectionRequest,
+    CommentCollectionRequest,
+    CollectionResponse,
+    CollectionStatusResponse,
+    CollectionStatus,
+    format_datetime
+)
+from ..services.collector_service import CollectorService
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+KST = pytz.timezone('Asia/Seoul')
+
+def serialize_datetime(obj: Any) -> Any:
+    """Helper function to serialize datetime objects"""
+    if isinstance(obj, datetime):
+        return format_datetime(obj)
+    return obj
 
 router = APIRouter(
     prefix="/collectors",
@@ -15,134 +37,145 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
-
-@router.get("/")
-def api_root():
-    return {"message": "API Root"}
-
-@router.get("/metadata/start")
-def metadata_start_endpoint():
-    return {"status": "Metadata collection started"}
-
-def get_collector_service():
-    return CollectorService()
-
-@router.post("/metadata/start", response_model=CollectorResponse)
+@router.post("/metadata/start")
 async def start_metadata_collection(
-    request: CollectionRequest,
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """메타데이터 수집 시작"""
+    request: Request,
+    collection_request: MetadataCollectionRequest,
+    collector_service: CollectorService = Depends()
+) -> CollectionResponse:
+    """
+    메타데이터 수집 시작 엔드포인트
+    - 수집 요청을 큐에 발행하고 요청 ID를 반환
+    """
     try:
-        collection_id = await collector_service.start_collection(request, "metadata")
-        return CollectorResponse(
-            status="success",
-            message="Metadata collection started",
-            data={"request_id": collection_id}
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.post("/metadata/stop", response_model=CollectorResponse)
-async def stop_metadata_collection(
-    collection_id: str,
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """메타데이터 수집 중지"""
-    try:
-        success = await collector_service.stop_collection(collection_id)
-        if success:
-            return CollectorResponse(
-                status="success",
-                message=f"Metadata collection {collection_id} stopped"
-            )
-        raise HTTPException(status_code=400, detail="Failed to stop collection")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.post("/comments/start", response_model=CollectorResponse)
-async def start_comments_collection(
-    request: CollectionRequest,
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """댓글 수집 시작"""
-    try:
-        collection_id = await collector_service.start_collection(request, "comments")
-        return CollectorResponse(
-            status="success",
-            message="Comments collection started",
-            data={"request_id": collection_id}
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.post("/comments/stop", response_model=CollectorResponse)
-async def stop_comments_collection(
-    collection_id: str,
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """댓글 수집 중지"""
-    try:
-        success = await collector_service.stop_collection(collection_id)
-        if success:
-            return CollectorResponse(
-                status="success",
-                message=f"Comments collection {collection_id} stopped"
-            )
-        raise HTTPException(status_code=400, detail="Failed to stop collection")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.get("/status", response_model=List[CollectionStatus])
-async def get_collectors_status(
-    collection_id: str = None,
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """모든 수집기 상태 조회"""
-    try:
-        return await collector_service.get_collection_status(collection_id)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.get("/resources/usage", response_model=ResourceUsage)
-async def get_resource_usage(
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """리소스 사용량 조회"""
-    try:
-        return await collector_service.get_resource_usage()
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.post("/pause", response_model=CollectorResponse)
-async def pause_all_collections(
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """전체 수집 작업 일시 정지"""
-    try:
-        # 모든 활성 수집 작업에 대해 중지 요청
-        active_collections = await collector_service.get_collection_status()
-        for collection in active_collections:
-            if collection.status == "running":
-                await collector_service.stop_collection(collection.id)
+        # Log raw request for debugging
+        raw_body = await request.body()
+        logger.info(f"[Router] Raw request body: {raw_body.decode()}")
         
-        return CollectorResponse(
-            status="success",
-            message="All collections paused"
+        # Log the request parameters
+        request_dict = collection_request.model_dump()
+        logger.info(f"[Router] Parsed request: {json.dumps(request_dict, default=serialize_datetime, ensure_ascii=False)}")
+        
+        # Start collection through service
+        status = await collector_service.collect_metadata(
+            keyword=collection_request.keyword,
+            method=collection_request.method,
+            start_date=collection_request.start_date,
+            end_date=collection_request.end_date,
+            max_articles=collection_request.max_articles,
+            min_delay=collection_request.min_delay,
+            max_delay=collection_request.max_delay,
+            batch_size=collection_request.batch_size,
+            is_test=collection_request.is_test
+        )
+        
+        # Return response with request ID
+        return CollectionResponse(
+            request_id=status.request_id,
+            success=True,
+            message="Metadata collection request queued successfully",
+            status=status.status,
+            total_collected=status.total_collected,
+            queued_at=datetime.now(KST)
+        )
+        
+    except ValueError as e:
+        logger.error(f"[Router] Validation error in metadata collection: {str(e)}")
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid request parameters: {str(e)}"
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"[Router] Error starting metadata collection: {str(e)}", exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to start metadata collection: {str(e)}"
+        )
 
-@router.post("/resume", response_model=CollectorResponse)
-async def resume_collections(
-    collector_service: CollectorService = Depends(get_collector_service)
-):
-    """일시 정지된 작업 재개"""
+@router.post("/comments/start")
+async def start_comment_collection(
+    request: Request,
+    collection_request: CommentCollectionRequest,
+    collector_service: CollectorService = Depends()
+) -> CollectionResponse:
+    """
+    댓글 수집 시작 엔드포인트
+    - 수집 요청을 큐에 발행하고 요청 ID를 반환
+    """
     try:
-        # TODO: 일시 정지된 작업 재개 로직 구현
-        return CollectorResponse(
-            status="success",
-            message="Collections resumed"
+        # Log raw request for debugging
+        raw_body = await request.body()
+        logger.info(f"[Router] Raw request body: {raw_body.decode()}")
+        
+        # Log the request parameters
+        request_dict = collection_request.model_dump()
+        logger.info(f"[Router] Starting comment collection with params: {json.dumps(request_dict, default=serialize_datetime, ensure_ascii=False)}")
+        
+        # Start collection through service
+        status = await collector_service.collect_comments(
+            article_urls=collection_request.article_urls,
+            min_delay=collection_request.min_delay,
+            max_delay=collection_request.max_delay,
+            batch_size=collection_request.batch_size,
+            is_test=collection_request.is_test
+        )
+        
+        # Return response with request ID
+        return CollectionResponse(
+            request_id=status.request_id,
+            success=True,
+            message="Comment collection request queued successfully",
+            status=status.status,
+            total_collected=status.total_collected,
+            queued_at=datetime.now(KST)
+        )
+        
+    except ValueError as e:
+        logger.error(f"[Router] Validation error in comment collection: {str(e)}")
+        raise HTTPException(
+            status_code=400,
+            detail=f"Invalid request parameters: {str(e)}"
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"[Router] Error starting comment collection: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to start comment collection: {str(e)}"
+        )
+
+@router.get("/status/{request_id}")
+async def get_collection_status(
+    request_id: str,
+    collector_service: CollectorService = Depends()
+) -> CollectionStatusResponse:
+    """
+    수집 상태 확인 엔드포인트
+    - 요청 ID로 수집 상태를 조회
+    """
+    try:
+        # Validate request_id format
+        try:
+            UUID(request_id)
+        except ValueError:
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid request ID format"
+            )
+        
+        status = await collector_service.get_status(request_id)
+        if status is None:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No collection status found for request ID: {request_id}"
+            )
+        
+        return status
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"[Router] Error getting collection status: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to get collection status: {str(e)}"
+        )

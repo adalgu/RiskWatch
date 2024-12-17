@@ -145,7 +145,7 @@ class AsyncDatabaseOperations:
 
             content = Content(**prepared_data)
             session.add(content)
-            await session.refresh(content)
+            await session.flush()
             return content
         except Exception as e:
             logger.error(f"Error creating content: {e}")
@@ -205,7 +205,7 @@ class AsyncDatabaseOperations:
 
             comment = Comment(**prepared_data)
             session.add(comment)
-            await session.refresh(comment)
+            await session.flush()
             return comment
         except Exception as e:
             logger.error(f"Error creating comment: {e}")
@@ -238,7 +238,7 @@ class AsyncDatabaseOperations:
 
             stats = CommentStats(**prepared_data)
             session.add(stats)
-            await session.refresh(stats)
+            await session.flush()
             return stats
         except Exception as e:
             logger.error(f"Error creating comment stats: {e}")
@@ -253,25 +253,30 @@ class AsyncDatabaseOperations:
         article_id: int
     ):
         """Batch create comments for an article"""
-        # Initialize comments list before try block
         comments = []
         try:
+            # 각 댓글에 대해
             for comment_data in comments_data:
+                # 데이터 준비
                 prepared_data = AsyncDatabaseOperations.prepare_comment_data(
                     comment_data, article_id)
+                
+                # 댓글 생성
                 comment = Comment(**prepared_data)
                 session.add(comment)
                 comments.append(comment)
+                
+                # 즉시 flush하여 persistent 상태로 만듦
+                await session.flush()
 
-            # Refresh all comments to get their IDs
-            for comment in comments:
-                await session.refresh(comment)
-
+            # 모든 댓글이 성공적으로 추가됨
             return comments
+            
         except Exception as e:
             logger.error(f"Error batch creating comments: {e}")
             if comments:
                 logger.error(f"Failed after processing {len(comments)} comments")
+            # 예외를 다시 발생시켜 상위 레벨에서 처리하도록 함
             raise
 
     @staticmethod

@@ -31,10 +31,11 @@ class WebDriverUtils:
         self.use_remote = use_remote
         
         # Get remote URL from environment variable or parameter
-        self.remote_url = remote_url or os.getenv('SELENIUM_HUB_URL')
-        if not self.remote_url:
-            self.remote_url = 'http://selenium-hub:4444/wd/hub'
-            logger.warning("SELENIUM_HUB_URL not found in environment variables, using default")
+        self.remote_url = (
+            remote_url or 
+            os.getenv('SELENIUM_HUB_URL') or 
+            'http://localhost:4444/wd/hub'
+        )
         logger.info(f"Initialized with remote URL: {self.remote_url}")
 
     def clear_driver_cache(self):

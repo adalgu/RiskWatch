@@ -54,7 +54,6 @@ class CommentCollector(BaseCollector):
         
         # Initialize Producer
         self.producer = Producer()
-        self.queue_name = 'comments_queue'
 
     def _init_config(self) -> None:
         """Initialize configuration with defaults."""
@@ -63,52 +62,38 @@ class CommentCollector(BaseCollector):
         self.max_retries = self.get_config('max_retries', 50)
         self.retry_delay = self.get_config('retry_delay', 1)
 
-    async def publish_message(self, data: Dict[str, Any]):
-        """Publish message to RabbitMQ using Producer"""
-        message = {
-            'article_url': data.get('article_url'),
-            'type': 'comments',
-            'comments': data.get('comments', []),
-            'stats': data.get('stats', {}),
-            'total_count': data.get('total_count', 0),
-            'published_at': data.get('published_at'),
-            'collected_at': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
-        }
-        
-        await self.producer.publish(
-            message=message,
-            queue_name=self.queue_name
-        )
-        logger.info(f"Published {len(data.get('comments', []))} comments to RabbitMQ")
+    async def init_session(self) -> None:
+        """Initialize session and connections."""
+        try:
+            # Initialize browser session
+            await self._initialize_browser()
+            logger.info("Successfully initialized browser session")
+            
+        except Exception as e:
+            logger.error(f"Failed to initialize session: {str(e)}")
+            raise
 
-    async def collect(self, **kwargs) -> Dict[str, Any]:
+    async def collect(self, article_url: str, **kwargs) -> Dict[str, Any]:
         """
         Collect comments and statistics.
 
         Args:
+            article_url: URL of the article
             **kwargs:
-                - article_url: URL of the article
                 - include_stats: Whether to collect statistics (default: True)
 
         Returns:
             Dict containing comments and metadata
         """
-        article_url = kwargs.get('article_url')
         if not article_url:
             raise ValueError("Article URL is required")
 
         self.log_collection_start(kwargs)
 
         try:
-            result = await self.collect_comments(**kwargs)
+            result = await self.collect_comments(article_url=article_url, **kwargs)
 
             if await self.validate_async(result):
-                # Add article_url to result for publishing
-                result['article_url'] = article_url
-                
-                # Publish to RabbitMQ using Producer
-                await self.publish_message(result)
-
                 self.log_collection_end(True, {
                     'total_comments': len(result['comments']),
                     'total_count': result['total_count']
@@ -530,8 +515,6 @@ class CommentCollector(BaseCollector):
     async def cleanup(self) -> None:
         """Cleanup resources."""
         await self._close_browser()
-        # Close Producer connection
-        await self.producer.close()
 
     async def __aenter__(self):
         return self

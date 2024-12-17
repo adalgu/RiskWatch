@@ -8,7 +8,7 @@ from sqlmodel import SQLModel, Field, Session, create_engine
 from typing import Optional
 import os
 import pytz
-from news_storage.src.models import Article, Content, Comment, CommentStats
+from .models import Article, Content, Comment, CommentStats
 
 # 한국 표준시(KST) 설정
 KST = pytz.timezone('Asia/Seoul')
@@ -16,19 +16,6 @@ KST = pytz.timezone('Asia/Seoul')
 def get_kst_now():
     """Return current time in KST"""
     return datetime.now(KST)
-
-class Event(SQLModel, table=True):
-    __tablename__ = 'events'
-
-    id: Optional[int] = Field(default=None, primary_key=True, index=True)
-    date: datetime = Field(sa_column=Column(Date, nullable=False))
-    description: str = Field(sa_column=Column(Text, nullable=False))
-    created_at: datetime = Field(
-        sa_column=Column(DateTime(timezone=True), server_default=func.now())
-    )
-    updated_at: Optional[datetime] = Field(
-        sa_column=Column(DateTime(timezone=True), onupdate=func.now())
-    )
 
 class Database:
     def __init__(self, db_url=None):
@@ -99,14 +86,15 @@ class Database:
     def get_comments_by_date(self, start_date, end_date, keyword=None):
         """날짜별 댓글 수 가져오기"""
         query = """
-            SELECT DATE(c.timestamp) as date, COUNT(*) as count
-            FROM comments c
-            JOIN articles a ON c.article_id = a.id
-            WHERE c.timestamp BETWEEN :start_date AND :end_date
+            SELECT DATE(a.published_date) as date, COUNT(c.id) as count
+            FROM articles a
+            LEFT JOIN comments c ON c.article_id = a.id
+            WHERE a.published_date BETWEEN :start_date AND :end_date
+              AND a.is_naver_news = TRUE
         """
         if keyword and keyword != "전체":
             query += " AND a.main_keyword = :keyword"
-        query += " GROUP BY DATE(c.timestamp) ORDER BY date"
+        query += " GROUP BY DATE(a.published_date) ORDER BY date"
         
         params = {"start_date": start_date, "end_date": end_date}
         if keyword and keyword != "전체":

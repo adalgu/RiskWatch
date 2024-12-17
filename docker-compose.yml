@@ -11,20 +11,61 @@ services:
       - RABBITMQ_USER=guest
       - RABBITMQ_PASS=guest
       - SELENIUM_GRID_NODES=4
-      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+      - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
       - PYTHONPATH=/app:/app/news_collector
+      - TZ=Asia/Seoul
     env_file:
       - .env
     volumes:
       - ./news_collector:/app/news_collector
       - ./news_collector/fast_api:/app
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     depends_on:
       postgres:
         condition: service_healthy
       rabbitmq:
         condition: service_healthy
-      selenium-hub:
+      chrome:
         condition: service_healthy
+    networks:
+      - collector_network
+
+  collector_worker:
+    build:
+      context: ./news_collector/fast_api
+      dockerfile: Dockerfile.worker
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USER=guest
+      - RABBITMQ_PASS=guest
+      - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
+      - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
+      - PYTHONPATH=/app:/app/news_collector
+      - LOG_LEVEL=DEBUG
+      - TZ=Asia/Seoul
+    env_file:
+      - .env
+    volumes:
+      - ./news_collector:/app/news_collector
+      - ./news_collector/fast_api:/app
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      chrome:
+        condition: service_healthy
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
     networks:
       - collector_network
 
@@ -37,8 +78,11 @@ services:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - JUPYTER_ENABLE_LAB=yes
       - NOTEBOOK_DIR=/home/jovyan/notebook
+      - TZ=Asia/Seoul
     volumes:
       - ./scripts/notebook:/home/jovyan/notebook
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     working_dir: /home/jovyan/notebook
     networks:
       - collector_network
@@ -55,13 +99,29 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+    environment:
+      - TZ=Asia/Seoul
+      - SE_SESSION_REQUEST_TIMEOUT=600
+      - SE_SESSION_RETRY_INTERVAL=30
+      - SE_NODE_SESSION_TIMEOUT=600
+      - GRID_TIMEOUT=600
+      - GRID_BROWSER_TIMEOUT=600
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     networks:
       - collector_network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4444/wd/hub/status"]
       interval: 10s
-      timeout: 5s
+      timeout: 10s
       retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
 
   chrome:
     image: seleniarm/node-chromium:latest
@@ -75,10 +135,53 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_SESSIONS=5
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - TZ=Asia/Seoul
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     ports:
       - "5900:5900"
     networks:
       - collector_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://selenium-hub:4444/wd/hub/status"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+
+  # chrome:
+  #   image: seleniarm/node-chromium:latest
+  #   shm_size: "2g"
+  #   depends_on:
+  #     selenium-hub:
+  #       condition: service_healthy
+  #   environment:
+  #     - SE_EVENT_BUS_HOST=selenium-hub
+  #     - SE_EVENT_BUS_PUBLISH_PORT=4442
+  #     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  #     - SE_NODE_MAX_SESSIONS=3
+  #     - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+  #     - SE_NODE_SESSION_TIMEOUT=600
+  #     - CHROME_OPTS=--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --disable-software-rasterizer
+  #     - TZ=Asia/Seoul
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro
+  #   networks:
+  #     - collector_network
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://selenium-hub:4444/wd/hub/status"]
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 5
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 3G
+  #         cpus: '2'
+  #       reservations:
+  #         memory: 2G
+  #         cpus: '1'
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -88,8 +191,12 @@ services:
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_VM_MEMORY_HIGH_WATERMARK_ABSOLUTE=1073741824
+      - TZ=Asia/Seoul
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     networks:
       - collector_network
     healthcheck:
@@ -97,6 +204,12 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
 
   postgres:
     image: postgres:14
@@ -104,11 +217,13 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=news_db
+      - TZ=Asia/Seoul
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d news_db"]
       interval: 5s
@@ -126,20 +241,21 @@ services:
         condition: service_healthy
       rabbitmq:
         condition: service_healthy
-      selenium-hub:
-        condition: service_healthy
       chrome:
-        condition: service_started
+        condition: service_healthy
     environment:
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - DATABASE_URL=postgresql+asyncpg://postgres:password@postgres:5432/news_db
       - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
       - PYTHONPATH=/app:/app/news_collector:/app/news_storage:/app/scripts
+      - TZ=Asia/Seoul
     volumes:
-      - .:/app
+      - ./news_storage:/app/news_storage
       - ./alembic:/app/alembic
       - ./alembic.ini:/app/alembic.ini
-    command: python -m src.consumer
+      - ./common:/app/common
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     ports:
       - "8001:8000"
     networks:
@@ -155,25 +271,27 @@ services:
       - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
       - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
       - SELENIUM_HUB_URL=http://selenium-hub:4444/wd/hub
-      - PYTHONPATH=/app:/app/news_storage
+      - PYTHONPATH=/app
+      - TZ=Asia/Seoul
     volumes:
       - ./news_visualizer/news_ui:/app
-      - ./news_storage:/app/news_storage
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     depends_on:
       postgres:
         condition: service_healthy
       rabbitmq:
         condition: service_healthy
-      selenium-hub:
+      chrome:
         condition: service_healthy
     networks:
       - collector_network
 
 volumes:
   postgres_data:
-    external: true
+    external: false
   rabbitmq_data:
-    # Removed 'external: true' to make it an internal volume
+    external: false
 
 networks:
   collector_network:
