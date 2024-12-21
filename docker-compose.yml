@@ -149,40 +149,6 @@ services:
       timeout: 10s
       retries: 3
 
-  # chrome:
-  #   image: seleniarm/node-chromium:latest
-  #   shm_size: "2g"
-  #   depends_on:
-  #     selenium-hub:
-  #       condition: service_healthy
-  #   environment:
-  #     - SE_EVENT_BUS_HOST=selenium-hub
-  #     - SE_EVENT_BUS_PUBLISH_PORT=4442
-  #     - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-  #     - SE_NODE_MAX_SESSIONS=3
-  #     - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-  #     - SE_NODE_SESSION_TIMEOUT=600
-  #     - CHROME_OPTS=--headless=new --no-sandbox --disable-dev-shm-usage --disable-gpu --disable-software-rasterizer
-  #     - TZ=Asia/Seoul
-  #   volumes:
-  #     - /etc/localtime:/etc/localtime:ro
-  #     - /etc/timezone:/etc/timezone:ro
-  #   networks:
-  #     - collector_network
-  #   healthcheck:
-  #     test: ["CMD", "curl", "-f", "http://selenium-hub:4444/wd/hub/status"]
-  #     interval: 10s
-  #     timeout: 10s
-  #     retries: 5
-  #   deploy:
-  #     resources:
-  #       limits:
-  #         memory: 3G
-  #         cpus: '2'
-  #       reservations:
-  #         memory: 2G
-  #         cpus: '1'
-
   rabbitmq:
     image: rabbitmq:3-management
     ports:
@@ -284,6 +250,21 @@ services:
         condition: service_healthy
       chrome:
         condition: service_healthy
+    networks:
+      - collector_network
+
+  seoul_metro:
+    build:
+      context: ./seoul-metro-openapi
+      dockerfile: Dockerfile
+    ports:
+      - "8502:8502"
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - ./seoul-metro-openapi:/app
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     networks:
       - collector_network
 
