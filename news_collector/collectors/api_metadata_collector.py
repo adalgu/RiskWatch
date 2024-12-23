@@ -1,4 +1,5 @@
 import os
+import json
 import logging
 import asyncio
 import pytz
@@ -72,7 +73,7 @@ class APIMetadataCollector(BaseCollector):
             self.session = aiohttp.ClientSession()
         logger.info("[APIMetadata] Session initialized")
 
-    async def collect(self, **kwargs) -> List[Dict[str, Any]]:
+    async def collect(self, **kwargs) -> Dict[str, Any]:
         """API 기반 메타데이터 수집"""
         logger.info("[APIMetadata] Starting API collection...")
         await self.init_session()
@@ -96,7 +97,12 @@ class APIMetadataCollector(BaseCollector):
 
         if not result:
             logger.warning("[APIMetadata] Initial API request returned no results")
-            return all_articles
+            return {
+                'total': 0,
+                'items': [],
+                'keyword': keyword,
+                'search_timestamp': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
+            }
 
         total = int(result.get('total', 0))
         available = min(total, self.max_start)
@@ -128,7 +134,12 @@ class APIMetadataCollector(BaseCollector):
             await asyncio.sleep(0.1)
 
         logger.info(f"[APIMetadata] API collection completed. Total articles: {len(all_articles)}")
-        return all_articles
+        return {
+            'total': total,
+            'items': all_articles,
+            'keyword': keyword,
+            'search_timestamp': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST)
+        }
 
     async def _make_api_request(self, url: str) -> Optional[Dict[str, Any]]:
         """Make API request with retries using aiohttp."""
@@ -162,23 +173,30 @@ class APIMetadataCollector(BaseCollector):
                 if not is_naver_news and not include_other_domains:
                     continue
 
+                # Get publisher from domain mapping or use domain itself
                 domain = UrlUtils.extract_domain(item.get('originallink', ''))
-                publisher = self._get_publisher_from_domain(domain)
+                publisher = self._get_publisher_from_domain(domain) or domain
 
+                # Parse published date
                 published_at_dt = DateUtils.parse_date(item['pubDate'], timezone=KST)
-                published_at = DateUtils.format_date(published_at_dt, '%Y-%m-%dT%H:%M:%S%z', timezone=KST) if published_at_dt else ''
-                published_date = DateUtils.format_date(published_at_dt, '%Y.%m.%d', timezone=KST) if published_at_dt else ''
+                published_at = DateUtils.format_date(
+                    published_at_dt,
+                    '%Y-%m-%dT%H:%M:%S%z',
+                    timezone=KST
+                ) if published_at_dt else ''
 
                 article = {
                     'title': TextUtils.clean_html(item['title']),
                     'naver_link': item['link'],
                     'original_link': item.get('originallink', ''),
                     'description': TextUtils.clean_html(item['description']),
-                    'publisher': publisher or '',
-                    'publisher_domain': domain,
+                    'publisher': publisher,
                     'published_at': published_at,
-                    'published_date': published_date,
-                    'collected_at': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST),
+                    'collected_at': DateUtils.format_date(
+                        datetime.now(KST),
+                        '%Y-%m-%dT%H:%M:%S%z',
+                        timezone=KST
+                    ),
                     'is_naver_news': is_naver_news
                 }
                 processed.append(article)

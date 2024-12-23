@@ -1,0 +1,5 @@
+auto_activate_base: false
+env_prompt: ({name})
+envs_dirs:
+  - /Users/macmini/miniconda3/envs
+default_env: rm

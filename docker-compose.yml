@@ -270,7 +270,7 @@ services:
 
 volumes:
   postgres_data:
-    external: false
+    external: true
   rabbitmq_data:
     external: false
 

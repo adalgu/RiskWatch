@@ -16,14 +16,12 @@ class DateUtils:
 
     @staticmethod
     def parse_date(date_str: str,
-                   reference_date: Optional[datetime] = None,
                    timezone: Optional[pytz.timezone] = KST) -> Optional[datetime]:
         """
         다양한 형식의 날짜 문자열을 파싱.
 
         Args:
             date_str: 날짜 문자열
-            reference_date: 상대적 날짜 계산을 위한 기준 날짜
             timezone: 사용할 타임존 (기본값: KST)
 
         Returns:
@@ -32,8 +30,6 @@ class DateUtils:
         Examples:
             >>> DateUtils.parse_date("2024-03-21 14:30:00")
             datetime(2024, 3, 21, 14, 30, tzinfo=<DstTzInfo 'Asia/Seoul' KST+9:00:00 STD>)
-            >>> DateUtils.parse_date("3시간 전")  # reference_date 필요
-            datetime(2024, 3, 21, 11, 30, tzinfo=<DstTzInfo 'Asia/Seoul' KST+9:00:00 STD>)
         """
         if not date_str:
             return None
@@ -58,23 +54,6 @@ class DateUtils:
                     return timezone.localize(dt) if timezone else dt
                 except ValueError:
                     continue
-
-            # 2. 상대적 시간 표현
-            if reference_date:
-                # 시간 단위
-                if '시간 전' in date_str:
-                    hours = int(re.search(r'(\d+)시간 전', date_str).group(1))
-                    return reference_date - timedelta(hours=hours)
-
-                # 분 단위
-                if '분 전' in date_str:
-                    minutes = int(re.search(r'(\d+)분 전', date_str).group(1))
-                    return reference_date - timedelta(minutes=minutes)
-
-                # 일 단위
-                if '일 전' in date_str:
-                    days = int(re.search(r'(\d+)일 전', date_str).group(1))
-                    return reference_date - timedelta(days=days)
 
             # 3. "Wed, 20 Mar 2024 14:30:00 +0900" 형식
             try:
@@ -178,7 +157,9 @@ class DateUtils:
     @staticmethod
     def extract_absolute_date(text: str) -> Optional[str]:
         """
-        텍스트에서 절대 날짜(YYYY.MM.DD)를 추출합니다.
+        텍스트에서 절대 날짜(YYYY.MM.DD.)를 추출합니다.
+        네이버 뉴스의 절대 날짜는 항상 마지막에 점이 있는 형식입니다.
+        예: <span class="info">2024.04.21.</span>
 
         Args:
             text (str): 날짜 정보가 포함된 텍스트
@@ -186,57 +167,11 @@ class DateUtils:
         Returns:
             Optional[str]: 추출된 날짜 문자열 (YYYY.MM.DD) 또는 None
         """
-        pattern = r'(\d{4})\.(\d{1,2})\.(\d{1,2})'
+        # 네이버 뉴스의 절대 날짜 형식: YYYY.MM.DD.
+        pattern = r'(\d{4})\.(\d{1,2})\.(\d{1,2})\.'
         match = re.search(pattern, text)
         if match:
             year, month, day = match.groups()
             # 날짜 형식 통일 (한 자리 숫자 앞에 0 추가)
             return f"{year}.{int(month):02d}.{int(day):02d}"
         return None
-
-    @staticmethod
-    def get_relative_time(dt: datetime,
-                          reference_date: Optional[datetime] = None,
-                          timezone: Optional[pytz.timezone] = KST) -> str:
-        """
-        상대적 시간 표현을 반환.
-
-        Args:
-            dt: Target datetime
-            reference_date: 기준 날짜 (기본값: 현재)
-            timezone: 사용할 타임존
-
-        Returns:
-            Relative time string (e.g., "3시간 전", "2일 전")
-        """
-        if not dt:
-            return ''
-
-        try:
-            if not reference_date:
-                reference_date = datetime.now(
-                    timezone) if timezone else datetime.now()
-
-            # 타임존 처리
-            if dt.tzinfo is None and timezone:
-                dt = timezone.localize(dt)
-            if reference_date.tzinfo is None and timezone:
-                reference_date = timezone.localize(reference_date)
-
-            diff = reference_date - dt
-            days = diff.days
-            hours = diff.seconds // 3600
-            minutes = (diff.seconds % 3600) // 60
-
-            if days > 0:
-                return f"{days}일 전"
-            elif hours > 0:
-                return f"{hours}시간 전"
-            elif minutes > 0:
-                return f"{minutes}분 전"
-            else:
-                return "방금 전"
-
-        except Exception as e:
-            print(f"Relative time calculation error: {str(e)}")
-            return ''
