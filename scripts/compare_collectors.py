@@ -1,18 +1,18 @@
 import os
 import sys
-import json
 import asyncio
 from datetime import datetime
+import pandas as pd
 from dotenv import load_dotenv
 
 # Add the project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from news_collector.collectors.api_metadata_collector import APIMetadataCollector
-from news_collector.collectors.search_metadata_collector import SearchMetadataCollector
+from news_collector.collectors.web_metadata_collector import WebMetadataCollector
 
 async def collect_and_compare(keyword: str = "카카오모빌리티", max_articles: int = 10):
-    """Collect articles using both collectors and compare results."""
+    """Collect articles using both collectors and display results in DataFrames."""
     
     # Load environment variables
     load_dotenv()
@@ -23,13 +23,23 @@ async def collect_and_compare(keyword: str = "카카오모빌리티", max_articl
         'client_secret': os.getenv('NAVER_CLIENT_SECRET')
     }
     api_collector = APIMetadataCollector(api_config)
-    search_collector = SearchMetadataCollector()
+    web_collector = WebMetadataCollector()
     
     try:
         print(f"\nCollecting {max_articles} recent articles for keyword: {keyword}")
         print("-" * 80)
         
-        # Collect using API
+        # Collect using Web Collector first
+        print("\n[Web Collector]")
+        today = datetime.now().strftime('%Y.%m.%d')
+        async with web_collector:
+            web_result = await web_collector.collect(
+                keyword=keyword,
+                date=today,
+                max_articles=max_articles
+            )
+        
+        # Then collect using API
         print("\n[API Collector]")
         async with api_collector:
             api_result = await api_collector.collect(
@@ -37,44 +47,23 @@ async def collect_and_compare(keyword: str = "카카오모빌리티", max_articl
                 max_articles=max_articles
             )
         
-        # Collect using Search (with today's date)
-        print("\n[Search Collector]")
-        today = datetime.now().strftime('%Y.%m.%d')
-        async with search_collector:
-            search_result = await search_collector.collect(
-                keyword=keyword,
-                date=today,
-                max_articles=max_articles
-            )
+        # Convert to DataFrames
+        api_df = pd.DataFrame(api_result['items'])
+        web_df = pd.DataFrame(web_result['items'])
         
-        # Compare results
-        print("\nResults Comparison:")
+        # Display collection info
+        print(f"\nWeb collection date: {web_result['date']}")
+        print(f"API total available articles: {api_result['total']}")
+        
+        # Display results
+        print("\nAPI Collector Results:")
         print("-" * 80)
-        print(f"API Total: {len(api_result['items'])}")
-        print(f"Search Total: {len(search_result['items'])}")
+        print(api_df)
         
-        # Compare first article from each
-        if api_result['items'] and search_result['items']:
-            print("\nFirst Article Comparison:")
-            print("\nAPI Article:")
-            print(json.dumps(api_result['items'][0], indent=2, ensure_ascii=False))
-            print("\nSearch Article:")
-            print(json.dumps(search_result['items'][0], indent=2, ensure_ascii=False))
-            
-            # Compare fields
-            print("\nField Comparison:")
-            api_fields = set(api_result['items'][0].keys())
-            search_fields = set(search_result['items'][0].keys())
-            print(f"API fields: {sorted(api_fields)}")
-            print(f"Search fields: {sorted(search_fields)}")
-            
-            if api_fields != search_fields:
-                print("\nField differences:")
-                print(f"Only in API: {api_fields - search_fields}")
-                print(f"Only in Search: {search_fields - api_fields}")
-            else:
-                print("\nBoth collectors have identical fields!")
-                
+        print("\nWeb Collector Results:")
+        print("-" * 80)
+        print(web_df)
+        
     except Exception as e:
         print(f"Error during collection: {e}")
 

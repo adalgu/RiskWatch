@@ -173,17 +173,11 @@ class APIMetadataCollector(BaseCollector):
                 if not is_naver_news and not include_other_domains:
                     continue
 
-                # Get publisher from domain mapping or use domain itself
                 domain = UrlUtils.extract_domain(item.get('originallink', ''))
                 publisher = self._get_publisher_from_domain(domain) or domain
 
-                # Parse published date
                 published_at_dt = DateUtils.parse_date(item['pubDate'], timezone=KST)
-                published_at = DateUtils.format_date(
-                    published_at_dt,
-                    '%Y-%m-%dT%H:%M:%S%z',
-                    timezone=KST
-                ) if published_at_dt else ''
+                published_at = DateUtils.format_date(published_at_dt, '%Y-%m-%dT%H:%M:%S%z', timezone=KST) if published_at_dt else ''
 
                 article = {
                     'title': TextUtils.clean_html(item['title']),
@@ -192,12 +186,9 @@ class APIMetadataCollector(BaseCollector):
                     'description': TextUtils.clean_html(item['description']),
                     'publisher': publisher,
                     'published_at': published_at,
-                    'collected_at': DateUtils.format_date(
-                        datetime.now(KST),
-                        '%Y-%m-%dT%H:%M:%S%z',
-                        timezone=KST
-                    ),
-                    'is_naver_news': is_naver_news
+                    'collected_at': DateUtils.format_date(datetime.now(KST), '%Y-%m-%dT%H:%M:%S%z', timezone=KST),
+                    'is_naver_news': is_naver_news,
+                    'collection_method': 'API'
                 }
                 processed.append(article)
             except Exception as e:
