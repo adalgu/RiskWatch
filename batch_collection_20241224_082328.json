@@ -1,0 +1,1757 @@
+{
+  "metadata_collection": {
+    "collector_type": "web",
+    "total_articles": 28,
+    "start_date": "2024.12.23",
+    "end_date": "2024.12.24",
+    "keyword": "코스피",
+    "articles_per_date": {
+      "2024.12.23": 0,
+      "2024.12.24": 0
+    }
+  },
+  "comment_collection": {
+    "items": [
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073816?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/025/0003409969?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/032/0003341132?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/448/0000497681?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418631?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418629?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:52+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418620?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/665/0000004225?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073767?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073764?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-23T18:40:20+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:33+0900",
+        "comments": [
+          {
+            "comment_no": "846427672878776358",
+            "parent_comment_no": "846427672878776358",
+            "content": "[경고] 아파트 주식 코인은 폭락했다. 그나마 주식은 헐값에 손절 할 수는 있다. 시간나면 경기도 일대~ 특히 북부지역 가봐라~ 그곳에는 모래로 쌓은 높은 것들이 많다. 신축으로 지어놓고. 몇 년이 지나도 분양이 안 돼서 창문 샤시의 비닐만 바람에 펄럭이고 있다. 이런 게 전국적으로 142만호가 넘는다. 인구는 확확 줄고. 국가경제는 죽었고. 거래는 실종됐고. 급매 경매 물건은 빠르게 쌓이고. 월급은 줄고. 설상가상 직장까지 잃는다면 모든 것을 잃는 거다. 이런데 아파트값이 견딜 수 있을까? 그래도 사려면 대출받아 사라. 인생 폭망",
+            "username": "comh****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846416522338369603",
+            "parent_comment_no": "846416522338369603",
+            "content": "한국증시는 이미 막내렸다 미장으로가야 내돈 안잃는다",
+            "username": "cyg1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          },
+          {
+            "comment_no": "846401420444827724",
+            "parent_comment_no": "846401420444827724",
+            "content": "나라가 온통 사기 계엄 공화국 계엄 내란 옹호하는 개돼지들 세상",
+            "username": "onh5****",
+            "profile_url": "https://phinf.pstatic.net/contact/20160519_228/1463649053881VMoJR_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:22:53+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 3,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/422/0000700124?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:12+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/028/0002723257?sid=110",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:11+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/014/0005286403?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:11+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417212?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:10+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417207?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:11+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/422/0000700244?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:12+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/001/0015122656?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:10+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522416?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:12+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/016/0002406677?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:11+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/001/0015122637?sid=110",
+        "total_count": 1,
+        "published_at": "2024-12-24T08:05:57+0900",
+        "stats": {
+          "current_count": 1,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:22:53+0900",
+        "comments": [
+          {
+            "comment_no": "846441956681711697",
+            "parent_comment_no": "846441956681711697",
+            "content": "국장은 사탄랠리",
+            "username": "k029****",
+            "profile_url": "https://phinf.pstatic.net/contact/20170201_213/1485928225765HNu8v_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:11+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 1,
+          "normal": 1,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417249?sid=104",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431543?sid=101",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:26+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:26+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907274?sid=101",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:26+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:26+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907272?sid=101",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:28+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:28+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431531?sid=101",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522369?sid=101",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522367?sid=101",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/366/0001042365?sid=101",
+        "total_count": 2,
+        "published_at": "2024-12-24T06:20:00+0900",
+        "stats": {
+          "current_count": 2,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:23:12+0900",
+        "comments": [
+          {
+            "comment_no": "846436966131040356",
+            "parent_comment_no": "846436966131040356",
+            "content": "이나라에서 돈버는곳은 은행밖에 없다",
+            "username": "kyh6****",
+            "profile_url": "https://phinf.pstatic.net/contact/profile/blog/77/33/kyh6195.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          },
+          {
+            "comment_no": "846441286666813621",
+            "parent_comment_no": "846441286666813621",
+            "content": "진짜 말도 안되는 코리아디스카운트 넘버 1 금융주 pbr이 미쳤지 벨류업으로 배당을 많이 주자니 정부 눈치도 보이고 외인보유율이 높아서 퍼주는 느낌이고 기껏 자사주 소각에 배당 조오금 더 주겠지 근데 꾸준히 배당 한 10연 연속 높아봐라 국민주식 되는거 순간이다 알면서 못하는거지",
+            "username": "it5x****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:23:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 2,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 0
+        }
+      }
+    ],
+    "total_articles": 28,
+    "successful_collections": 28,
+    "collection_timestamp": "2024-12-24T08:23:28+0900"
+  },
+  "collection_timestamp": "2024-12-24T08:23:28+0900"
+}

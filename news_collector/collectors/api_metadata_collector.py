@@ -119,15 +119,23 @@ class APIMetadataCollector(BaseCollector):
                 logger.warning("[APIMetadata] API request returned no items")
                 break
 
-            articles = await self._process_api_items(result['items'], include_other_domains)
+            # Calculate how many more articles we need
+            remaining = max_articles - len(all_articles)
+            if remaining <= 0:
+                break
+                
+            # Only process the number of items we need
+            items_to_process = result['items'][:remaining]
+            articles = await self._process_api_items(items_to_process, include_other_domains)
+            
             if articles:
                 all_articles.extend(articles)
                 logger.info(f"[APIMetadata] Collected {len(articles)} articles (Total: {len(all_articles)})")
                 if len(all_articles) >= max_articles:
-                    all_articles = all_articles[:max_articles]
                     break
 
-            if len(result['items']) < self.max_display:
+            # Check if we've reached the end of available articles
+            if len(result['items']) < self.max_display or len(all_articles) >= max_articles:
                 break
 
             start += self.max_display

@@ -1,0 +1,1957 @@
+{
+  "metadata_collection": {
+    "collector_type": "web",
+    "total_articles": 28,
+    "start_date": "2024.12.23",
+    "end_date": "2024.12.24",
+    "keyword": "코스피",
+    "articles_per_date": {
+      "2024.12.23": 0,
+      "2024.12.24": 0
+    }
+  },
+  "comment_collection": {
+    "items": [
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073816?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:17+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:17+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:17+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:17+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:17+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/025/0003409969?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:14+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:14+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:14+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:14+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:14+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/032/0003341132?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/448/0000497681?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418631?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418629?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418620?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/665/0000004225?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073767?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:15+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073764?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:11:55+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/028/0002723257?sid=110",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/422/0000700124?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/014/0005286403?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417212?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417207?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/001/0015122656?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522416?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/016/0002406677?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/001/0015122637?sid=110",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417249?sid=104",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:00:02+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:17+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431543?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907274?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907272?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:46+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:46+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:46+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431531?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:48+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:48+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:48+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522369?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522367?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/366/0001042365?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:47+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/421/0007983814?sid=101",
+        "total_count": 3,
+        "published_at": "2024-12-24T05:50:00+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:12:32+0900",
+        "comments": [
+          {
+            "comment_no": "846437916057010271",
+            "parent_comment_no": "846437916057010271",
+            "content": "니들끼리 많이해 개미 꼬시지 말고",
+            "username": "kaza****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:46+0900"
+          },
+          {
+            "comment_no": "846441989632164025",
+            "parent_comment_no": "846441989632164025",
+            "content": null,
+            "username": "exti****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:12:46+0900"
+          },
+          {
+            "comment_no": "846439510479732804",
+            "parent_comment_no": "846439510479732804",
+            "content": "이런거 또 혹해서 국장들어가는 X친 흑우자슥 읍졔?",
+            "username": "joun****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:12:46+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      }
+    ],
+    "total_articles": 28,
+    "successful_collections": 18,
+    "collection_timestamp": "2024-12-24T08:12:48+0900"
+  },
+  "collection_timestamp": "2024-12-24T08:12:48+0900"
+}

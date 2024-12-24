@@ -1,0 +1,1289 @@
+{
+  "metadata_collection": {
+    "collector_type": "web",
+    "total_articles": 28,
+    "start_date": "2024.12.23",
+    "end_date": "2024.12.24",
+    "keyword": "코스피",
+    "articles_per_date": {
+      "2024.12.23": 0,
+      "2024.12.24": 0
+    }
+  },
+  "comment_collection": {
+    "items": [
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073816?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:26+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:26+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:26+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/025/0003409969?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/032/0003341132?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:26+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:26+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:26+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/448/0000497681?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418631?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418629?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418620?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/665/0000004225?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:27+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073767?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073764?sid=101",
+        "total_count": 4,
+        "published_at": "2024-12-23T21:59:08+0900",
+        "stats": {
+          "current_count": 3,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:07+0900",
+        "comments": [
+          {
+            "comment_no": "846434695183859784",
+            "parent_comment_no": "846434695183859784",
+            "content": "옴마나 나 꼭대기 물려서 이제 탈출 하는구나 했는디...",
+            "username": "wwh7****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          },
+          {
+            "comment_no": "846412345801441453",
+            "parent_comment_no": "846412345801441453",
+            "content": null,
+            "username": "pkgg****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": true,
+            "delete_type": "bot",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          },
+          {
+            "comment_no": "846404515153313853",
+            "parent_comment_no": "846404515153313853",
+            "content": "그러지않아도박살난국장인데 니덜은 그냥 일하지않는게 도움된다",
+            "username": "soao****",
+            "profile_url": "https://phinf.pstatic.net/contact/20220721_230/1658375232574iOJ5L_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 3,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T08:21:28+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 3,
+          "normal": 2,
+          "deleted": 0,
+          "hidden": 1
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/422/0000700124?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/028/0002723257?sid=110",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/014/0005286403?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417212?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417207?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/422/0000700244?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/001/0015122656?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522416?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/016/0002406677?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/001/0015122637?sid=110",
+        "total_count": 0,
+        "published_at": "2024-12-24T08:05:06+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:28+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417249?sid=104",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431543?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907274?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907272?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431531?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522369?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522367?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/366/0001042365?sid=101",
+        "total_count": 1,
+        "published_at": "2024-12-24T06:41:11+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T08:21:44+0900",
+        "comments": [],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 0,
+          "normal": 0,
+          "deleted": 0,
+          "hidden": 0
+        }
+      }
+    ],
+    "total_articles": 28,
+    "successful_collections": 10,
+    "collection_timestamp": "2024-12-24T08:22:01+0900"
+  },
+  "collection_timestamp": "2024-12-24T08:22:01+0900"
+}

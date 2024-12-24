@@ -106,6 +106,9 @@ services:
       - SE_NODE_SESSION_TIMEOUT=600
       - GRID_TIMEOUT=600
       - GRID_BROWSER_TIMEOUT=600
+      - GRID_MAX_SESSION=3  # 동시 세션 수
+      - SE_NODE_MAX_SESSIONS=10  # 노드당 최대 세션 수
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true  # 최대 세션 수 오버라이드 허용
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -133,8 +136,10 @@ services:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=5
+      - SE_NODE_MAX_SESSIONS=10
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_SESSION_TIMEOUT=600
+      - SE_SESSION_REQUEST_TIMEOUT=600
       - TZ=Asia/Seoul
     volumes:
       - /etc/localtime:/etc/localtime:ro

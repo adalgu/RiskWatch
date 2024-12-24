@@ -1,0 +1,157 @@
+{
+  "items": [
+    {
+      "article_url": "https://n.news.naver.com/mnews/article/374/0000417249?sid=104",
+      "total_count": 0,
+      "published_at": "2024-12-24T07:00:10+0900",
+      "stats": {
+        "current_count": 0,
+        "user_deleted_count": 0,
+        "admin_deleted_count": 0,
+        "gender_ratio": {
+          "male": 0,
+          "female": 0
+        },
+        "age_distribution": {
+          "10s": 0,
+          "20s": 0,
+          "30s": 0,
+          "40s": 0,
+          "50s": 0,
+          "60s_above": 0
+        }
+      },
+      "collected_at": "2024-12-24T07:27:17+0900",
+      "comments": [],
+      "collection_status": "success"
+    },
+    {
+      "article_url": "https://n.news.naver.com/mnews/article/011/0004431543?sid=101",
+      "total_count": 0,
+      "published_at": "2024-12-24T07:00:10+0900",
+      "stats": {
+        "current_count": 0,
+        "user_deleted_count": 0,
+        "admin_deleted_count": 0,
+        "gender_ratio": {
+          "male": 0,
+          "female": 0
+        },
+        "age_distribution": {
+          "10s": 0,
+          "20s": 0,
+          "30s": 0,
+          "40s": 0,
+          "50s": 0,
+          "60s_above": 0
+        }
+      },
+      "collected_at": "2024-12-24T07:27:17+0900",
+      "comments": [],
+      "collection_status": "success"
+    },
+    {
+      "article_url": "https://n.news.naver.com/mnews/article/119/0002907274?sid=101",
+      "total_count": 0,
+      "published_at": "2024-12-24T07:00:10+0900",
+      "stats": {
+        "current_count": 0,
+        "user_deleted_count": 0,
+        "admin_deleted_count": 0,
+        "gender_ratio": {
+          "male": 0,
+          "female": 0
+        },
+        "age_distribution": {
+          "10s": 0,
+          "20s": 0,
+          "30s": 0,
+          "40s": 0,
+          "50s": 0,
+          "60s_above": 0
+        }
+      },
+      "collected_at": "2024-12-24T07:27:17+0900",
+      "comments": [],
+      "collection_status": "success"
+    },
+    {
+      "article_url": "https://n.news.naver.com/mnews/article/119/0002907272?sid=101",
+      "total_count": 0,
+      "published_at": "2024-12-24T07:00:10+0900",
+      "stats": {
+        "current_count": 0,
+        "user_deleted_count": 0,
+        "admin_deleted_count": 0,
+        "gender_ratio": {
+          "male": 0,
+          "female": 0
+        },
+        "age_distribution": {
+          "10s": 0,
+          "20s": 0,
+          "30s": 0,
+          "40s": 0,
+          "50s": 0,
+          "60s_above": 0
+        }
+      },
+      "collected_at": "2024-12-24T07:27:17+0900",
+      "comments": [],
+      "collection_status": "success"
+    },
+    {
+      "article_url": "https://n.news.naver.com/mnews/article/011/0004431531?sid=101",
+      "total_count": 0,
+      "published_at": "2024-12-24T07:00:10+0900",
+      "stats": {
+        "current_count": 0,
+        "user_deleted_count": 0,
+        "admin_deleted_count": 0,
+        "gender_ratio": {
+          "male": 0,
+          "female": 0
+        },
+        "age_distribution": {
+          "10s": 0,
+          "20s": 0,
+          "30s": 0,
+          "40s": 0,
+          "50s": 0,
+          "60s_above": 0
+        }
+      },
+      "collected_at": "2024-12-24T07:27:17+0900",
+      "comments": [],
+      "collection_status": "success"
+    },
+    {
+      "article_url": "https://n.news.naver.com/mnews/article/277/0005522369?sid=101",
+      "total_count": 0,
+      "published_at": "2024-12-24T07:00:10+0900",
+      "stats": {
+        "current_count": 0,
+        "user_deleted_count": 0,
+        "admin_deleted_count": 0,
+        "gender_ratio": {
+          "male": 0,
+          "female": 0
+        },
+        "age_distribution": {
+          "10s": 0,
+          "20s": 0,
+          "30s": 0,
+          "40s": 0,
+          "50s": 0,
+          "60s_above": 0
+        }
+      },
+      "collected_at": "2024-12-24T07:27:17+0900",
+      "comments": [],
+      "collection_status": "success"
+    }
+  ],
+  "total_articles": 6,
+  "successful_collections": 0,
+  "collection_timestamp": "2024-12-24T07:27:29+0900"
+}

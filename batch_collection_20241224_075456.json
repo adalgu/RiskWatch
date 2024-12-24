@@ -1,0 +1,2561 @@
+{
+  "metadata_collection": {
+    "collector_type": "web",
+    "total_articles": 30,
+    "start_date": "2024.12.23",
+    "end_date": "2024.12.24",
+    "keyword": "코스피",
+    "articles_per_date": {
+      "2024.12.23": 0,
+      "2024.12.24": 0
+    }
+  },
+  "comment_collection": {
+    "items": [
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073816?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/025/0003409969?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/032/0003341132?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/448/0000497681?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:18+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:18+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:18+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:18+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:18+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418631?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418629?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:15+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:15+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:15+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:15+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:15+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/009/0005418620?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/665/0000004225?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073767?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:17+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/015/0005073764?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-23T21:10:08+0900",
+        "stats": {
+          "current_count": 5,
+          "user_deleted_count": 1,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:53:56+0900",
+        "comments": [
+          {
+            "comment_no": "846400320580878374",
+            "parent_comment_no": "846400320580878374",
+            "content": "주식 경마 그런거하면 건달생활하고 신세조진다 ,,,",
+            "username": "alk9****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 6,
+            "dislikes": 2,
+            "reply_count": 1,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846409321808920798",
+            "parent_comment_no": "846409321808920798",
+            "content": "건보료 부담없는 비과세배당주를 고르세요. 일반 배당은 다른 금융소득과 합쳐서 1,000만원 넘으면 바로 건보료 부과됩니다.",
+            "username": "free****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240217_48/1708180313840QHj2s_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 2,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846411889243062397",
+            "parent_comment_no": "846411889243062397",
+            "content": "산타 랠리 랄라라라라라라라",
+            "username": "luna****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846410375199981601",
+            "parent_comment_no": "846410375199981601",
+            "content": "배당락을 견딜 수 잇는 자만이 배당받을 자격이 있다.",
+            "username": "kkkk****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          },
+          {
+            "comment_no": "846402253517488163",
+            "parent_comment_no": "846402253517488163",
+            "content": "배당 롯데하이마트는 어떤가요?",
+            "username": "wait****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:16+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 5,
+          "normal": 5,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/422/0000700124?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/028/0002723257?sid=110",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/014/0005286403?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417212?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417207?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/374/0000417249?sid=104",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431543?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907274?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/119/0002907272?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/011/0004431531?sid=101",
+        "total_count": 0,
+        "published_at": "2024-12-24T07:01:14+0900",
+        "stats": {
+          "current_count": 0,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:18+0900",
+        "comments": [],
+        "collection_status": "success"
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522369?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/277/0005522367?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/366/0001042365?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/421/0007983814?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/008/0005132596?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/081/0003505834?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/022/0003997082?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/079/0003973879?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:56+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/008/0005132584?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:54+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      },
+      {
+        "article_url": "https://n.news.naver.com/mnews/article/020/0003605978?sid=101",
+        "total_count": 6,
+        "published_at": "2024-12-24T03:08:12+0900",
+        "stats": {
+          "current_count": 6,
+          "user_deleted_count": 0,
+          "admin_deleted_count": 0,
+          "gender_ratio": {
+            "male": 0,
+            "female": 0
+          },
+          "age_distribution": {
+            "10s": 0,
+            "20s": 0,
+            "30s": 0,
+            "40s": 0,
+            "50s": 0,
+            "60s_above": 0
+          }
+        },
+        "collected_at": "2024-12-24T07:54:35+0900",
+        "comments": [
+          {
+            "comment_no": "846436416492666906",
+            "parent_comment_no": "846436416492666906",
+            "content": "좌파때 주가는 더 좋았다",
+            "username": "mhy1****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846434310146752578",
+            "parent_comment_no": "846434310146752578",
+            "content": "반기업 정책을 밀어붙이는 거대정당 민주당이 있는 한 살아가기 힘들다.",
+            "username": "ksh6****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846432930539503637",
+            "parent_comment_no": "846432930539503637",
+            "content": "좌파리정권 들어서면 한국증시 더 어려워 진다",
+            "username": "hjle****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846427809847967799",
+            "parent_comment_no": "846427809847967799",
+            "content": "결론은 윤가가 비상계엄 선포로 나라 거덜나게 했네",
+            "username": "ssoy****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 0,
+            "dislikes": 1,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426572729614371",
+            "parent_comment_no": "846426572729614371",
+            "content": "삼성전자 매도 가지고 통계왜곡 기사 쓰고 계시네 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 지금 삼전 파는 건 지극히 정상 아닌가?",
+            "username": "clow****",
+            "profile_url": "https://static.nid.naver.com/images/web/user/default.png?type=f132_132",
+            "timestamp": null,
+            "likes": 1,
+            "dislikes": 0,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          },
+          {
+            "comment_no": "846426286862630923",
+            "parent_comment_no": "846426286862630923",
+            "content": "계엄 전날 윤석열이 자영업자 상생 토론회에서 말했던 \"백종원 1000명 발언\" 그게 알고보니 '니들 내일이면 백종원 천 명이 와도 감당 못할 뭔가가 있을끼다'라는 경고였던 거. 자영업자들한테 했길래 백종원이지 대기업 간담회였으면 '이재용 1000명' 윤석열은 대한민국을 침몰시키려고 파견된 지옥의 사자(使者)여.",
+            "username": "mido****",
+            "profile_url": "https://phinf.pstatic.net/contact/20240719_1/1721338099310SdI6G_JPEG/image.jpg?type=f132_132",
+            "timestamp": null,
+            "likes": 5,
+            "dislikes": 2,
+            "reply_count": 0,
+            "is_reply": false,
+            "is_deleted": false,
+            "delete_type": "admin",
+            "collected_at": "2024-12-24T07:54:55+0900"
+          }
+        ],
+        "collection_status": "success",
+        "comment_stats": {
+          "total": 6,
+          "normal": 6,
+          "deleted": 0,
+          "hidden": 0
+        }
+      }
+    ],
+    "total_articles": 30,
+    "successful_collections": 20,
+    "collection_timestamp": "2024-12-24T07:54:56+0900"
+  },
+  "collection_timestamp": "2024-12-24T07:54:56+0900"
+}
