@@ -24,9 +24,24 @@ mkdir -p news_storage/src/schemas
 
 # 4. Copy new files
 echo "Copying new files..."
-cp -rv news_storage/src/crud/* news_storage/src/crud/
-cp -rv news_storage/src/schemas/* news_storage/src/schemas/
-cp -v news_storage/src/deps.py news_storage/src/deps.py
+
+# Copy CRUD files
+echo "Copying CRUD files..."
+cp -v news_storage/src/crud/base.py news_storage/src/crud/
+cp -v news_storage/src/crud/__init__.py news_storage/src/crud/
+cp -v news_storage/src/crud/article.py news_storage/src/crud/
+cp -v news_storage/src/crud/comment.py news_storage/src/crud/
+
+# Copy schema files
+echo "Copying schema files..."
+mkdir -p news_storage/src/schemas
+cp -v news_storage/src/schemas/__init__.py news_storage/src/schemas/
+cp -v news_storage/src/schemas/article.py news_storage/src/schemas/
+cp -v news_storage/src/schemas/comment.py news_storage/src/schemas/
+
+# Copy deps file
+echo "Copying deps file..."
+cp -v news_storage/src/deps.py news_storage/src/
 
 # 5. Generate a new migration
 echo "Generating a new migration..."
