@@ -1,166 +1,112 @@
 # News Storage Module
 
-뉴스 데이터를 저장하고 관리하는 모듈입니다. RabbitMQ를 통해 `news_collector` 모듈로부터 데이터를 수신하여 PostgreSQL 데이터베이스에 저장합니다.
+This module provides database storage functionality for the RiskWatch project, following patterns from the Full Stack FastAPI Template.
 
-## 주요 기능
+## Overview
 
-- RabbitMQ를 통한 이벤트 기반 데이터 수신
-- PostgreSQL을 사용한 데이터 영구 저장
-- 비동기 데이터베이스 작업 지원
-- 메시지 타입별 처리 (메타데이터, 본문, 댓글)
-- 자동 재연결 및 오류 복구
+The news_storage module is responsible for:
 
-## 아키텍처
+1. Database connection management
+2. ORM models for news articles, content, comments, and statistics
+3. CRUD operations for database entities
+4. Database migrations using Alembic
 
+## Architecture
+
+The module follows a clean architecture pattern with the following components:
+
+- **Models**: SQLModel-based ORM models representing database tables
+- **Schemas**: Pydantic models for data validation and serialization
+- **CRUD**: Classes for database operations
+- **Database**: Connection management and session handling
+
+## Usage
+
+### Database Session
+
+```python
+from news_storage.src.deps import SessionDep
+
+@app.get("/articles/")
+async def read_articles(db: SessionDep):
+    # Use the database session
+    articles = await article.get_multi(db, skip=0, limit=100)
+    return {"articles": articles}
 ```
-[news_collector] ---> [RabbitMQ] ---> [news_storage] ---> [PostgreSQL]
-     발행자          메시지 브로커       소비자           데이터베이스
+
+### CRUD Operations
+
+```python
+from news_storage.src.crud.article import article
+from news_storage.src.schemas.article import ArticleCreate
+
+# Create a new article
+article_in = ArticleCreate(
+    main_keyword="example",
+    naver_link="https://example.com",
+    title="Example Article"
+)
+db_article = await article.create(db, obj_in=article_in)
+
+# Get an article by ID
+db_article = await article.get(db, id=1)
+
+# Update an article
+updated_article = await article.update(db, db_obj=db_article, obj_in={"title": "New Title"})
+
+# Delete an article
+await article.remove(db, id=1)
 ```
 
-### 메시지 큐
+### Migrations
 
-- `metadata_queue`: 기사 메타데이터
-- `content_queue`: 기사 본문
-- `comments_queue`: 댓글 데이터
-
-## 설치 및 실행
-
-1. 환경 변수 설정
+To create a new migration:
 
 ```bash
-# .env 파일
-RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
-NEWS_STORAGE_URL=postgresql+asyncpg://user:password@postgres:5432/news_db
+alembic revision --autogenerate -m "Description of changes"
 ```
 
-2. Docker Compose로 실행
+To apply migrations:
 
 ```bash
-docker-compose up -d
+alembic upgrade head
 ```
 
-## 데이터베이스 스키마
-
-### articles
-
-- 기사 메타데이터 저장
-- 제목, 링크, 발행일 등 기본 정보
-
-### contents
-
-- 기사 본문 및 관련 정보
-- 서브헤딩, 이미지, 기자 정보 등
-
-### comments
-
-- 기사 댓글
-- 작성자, 내용, 작성일 등
-
-### comment_stats
-
-- 댓글 통계 정보
-- 성별/연령대 분포, 삭제된 댓글 수 등
-
-## 메시지 형식
-
-### 메타데이터
-
-```json
-{
-  "type": "metadata",
-  "articles": [
-    {
-      "title": "기사 제목",
-      "naver_link": "네이버 링크",
-      "original_link": "원본 링크",
-      "description": "설명",
-      "publisher": "언론사",
-      "published_at": "2024-03-20T14:30:00+09:00",
-      "collected_at": "2024-03-20T14:35:00+09:00"
-    }
-  ]
-}
-```
-
-### 본문
-
-```json
-{
-  "type": "content",
-  "article_id": 123,
-  "content": {
-    "subheadings": ["소제목1", "소제목2"],
-    "content": "기사 본문",
-    "reporter": "기자 이름",
-    "images": [
-      {
-        "url": "이미지 URL",
-        "caption": "이미지 설명"
-      }
-    ]
-  }
-}
-```
-
-### 댓글
-
-```json
-{
-  "type": "comments",
-  "article_id": 123,
-  "comments": [
-    {
-      "comment_no": "댓글 ID",
-      "content": "댓글 내용",
-      "author": "작성자",
-      "timestamp": "2024-03-20T15:00:00+09:00"
-    }
-  ]
-}
-```
-
-## 오류 처리
-
-1. **RabbitMQ 연결 오류**
-
-   - 최대 5회 재시도
-   - 5초 간격으로 재연결 시도
-
-2. **데이터베이스 오류**
-
-   - 트랜잭션 롤백
-   - 메시지 재처리를 위한 requeue
-
-3. **메시지 처리 오류**
-   - 잘못된 형식: 메시지 폐기
-   - 처리 실패: 재시도를 위한 requeue
-
-## 모니터링
-
-- 로그 레벨: INFO
-- 주요 모니터링 포인트:
-  - RabbitMQ 연결 상태
-  - 메시지 처리 성공/실패
-  - 데이터베이스 작업 상태
-
-## 개발 환경
-
-- Python >= 3.8
-- PostgreSQL 15
-- RabbitMQ 3-management
-- SQLAlchemy 2.0 (async)
-- aio-pika for RabbitMQ
-
-## 테스트
+To revert migrations:
 
 ```bash
-# 단위 테스트 실행
-pytest tests/
-
-# 통합 테스트 실행
-pytest tests/integration/
+alembic downgrade -1  # Revert one migration
+alembic downgrade base  # Revert all migrations
 ```
 
-## 라이센스
+## Components
 
-MIT License
+### Models
+
+- `Article`: News article metadata
+- `Content`: Full content of articles
+- `Comment`: User comments on articles
+- `CommentStats`: Statistics about comments
+
+### CRUD Operations
+
+- `CRUDBase`: Generic CRUD operations
+- `CRUDArticle`: Article-specific operations
+- `CRUDComment`: Comment-specific operations
+
+### Schemas
+
+- `ArticleBase`, `ArticleCreate`, `ArticleUpdate`, `Article`: Article schemas
+- `CommentBase`, `CommentCreate`, `CommentUpdate`, `Comment`: Comment schemas
+
+## Configuration
+
+Database configuration is managed through environment variables:
+
+- `DATABASE_URL`: Database connection string
+- `DB_ECHO`: Enable SQL query logging (True/False)
+- `DB_POOL_SIZE`: Connection pool size
+- `DB_MAX_OVERFLOW`: Maximum number of connections to overflow
+- `DB_POOL_TIMEOUT`: Connection timeout in seconds
+- `DB_POOL_RECYCLE`: Connection recycle time in seconds
+- `ENVIRONMENT`: Environment name (development, staging, production)
