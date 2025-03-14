@@ -1,91 +1,49 @@
-"""
-Logging configuration module for the dashboard application.
-Provides centralized logging setup with both file and console handlers.
-"""
-
 import logging
-import logging.handlers
 import os
-import sys
-from typing import Optional
+from datetime import datetime
 
-
-def setup_logging(
-    log_dir: str = 'logs',
-    log_file: str = 'dashboard.log',
-    max_bytes: int = 10485760,  # 10MB
-    backup_count: int = 5,
-    file_level: int = logging.DEBUG,
-    console_level: int = logging.INFO
-) -> logging.Logger:
-    """
-    Configure and set up logging with both file and console handlers.
-
-    Args:
-        log_dir: Directory to store log files
-        log_file: Name of the log file
-        max_bytes: Maximum size of each log file
-        backup_count: Number of backup files to keep
-        file_level: Logging level for file handler
-        console_level: Logging level for console handler
-
-    Returns:
-        Configured logger instance
-    """
-    # Create logs directory if it doesn't exist
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
-
-    # Create formatters
-    file_formatter = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s - %(filename)s:%(lineno)d - %(message)s'
-    )
-    console_formatter = logging.Formatter(
-        '%(levelname)s - %(message)s'
-    )
-
-    # Create handlers
-    file_handler = logging.handlers.RotatingFileHandler(
-        os.path.join(log_dir, log_file),
-        maxBytes=max_bytes,
-        backupCount=backup_count,
-        encoding='utf-8'
-    )
-    file_handler.setFormatter(file_formatter)
-    file_handler.setLevel(file_level)
-
-    console_handler = logging.StreamHandler(sys.stdout)
-    console_handler.setFormatter(console_formatter)
-    console_handler.setLevel(console_level)
-
-    # Configure root logger
-    root_logger = logging.getLogger('dashboard')
-    root_logger.setLevel(logging.DEBUG)
-
-    # Remove any existing handlers to avoid duplicates
-    root_logger.handlers = []
-
-    root_logger.addHandler(file_handler)
+def setup_logging():
+    """로깅 설정"""
+    # 로그 디렉토리 생성
+    log_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")
+    os.makedirs(log_dir, exist_ok=True)
+    
+    # 로그 파일 경로
+    collection_log = os.path.join(log_dir, "collection.log")
+    app_log = os.path.join(log_dir, "app.log")
+    
+    # 루트 로거 설정
+    root_logger = logging.getLogger()
+    root_logger.setLevel(logging.INFO)
+    
+    # 기존 핸들러 제거
+    for handler in root_logger.handlers[:]:
+        root_logger.removeHandler(handler)
+    
+    # 콘솔 핸들러
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(console_format)
     root_logger.addHandler(console_handler)
-
+    
+    # 앱 로그 파일 핸들러
+    file_handler = logging.FileHandler(app_log, encoding='utf-8')
+    file_handler.setLevel(logging.INFO)
+    file_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(file_format)
+    root_logger.addHandler(file_handler)
+    
+    # 수집 로그용 핸들러
+    collection_logger = logging.getLogger('collection')
+    collection_logger.setLevel(logging.INFO)
+    collection_handler = logging.FileHandler(collection_log, encoding='utf-8')
+    collection_format = logging.Formatter('%(asctime)s - collection - %(levelname)s - %(message)s')
+    collection_handler.setFormatter(collection_format)
+    collection_logger.addHandler(collection_handler)
+    
+    # 다른 로거들이 루트 로거를 사용하도록 설정
+    logging.getLogger('urllib3').setLevel(logging.WARNING)
+    logging.getLogger('sqlalchemy').setLevel(logging.WARNING)
+    
     return root_logger
-
-
-# Create and configure the logger instance
-logger = setup_logging()
-
-
-def get_logger(name: Optional[str] = None) -> logging.Logger:
-    """
-    Get a logger instance with the specified name.
-    If no name is provided, returns the root dashboard logger.
-
-    Args:
-        name: Name for the logger (optional)
-
-    Returns:
-        Logger instance
-    """
-    if name:
-        return logging.getLogger(f'dashboard.{name}')
-    return logger

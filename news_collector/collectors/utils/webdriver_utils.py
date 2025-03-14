@@ -36,6 +36,10 @@ class WebDriverUtils:
             os.getenv('SELENIUM_HUB_URL') or 
             'http://localhost:4444/wd/hub'
         )
+        
+        # Override the remote URL if it contains 'selenium-hub' and we're not in Docker
+        if 'selenium-hub' in self.remote_url and not os.path.exists('/.dockerenv'):
+            self.remote_url = self.remote_url.replace('selenium-hub', 'localhost')
         logger.info(f"Initialized with remote URL: {self.remote_url}")
 
     def clear_driver_cache(self):

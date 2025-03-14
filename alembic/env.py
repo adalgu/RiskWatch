@@ -1,15 +1,16 @@
-# alembic/env.py
+"""
+Alembic environment configuration.
+Based on the Full Stack FastAPI Template pattern.
+"""
 
 import os
 from logging.config import fileConfig
 
-from sqlalchemy import engine_from_config
-from sqlalchemy import pool
-
+from sqlalchemy import engine_from_config, pool
 from alembic import context
 
-# Import models and metadata directly from src.models
-from src.models import metadata, Article, Content, Comment, CommentStats
+# Import models to ensure they're registered with SQLModel metadata
+from news_storage.src.models import Article, Content, Comment, CommentStats, SQLModel
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -22,7 +23,8 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-target_metadata = metadata
+target_metadata = SQLModel.metadata
+
 
 def get_url():
     """Get database URL from environment variables."""
@@ -30,14 +32,24 @@ def get_url():
 
 
 def run_migrations_offline() -> None:
-    """Run migrations in 'offline' mode."""
+    """
+    Run migrations in 'offline' mode.
 
+    This configures the context with just a URL
+    and not an Engine, though an Engine is acceptable
+    here as well.  By skipping the Engine creation
+    we don't even need a DBAPI to be available.
+
+    Calls to context.execute() here emit the given string to the
+    script output.
+    """
     url = get_url()
     context.configure(
         url=url,
         target_metadata=target_metadata,
         literal_binds=True,
         dialect_opts={"paramstyle": "named"},
+        compare_type=True,  # Compare column types for migrations
     )
 
     with context.begin_transaction():
@@ -45,12 +57,18 @@ def run_migrations_offline() -> None:
 
 
 def run_migrations_online() -> None:
-    """Run migrations in 'online' mode."""
+    """
+    Run migrations in 'online' mode.
 
+    In this scenario we need to create an Engine
+    and associate a connection with the context.
+    """
     configuration = config.get_section(config.config_ini_section)
     configuration["sqlalchemy.url"] = get_url()
-    # 만약 Alembic에서 asyncpg 대신 psycopg2를 사용해야 한다면 아래 줄을 활성화하세요.
-    configuration["sqlalchemy.url"] = configuration["sqlalchemy.url"].replace("asyncpg", "psycopg2")
+    
+    # If using asyncpg in the app but need psycopg2 for Alembic
+    if "asyncpg" in configuration["sqlalchemy.url"]:
+        configuration["sqlalchemy.url"] = configuration["sqlalchemy.url"].replace("asyncpg", "psycopg2")
     
     connectable = engine_from_config(
         configuration,
@@ -60,7 +78,9 @@ def run_migrations_online() -> None:
 
     with connectable.connect() as connection:
         context.configure(
-            connection=connection, target_metadata=target_metadata
+            connection=connection, 
+            target_metadata=target_metadata,
+            compare_type=True,  # Compare column types for migrations
         )
 
         with context.begin_transaction():

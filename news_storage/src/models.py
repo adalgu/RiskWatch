@@ -87,7 +87,7 @@ class Comment(SQLModel, table=True):
     parent_comment_no: Optional[str] = None
     content: Optional[str] = None
     username: Optional[str] = None
-    profile_url: Optional[str] = None
+    # Removed profile_url as it's not in the database schema
     timestamp: Optional[datetime] = Field(
         default=None,
         sa_column=Column(DateTime(timezone=True)),
@@ -97,6 +97,7 @@ class Comment(SQLModel, table=True):
         default_factory=get_kst_now,
         sa_column=Column(DateTime(timezone=True))
     )
+    profile_url: Optional[str] = None
     likes: int = Field(default=0)
     dislikes: int = Field(default=0)
     reply_count: int = Field(default=0)

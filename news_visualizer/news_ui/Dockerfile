@@ -1,34 +1,28 @@
-FROM python:3.12-slim
+FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install system packages
+# 필요한 패키지 설치
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
+    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy and install news_storage first
-COPY news_storage/ /app/news_storage/
-RUN pip install -e /app/news_storage
+# 파이썬 패키지 설치
+COPY pyproject.toml poetry.lock* ./
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install --no-dev
 
-# Copy poetry files
-COPY news_visualizer/news_ui/pyproject.toml /app/pyproject.toml
-COPY news_visualizer/news_ui/poetry.lock /app/poetry.lock
+# 애플리케이션 코드 복사
+COPY . .
 
-# Install dependencies
-RUN pip install poetry \
-    && poetry config virtualenvs.create false \
-    && poetry install --only main --no-root
+# 로그 디렉토리 생성
+RUN mkdir -p logs
 
-# Copy application code
-COPY news_visualizer/news_ui/ /app/
-
-# Expose Streamlit port
+# 포트 노출
 EXPOSE 8501
 
-# Set environment variables
-ENV PYTHONPATH=/app:/app/news_storage
-
-# Run application
-CMD ["streamlit", "run", "app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+# 애플리케이션 실행
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
