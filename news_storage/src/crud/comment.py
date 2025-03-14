@@ -74,7 +74,7 @@ class CRUDComment(CRUDBase[Comment, CommentCreate, CommentUpdate]):
         """
         comments = []
         for comment_data in comments_data:
-            comment = Comment(**comment_data.model_dump())
+            comment = Comment(**comment_data.dict())
             db.add(comment)
             comments.append(comment)
         

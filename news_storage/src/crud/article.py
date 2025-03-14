@@ -52,7 +52,7 @@ class CRUDArticle(CRUDBase[Article, ArticleCreate, ArticleUpdate]):
         Returns:
             The created or updated article
         """
-        obj_in_data = obj_in.model_dump()
+        obj_in_data = obj_in.dict()
         
         # Use PostgreSQL's ON CONFLICT clause to handle duplicates
         stmt = insert(Article).values(**obj_in_data)

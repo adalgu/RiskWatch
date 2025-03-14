@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  news_ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: news_ui
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+    networks:
+      - news_network
+    depends_on:
+      - postgres
+      - fast_api
+
+  fast_api:
+    image: ${FAST_API_IMAGE:-fast_api:latest}
+    container_name: fast_api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/news_db
+      - RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672/
+    networks:
+      - news_network
+    depends_on:
+      - postgres
+      - rabbitmq
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=news_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - news_network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - news_network
+
+networks:
+  news_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

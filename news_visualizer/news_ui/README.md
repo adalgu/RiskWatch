@@ -1,205 +1,107 @@
-# CommentWatch Dashboard
+# 뉴스 댓글 분석 대시보드
 
-## Overview
+이 프로젝트는 뉴스 기사와 댓글을 수집하고 분석하는 Streamlit 기반 UI 애플리케이션입니다.
 
-CommentWatch의 대시보드는 뉴스 기사와 댓글 수집을 관리하고 모니터링하는 웹 인터페이스를 제공합니다.
+## 주요 기능
 
-## Directory Structure
+1. **데이터 수집 인터페이스**
+   - 키워드 기반 뉴스 메타데이터 수집
+   - 네이버 뉴스 댓글 수집
+   - 수집 상태 및 로그 모니터링
 
-```
-dashboard/
-├── __init__.py           # Package initialization
-├── app.py               # Main application entry point
-├── ui.py                # Streamlit UI components
-├── collection_service.py # Data collection service
-├── decorators.py        # Utility decorators
-├── exceptions.py        # Custom exceptions
-├── logging_config.py    # Logging configuration
-├── validators.py        # Data validation
-└── visualization.py     # Data visualization
-```
+2. **댓글 분석**
+   - 댓글이 많은 상위 기사 확인
+   - 댓글 감정 분석 결과 시각화
+   - 키워드 빈도 분석
 
-## 데이터 흐름
+3. **데이터베이스 결과 확인**
+   - 기사 및 댓글 데이터 요약 통계
+   - 일별 데이터 수집 추이
+   - 최근 수집된 기사 목록
 
-### 1. 기사 수집 프로세스
+## 설치 방법
 
-```
-UI (ui.py)
-  ↓
-수집 요청 (collection_service.py)
-  ↓
-수집기 실행 (news_collector)
-  ↓
-데이터 검증 (validators.py)
-  ↓
-DB 저장 (database)
-```
+### Docker를 이용한 설치 (권장)
 
-#### 데이터 매핑
+1. Docker와 Docker Compose가 설치되어 있어야 합니다.
 
-수집된 데이터는 검증 후 다음과 같이 DB에 매핑됩니다:
-
-```python
-# 수집기 결과
-{
-    'title': str,          # → articles.title
-    'naver_link': str,     # → articles.naver_link
-    'original_link': str,  # → articles.original_link
-    'description': str,    # → articles.description
-    'publisher': str,      # → articles.publisher
-    'pub_date': str,       # → articles.pub_date (YYYY-MM-DD)
-    'collected_at': str,   # → articles.collected_at
-    'main_keyword': str,   # → articles.main_keyword
-    'status': str         # → articles.content_status
-}
-```
-
-### 2. 댓글 수집 프로세스
-
-```
-UI (ui.py)
-  ↓
-댓글 수집 요청 (collection_service.py)
-  ↓
-댓글 수집기 실행 (news_collector)
-  ↓
-데이터 검증 (validators.py)
-  ↓
-DB 저장 (database)
-```
-
-## 주요 컴포넌트
-
-### 1. Collection Service (collection_service.py)
-
-- **collect_articles_parallel**: 병렬 기사 수집
-
-  ```python
-  def collect_articles_parallel(
-      keyword: str,
-      start_date: datetime,
-      end_date: datetime,
-      num_processes: int = 4,
-      collect_content: bool = True
-  ) -> Tuple[int, int]
-  ```
-
-- **collect_comments_parallel**: 병렬 댓글 수집
-  ```python
-  def collect_comments_parallel(
-      articles: List[Article],
-      max_workers: int = 4
-  ) -> int
-  ```
-
-### 2. Validators (validators.py)
-
-수집된 데이터 검증 규칙:
-
-```python
-# 기사 데이터 필수 필드
-required_fields = {
-    'title': '제목',
-    'naver_link': '네이버 링크',
-    'main_keyword': '검색 키워드',
-    'pub_date': '발행 날짜'
-}
-
-# 댓글 데이터 필수 필드
-comment_fields = {
-    'article_id': '기사 ID',
-    'content': '내용',
-    'timestamp': '작성 시간'
-}
-```
-
-### 3. UI Components (ui.py)
-
-- 수집 설정 폼
-- 진행 상황 표시
-- 결과 시각화
-- 에러 처리 및 표시
-
-## 사용 예시
-
-### 1. 기사 수집
-
-```python
-import streamlit as st
-from dashboard.collection_service import collect_articles_parallel
-
-# 수집 설정
-keyword = st.text_input("검색어")
-start_date = st.date_input("시작일")
-end_date = st.date_input("종료일")
-
-if st.button("수집 시작"):
-    with st.spinner("기사 수집 중..."):
-        success_count, error_count = collect_articles_parallel(
-            keyword=keyword,
-            start_date=start_date,
-            end_date=end_date
-        )
-    st.success(f"수집 완료: 성공 {success_count}건, 실패 {error_count}건")
-```
-
-### 2. 댓글 수집
-
-```python
-from dashboard.collection_service import collect_comments_parallel
-
-# 기사 선택
-selected_articles = st.multiselect("기사 선택", articles)
-
-if st.button("댓글 수집"):
-    with st.spinner("댓글 수집 중..."):
-        comment_count = collect_comments_parallel(selected_articles)
-    st.success(f"댓글 {comment_count}개 수집 완료")
-```
-
-## 에러 처리
-
-1. **ValidationError**: 데이터 검증 실패
-
-   ```python
-   try:
-       validate_article_data(article)
-   except ValidationError as e:
-       st.error(f"데이터 검증 실패: {str(e)}")
+2. 다음 명령어로 애플리케이션을 실행합니다:
+   ```bash
+   cd news_visualizer/news_ui
+   docker-compose up -d
    ```
 
-2. **CollectionError**: 수집 과정 오류
-   ```python
-   try:
-       collect_articles_parallel(...)
-   except CollectionError as e:
-       st.error(f"수집 실패: {str(e)}")
+3. 브라우저에서 `http://localhost:8501`로 접속하여 UI를 확인합니다.
+
+### 로컬 설치
+
+1. Python 3.10 이상이 필요합니다.
+
+2. 필요한 패키지를 설치합니다:
+   ```bash
+   cd news_visualizer/news_ui
+   pip install -r requirements.txt
    ```
 
-## 로깅
+3. 환경 변수를 설정합니다:
+   ```bash
+   export DATABASE_URL=postgresql://postgres:password@localhost:5432/news_db
+   ```
 
-- 수집 과정 로깅
-- 에러 추적
-- 성능 모니터링
+4. 애플리케이션을 실행합니다:
+   ```bash
+   streamlit run app.py
+   ```
 
-```python
-logger = get_logger('collectors')
-logger.info("수집 시작: %s", keyword)
-logger.error("수집 실패: %s", error_message)
+## 사용 방법
+
+### 데이터 수집
+
+1. 왼쪽 사이드바에서 "데이터 수집" 페이지로 이동합니다.
+2. "메타데이터 수집" 탭에서 키워드와 날짜 범위를 입력하고 "수집 시작" 버튼을 클릭합니다.
+3. "댓글 수집" 탭에서 키워드와 날짜 범위를 입력하고 "수집 시작" 버튼을 클릭합니다.
+4. 수집 상태와 로그를 실시간으로 확인할 수 있습니다.
+
+### 댓글 분석
+
+1. 왼쪽 사이드바에서 "댓글 분석" 페이지로 이동합니다.
+2. 댓글이 많은 상위 기사, 감정 분석 결과, 키워드 빈도 등 다양한 분석 결과를 확인할 수 있습니다.
+
+### 데이터베이스 결과 확인
+
+1. 왼쪽 사이드바에서 "DB 결과 확인" 페이지로 이동합니다.
+2. 기사 및 댓글 데이터 요약, 일별 데이터 수집 추이, 최근 수집된 기사 목록 등을 확인할 수 있습니다.
+
+## 프로젝트 구조
+
+```
+news_ui/
+├── app.py                  # 메인 애플리케이션 진입점
+├── collection_service.py   # 수집 요청 서비스
+├── logging_config.py       # 로깅 설정
+├── modules/                # 모듈 디렉토리
+│   ├── database.py         # 데이터베이스 연결 및 쿼리
+│   └── models.py           # 데이터 모델 정의
+├── pages/                  # Streamlit 페이지
+│   ├── 1_Collection.py     # 데이터 수집 페이지
+│   ├── 2_Comments.py       # 댓글 분석 페이지
+│   └── 3_Database_Results.py  # DB 결과 확인 페이지
+├── Dockerfile              # Docker 이미지 빌드 파일
+├── docker-compose.yml      # Docker Compose 설정
+└── test_app.py             # 테스트 코드
 ```
 
-## 성능 최적화
+## 백엔드 연동
 
-1. **병렬 처리**
+이 UI 애플리케이션은 FastAPI 백엔드 서버와 통신하여 데이터 수집 요청을 처리합니다. 백엔드 서버는 다음 엔드포인트를 제공해야 합니다:
 
-   - 멀티프로세스 기사 수집
-   - 멀티스레드 댓글 수집
+- `POST /api/v1/collectors/metadata/start`: 메타데이터 수집 시작
+- `POST /api/v1/collectors/comments/start`: 댓글 수집 시작
 
-2. **배치 처리**
+## 테스트
 
-   - 대량 데이터 일괄 저장
-   - 메모리 사용 최적화
+다음 명령어로 단위 테스트를 실행할 수 있습니다:
 
-3. **캐싱**
-   - 중복 요청 방지
-   - 응답 시간 개선
+```bash
+python -m unittest test_app.py
+```

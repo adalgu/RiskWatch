@@ -253,20 +253,20 @@ services:
     networks:
       - collector_network
 
-  seoul_metro:
-    build:
-      context: ./seoul-metro-openapi
-      dockerfile: Dockerfile
-    ports:
-      - "8502:8502"
-    environment:
-      - TZ=Asia/Seoul
-    volumes:
-      - ./seoul-metro-openapi:/app
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-    networks:
-      - collector_network
+  # seoul_metro:
+  #   build:
+  #     context: ./seoul-metro-openapi
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8502:8502"
+  #   environment:
+  #     - TZ=Asia/Seoul
+  #   volumes:
+  #     - ./seoul-metro-openapi:/app
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro
+  #   networks:
+  #     - collector_network
 
 volumes:
   postgres_data:
