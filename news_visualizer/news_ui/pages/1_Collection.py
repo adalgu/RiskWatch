@@ -7,6 +7,7 @@ import os
 import sys
 import logging
 from datetime import datetime, timedelta
+from sqlalchemy import text
 
 # 모듈 경로 추가
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -59,7 +60,7 @@ def get_collection_status(db):
             FROM articles 
             WHERE collected_at > NOW() - INTERVAL '24 hours'
         """
-        recent_articles = db.session.execute(query).scalar() or 0
+        recent_articles = db.session.execute(text(query)).scalar() or 0
         
         # 최근 수집된 댓글 수
         query = """
@@ -67,15 +68,15 @@ def get_collection_status(db):
             FROM comments 
             WHERE collected_at > NOW() - INTERVAL '24 hours'
         """
-        recent_comments = db.session.execute(query).scalar() or 0
+        recent_comments = db.session.execute(text(query)).scalar() or 0
         
         # 전체 기사 수
         query = "SELECT COUNT(*) FROM articles"
-        total_articles = db.session.execute(query).scalar() or 0
+        total_articles = db.session.execute(text(query)).scalar() or 0
         
         # 전체 댓글 수
         query = "SELECT COUNT(*) FROM comments"
-        total_comments = db.session.execute(query).scalar() or 0
+        total_comments = db.session.execute(text(query)).scalar() or 0
         
         # 최근 수집 작업
         query = """
@@ -84,7 +85,7 @@ def get_collection_status(db):
             ORDER BY collected_at DESC
             LIMIT 1
         """
-        last_collection = db.session.execute(query).fetchone()
+        last_collection = db.session.execute(text(query)).fetchone()
         
         return {
             "recent_articles": recent_articles,
@@ -170,17 +171,16 @@ def render_metadata_collection_form():
             if keyword and start_date and end_date:
                 if min_delay <= max_delay:
                     # 수집 요청 전송
-                    success, request_time = send_collection_request(
+                    success, request_time, request_id = send_collection_request(
                         keyword, start_date, end_date, method, min_delay, max_delay,
                         "metadata", batch_size, auto_collect_comments
                     )
                     if success:
                         st.success("메타데이터 수집 요청이 성공적으로 전송되었습니다.")
                         logger.info(f"메타데이터 수집 요청 성공 - 키워드: {keyword}, 시작일: {start_date}, 종료일: {end_date}")
-                        # 세션 상태에 요청 시간 저장
-                        if 'last_request_time' not in st.session_state:
-                            st.session_state['last_request_time'] = {}
+                        # 세션 상태에 요청 정보 저장
                         st.session_state['last_request_time'] = request_time
+                        st.session_state['last_request_id'] = request_id
                     else:
                         st.error("메타데이터 수집 요청 전송 중 오류가 발생했습니다.")
                 else:
@@ -225,23 +225,96 @@ def render_comment_collection_form():
             if keyword and start_date and end_date:
                 if min_delay <= max_delay:
                     # 수집 요청 전송
-                    success, request_time = send_collection_request(
+                    success, request_time, request_id = send_collection_request(
                         keyword, start_date, end_date, method, min_delay, max_delay,
                         "comments"
                     )
                     if success:
                         st.success("댓글 수집 요청이 성공적으로 전송되었습니다.")
                         logger.info(f"댓글 수집 요청 성공 - 키워드: {keyword}, 시작일: {start_date}, 종료일: {end_date}")
-                        # 세션 상태에 요청 시간 저장
-                        if 'last_request_time' not in st.session_state:
-                            st.session_state['last_request_time'] = {}
+                        # 세션 상태에 요청 정보 저장
                         st.session_state['last_request_time'] = request_time
+                        st.session_state['last_request_id'] = request_id
                     else:
                         st.error("댓글 수집 요청 전송 중 오류가 발생했습니다.")
                 else:
                     st.warning("최소 딜레이는 최대 딜레이보다 작거나 같아야 합니다.")
             else:
                 st.warning("모든 필드를 입력해주세요.")
+
+def render_realtime_collection_status():
+    """실시간 수집 상태 표시"""
+    st.header("실시간 수집 현황")
+    
+    # 수집 요청 ID가 있는 경우에만 상태 표시
+    if 'last_request_id' in st.session_state:
+        request_id = st.session_state['last_request_id']
+        
+        # 자동 새로고침 설정
+        auto_refresh = st.checkbox("자동 새로고침", value=True, help="1초마다 상태를 자동으로 새로고침합니다", key="realtime_auto_refresh")
+        
+        if st.button("상태 새로고침", key="realtime_refresh"):
+            st.rerun()
+        
+        # 상세 상태 조회
+        try:
+            status_data = check_collection_detailed_status(request_id)
+            
+            if status_data:
+                # 수집 중인 경우에만 진행 상황 표시
+                if status_data['status'] == "RUNNING":
+                    # 진행 상황 표시
+                    progress = status_data.get('progress', 0)
+                    current_count = status_data.get('current_count', 0)
+                    
+                    # 프로그레스 바
+                    st.progress(progress / 100)
+                    
+                    # 카운터와 상태
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("수집된 항목 수", f"{current_count}개")
+                    with col2:
+                        st.metric("진행률", f"{progress}%")
+                    with col3:
+                        st.metric("상태", "수집 중")
+                    
+                    # 최근 수집 항목 표시
+                    latest_item = status_data.get('latest_collected_item')
+                    if latest_item:
+                        if status_data['task_type'] == "metadata":
+                            # 메타데이터인 경우
+                            st.info(f"최근 수집 항목: {latest_item.get('title')} ({latest_item.get('publisher')})")
+                            st.write(f"URL: {latest_item.get('url')}")
+                        else:
+                            # 댓글인 경우
+                            st.info(f"기사 {latest_item.get('article_index')}/{latest_item.get('article_count')}, 댓글 {latest_item.get('comment_index')}/{latest_item.get('comment_total')}")
+                            st.write(f"최근 댓글: {latest_item.get('comment')}")
+                            st.write(f"작성자: {latest_item.get('user_id')}")
+                    
+                # 완료된 경우
+                elif status_data['status'] == "COMPLETED":
+                    st.success(f"수집 완료! 총 {status_data.get('total_collected', 0)}개 항목 수집됨")
+                
+                # 대기 중인 경우
+                elif status_data['status'] == "PENDING":
+                    st.info("수집 대기 중...")
+                
+                # 실패한 경우
+                elif status_data['status'] == "FAILED":
+                    st.error(f"수집 실패: {status_data.get('error', '알 수 없는 오류')}")
+            else:
+                st.warning("수집 상태를 가져올 수 없습니다.")
+                
+            # 자동 새로고침 (5초)
+            if auto_refresh:
+                time.sleep(1)
+                st.rerun()
+                
+        except Exception as e:
+            st.error(f"상태 조회 중 오류 발생: {str(e)}")
+    else:
+        st.info("수집을 시작하면 여기에 실시간 현황이 표시됩니다.")
 
 def render_collection_logs():
     """수집 로그 렌더링"""
@@ -251,9 +324,9 @@ def render_collection_logs():
     log_file_path = log_file
     
     # 자동 새로고침 토글
-    auto_refresh = st.checkbox("자동 새로고침", value=False, help="5초마다 로그를 자동으로 새로고침합니다")
+    auto_refresh = st.checkbox("자동 새로고침", value=False, help="5초마다 로그를 자동으로 새로고침합니다", key="logs_auto_refresh")
     
-    if st.button("로그 새로고침"):
+    if st.button("로그 새로고침", key="logs_refresh"):
         st.rerun()
     
     # 최근 로그 가져오기
@@ -320,7 +393,7 @@ def get_recent_collections(db, limit=5):
             ORDER BY MAX(collected_at) DESC
             LIMIT :limit
         """
-        result = db.session.execute(query, {"limit": limit}).fetchall()
+        result = db.session.execute(text(query), {"limit": limit}).fetchall()
         
         # 결과를 데이터프레임으로 변환
         df = pd.DataFrame(result, columns=[
@@ -402,6 +475,11 @@ def main():
         
     with comments_tab:
         render_comment_collection_form()
+    
+    st.markdown("---")
+    
+    # 실시간 수집 현황 표시
+    render_realtime_collection_status()
     
     st.markdown("---")
     render_collection_logs()

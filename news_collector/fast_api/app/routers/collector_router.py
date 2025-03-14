@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, Request
+from fastapi import APIRouter, HTTPException, Depends, Request, BackgroundTasks
 from typing import Dict, Any, Optional
 import logging
 from datetime import datetime
@@ -41,6 +41,7 @@ router = APIRouter(
 async def start_metadata_collection(
     request: Request,
     collection_request: MetadataCollectionRequest,
+    background_tasks: BackgroundTasks,
     collector_service: CollectorService = Depends()
 ) -> CollectionResponse:
     """
@@ -56,7 +57,7 @@ async def start_metadata_collection(
         request_dict = collection_request.model_dump()
         logger.info(f"[Router] Parsed request: {json.dumps(request_dict, default=serialize_datetime, ensure_ascii=False)}")
         
-        # Start collection through service
+        # Start collection through service with background tasks
         status = await collector_service.collect_metadata(
             keyword=collection_request.keyword,
             method=collection_request.method,
@@ -66,7 +67,8 @@ async def start_metadata_collection(
             min_delay=collection_request.min_delay,
             max_delay=collection_request.max_delay,
             batch_size=collection_request.batch_size,
-            is_test=collection_request.is_test
+            is_test=collection_request.is_test,
+            background_tasks=background_tasks
         )
         
         # Return response with request ID
@@ -96,6 +98,7 @@ async def start_metadata_collection(
 async def start_comment_collection(
     request: Request,
     collection_request: CommentCollectionRequest,
+    background_tasks: BackgroundTasks,
     collector_service: CollectorService = Depends()
 ) -> CollectionResponse:
     """
@@ -111,13 +114,14 @@ async def start_comment_collection(
         request_dict = collection_request.model_dump()
         logger.info(f"[Router] Starting comment collection with params: {json.dumps(request_dict, default=serialize_datetime, ensure_ascii=False)}")
         
-        # Start collection through service
+        # Start collection through service with background tasks
         status = await collector_service.collect_comments(
             article_urls=collection_request.article_urls,
             min_delay=collection_request.min_delay,
             max_delay=collection_request.max_delay,
             batch_size=collection_request.batch_size,
-            is_test=collection_request.is_test
+            is_test=collection_request.is_test,
+            background_tasks=background_tasks
         )
         
         # Return response with request ID
@@ -178,4 +182,57 @@ async def get_collection_status(
         raise HTTPException(
             status_code=500,
             detail=f"Failed to get collection status: {str(e)}"
+        )
+
+@router.get("/detailed-status/{request_id}")
+async def get_detailed_collection_status(
+    request_id: str,
+    collector_service: CollectorService = Depends()
+):
+    """
+    상세 수집 상태 확인 엔드포인트
+    - 요청 ID로 수집 상태와 최신 수집 항목 정보를 조회
+    """
+    try:
+        # Validate request_id format
+        try:
+            UUID(request_id)
+        except ValueError:
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid request ID format"
+            )
+        
+        # 기본 상태 조회
+        status = await collector_service.get_status(request_id)
+        if status is None:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No collection status found for request ID: {request_id}"
+            )
+        
+        # 작업 정보 가져오기
+        task = collector_service.tasks.get(request_id)
+        if task is None:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Task not found for request ID: {request_id}"
+            )
+        
+        # 상세 상태 정보 구성
+        detailed_status = {
+            **status.dict(),
+            "latest_collected_item": task.latest_collected_item,
+            "current_count": task.current_count
+        }
+        
+        return detailed_status
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"[Router] Error getting detailed collection status: {str(e)}")
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to get detailed collection status: {str(e)}"
         )
